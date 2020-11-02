@@ -37,6 +37,7 @@ class MealCell: UICollectionViewCell {
         caloriesLabel.textColor = .black
         
         descriptionLabel.textColor = .black
+        descriptionLabel.numberOfLines = 0
         
         let calLabel = UILabel()
         calLabel.text = "cal"

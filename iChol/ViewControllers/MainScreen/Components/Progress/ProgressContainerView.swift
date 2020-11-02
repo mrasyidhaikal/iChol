@@ -11,6 +11,7 @@ class ProgressContainerView: UIView {
     
     var fatProgress: ProgressBarView!
     var sugarProgress: ProgressBarView!
+    var calorieProgress: CircularProgressView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,6 +32,10 @@ class ProgressContainerView: UIView {
         sugarProgress.configureView(label: "Sugar", left: 42, progress: 0.4)
         addSubview(sugarProgress)
         
+        calorieProgress = CircularProgressView()
+        calorieProgress.configureView(howMuchLeft: 1500, progress: 0.25)
+        addSubview(calorieProgress)
+        
         divider.setConstraint(
             topAnchor: topAnchor, topAnchorConstant: 24,
             bottomAnchor: bottomAnchor, bottomAnchorConstant: -24,
@@ -38,14 +43,18 @@ class ProgressContainerView: UIView {
             widthAnchorConstant: 1)
         
         fatProgress.setConstraint(
-            topAnchor: topAnchor, topAnchorConstant: 16,
+            topAnchor: topAnchor, topAnchorConstant: 24,
             leadingAnchor: divider.trailingAnchor, leadingAnchorConstant: 16,
             trailingAnchor: trailingAnchor, trailingAnchorConstant: -16)
         
         sugarProgress.setConstraint(
-            bottomAnchor: bottomAnchor, bottomAnchorConstant: -16,
+            bottomAnchor: bottomAnchor, bottomAnchorConstant: -24,
             leadingAnchor: divider.trailingAnchor, leadingAnchorConstant: 16,
             trailingAnchor: trailingAnchor, trailingAnchorConstant: -16)
+        
+        calorieProgress.setConstraint(
+            trailingAnchor: divider.trailingAnchor, trailingAnchorConstant: -90,
+            centerYAnchor: centerYAnchor)
     }
     
     required init?(coder: NSCoder) {

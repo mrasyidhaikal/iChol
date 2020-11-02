@@ -34,13 +34,17 @@ class MealCollectionView: UICollectionView {
 
 extension MealCollectionView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Tap")
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MealCell.reuseIdentifier, for: indexPath) as! MealCell
-        cell.configureCell(title: "Breakfast", description: "Oatmeal", calories: "549")
+        cell.configureCell(title: EatingTime.eatingTime[indexPath.row], description: "Oatmeal \nOatmeal", calories: "549")
         return cell
     }
     

@@ -47,7 +47,7 @@ class TopProgressView: UIView {
         addSubview(mainStack)
         
         progress.setConstraint(
-            heighAnchorConstant: 180)
+            heighAnchorConstant: 200)
         activityCell.setConstraint(
             heighAnchorConstant: 46)
         waterCell.setConstraint(
