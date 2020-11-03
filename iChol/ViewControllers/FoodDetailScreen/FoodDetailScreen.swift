@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 import FatSecretSwift
 
 class FoodDetailScreen: UIViewController {
@@ -21,28 +22,14 @@ class FoodDetailScreen: UIViewController {
     private var monounsaturatedFat: HorizontalRow!
     
     private var foodName: String = ""
-    private var servings: [Serving]? = []
     
-    var foodId: String = "" {
-        didSet {
-            NetworkService.shared.getFood(id: foodId) { food in
-                switch food {
-                case .success(let food):
-                    guard let servings = food.servings else { return }
-                    self.servings = servings
-                case .failure(let err):
-                    self.servings = []
-                    print(err.localizedDescription)
-                }
-            }
-        }
-    }
+    var foodId: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupView()
         setupLayout()
+        fetchingFood()
     }
     
     private func setupView() {
@@ -71,22 +58,13 @@ class FoodDetailScreen: UIViewController {
         addButton.layer.cornerRadius = 8
         view.addSubview(addButton)
         
-        guard let serving = servings?.first else { return }
-        let totalFatNumber = Double(serving.fat ?? "0.0")
-        let satFatNumber = Double(serving.saturatedFat ?? "0.000")
-        let transFatNumber = Double(serving.transFat ?? "0.000")
-        let polyFatNumber = Double(serving.polyunsaturatedFat ?? "0.000")
-        let monoFatNumber = Double(serving.monounsaturatedFat ?? "0.000")
-        
-        print(serving)
-        
-        totalFat = HorizontalRow(labelString: "Total Fat", amount: totalFatNumber ?? 0.0)
+        totalFat = HorizontalRow(labelString: "Total Fat", amount: 0.0)
         view.addSubview(totalFat)
         
-        saturatedFat = HorizontalRow(labelString: "Saturated Fat", amount: satFatNumber ?? 0.000)
-        transFat = HorizontalRow(labelString: "Trans Fat", amount: transFatNumber ?? 0.000)
-        polyunsaturatedFat = HorizontalRow(labelString: "Polyunsaturated Fat", amount: polyFatNumber ?? 0.000)
-        monounsaturatedFat = HorizontalRow(labelString: "monounsaturatedFat", amount: monoFatNumber ?? 0.000)
+        saturatedFat = HorizontalRow(labelString: "Saturated Fat", amount: 0.000)
+        transFat = HorizontalRow(labelString: "Trans Fat", amount: 0.000)
+        polyunsaturatedFat = HorizontalRow(labelString: "Polyunsaturated Fat", amount: 0.000)
+        monounsaturatedFat = HorizontalRow(labelString: "monounsaturatedFat", amount: 0.000)
     }
     
     private func setupLayout() {
@@ -123,6 +101,25 @@ class FoodDetailScreen: UIViewController {
             trailingAnchor: view.layoutMarginsGuide.trailingAnchor)
     }
     
+    private func fetchingFood() {
+        NetworkService.shared.getFood(id: foodId) { food in
+            switch food {
+            case .success(let food):
+                guard let servings = food.servings?.first else { return }
+                DispatchQueue.main.async {
+                    self.calorieAmount.text = servings.calories
+                    self.totalFat.setAmount(amount: Double(servings.fat ?? "0.0") ?? 0.0)
+                    self.saturatedFat.setAmount(amount: Double(servings.saturatedFat ?? "0.0") ?? 0.0)
+                    self.transFat.setAmount(amount: Double(servings.transFat ?? "0.0") ?? 0.0)
+                    self.monounsaturatedFat.setAmount(amount: Double(servings.monounsaturatedFat ?? "0.0") ?? 0.0)
+                    self.polyunsaturatedFat.setAmount(amount: Double(servings.polyunsaturatedFat ?? "0.0") ?? 0.0)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
 }
 
 class HorizontalRow: UIView {
@@ -148,6 +145,10 @@ class HorizontalRow: UIView {
             leadingAnchor: leadingAnchor,
             trailingAnchor: trailingAnchor,
             centerYAnchor: centerYAnchor)
+    }
+    
+    func setAmount(amount: Double) {
+        amountLabel.text = "\(amount)g"
     }
     
     required init?(coder: NSCoder) {
