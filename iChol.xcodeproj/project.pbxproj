@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,10 @@
 		236DF48D2550352F008E736F /* EatingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236DF48C2550352F008E736F /* EatingTime.swift */; };
 		239526A92550550300B00E57 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239526A82550550300B00E57 /* FoodCell.swift */; };
 		23EB0D78255039C800A8C899 /* FoodInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB0D77255039C800A8C899 /* FoodInputViewController.swift */; };
+		260EFD7F2550F86B009DB0D2 /* FatSecretSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 260EFD7E2550F86B009DB0D2 /* FatSecretSwift */; };
+		260EFD842550F9A3009DB0D2 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260EFD832550F9A3009DB0D2 /* Api.swift */; };
+		260EFD96255100CF009DB0D2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260EFD95255100CF009DB0D2 /* NetworkService.swift */; };
+		260EFDA425510436009DB0D2 /* FoodMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260EFDA325510436009DB0D2 /* FoodMapper.swift */; };
 		A2DCF3BE254FA4330088492F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DCF3BD254FA4330088492F /* AppDelegate.swift */; };
 		A2DCF3C0254FA4330088492F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DCF3BF254FA4330088492F /* SceneDelegate.swift */; };
 		A2DCF3C2254FA4330088492F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DCF3C1254FA4330088492F /* MainViewController.swift */; };
@@ -72,6 +76,9 @@
 		236DF48C2550352F008E736F /* EatingTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatingTime.swift; sourceTree = "<group>"; };
 		239526A82550550300B00E57 /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
 		23EB0D77255039C800A8C899 /* FoodInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInputViewController.swift; sourceTree = "<group>"; };
+		260EFD832550F9A3009DB0D2 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		260EFD95255100CF009DB0D2 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		260EFDA325510436009DB0D2 /* FoodMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMapper.swift; sourceTree = "<group>"; };
 		A2DCF3BA254FA4330088492F /* iChol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2DCF3BD254FA4330088492F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2DCF3BF254FA4330088492F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				260EFD7F2550F86B009DB0D2 /* FatSecretSwift in Frameworks */,
 				A2DCF44C2550FD6F0088492F /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,6 +188,7 @@
 			children = (
 				233C55DA254FB7AF0003252B /* Color.swift */,
 				236DF48C2550352F008E736F /* EatingTime.swift */,
+				260EFD832550F9A3009DB0D2 /* Api.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -229,6 +238,22 @@
 			path = FoodInputScreen;
 			sourceTree = "<group>";
 		};
+		260EFD94255100AE009DB0D2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				260EFD95255100CF009DB0D2 /* NetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		260EFDA225510420009DB0D2 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				260EFDA325510436009DB0D2 /* FoodMapper.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
 		A2DCF3B1254FA4330088492F = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +281,8 @@
 				A2DCF4492550FD6F0088492F /* iChol.entitlements */,
 				232A1ABC254FFCCC00374820 /* Base */,
 				233C55D9254FB7A10003252B /* Constants */,
+				260EFDA225510420009DB0D2 /* Mapper */,
+				260EFD94255100AE009DB0D2 /* Services */,
 				233C55CA254FB29D0003252B /* Extensions */,
 				233C55DF254FBF240003252B /* ViewControllers */,
 				A2DCF3C9254FA4340088492F /* Assets.xcassets */,
@@ -308,6 +335,9 @@
 			dependencies = (
 			);
 			name = iChol;
+			packageProductDependencies = (
+				260EFD7E2550F86B009DB0D2 /* FatSecretSwift */,
+			);
 			productName = iChol;
 			productReference = A2DCF3BA254FA4330088492F /* iChol.app */;
 			productType = "com.apple.product-type.application";
@@ -379,6 +409,9 @@
 				Base,
 			);
 			mainGroup = A2DCF3B1254FA4330088492F;
+			packageReferences = (
+				260EFD7D2550F86B009DB0D2 /* XCRemoteSwiftPackageReference "FatSecretSwift" */,
+			);
 			productRefGroup = A2DCF3BB254FA4330088492F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -426,6 +459,8 @@
 				A2DCF3C8254FA4330088492F /* iChol.xcdatamodeld in Sources */,
 				233C5606254FCB980003252B /* ActivityCellView.swift in Sources */,
 				232A1ACA255007E900374820 /* MealCollectionView.swift in Sources */,
+				260EFD96255100CF009DB0D2 /* NetworkService.swift in Sources */,
+				260EFD842550F9A3009DB0D2 /* Api.swift in Sources */,
 				232A1AD42550121200374820 /* ProgressBarView.swift in Sources */,
 				233C55F2254FC59D0003252B /* Date+Extensions.swift in Sources */,
 				232A1AC5255007D400374820 /* MealCell.swift in Sources */,
@@ -436,6 +471,7 @@
 				23267754255061E800E01739 /* FoodDetailScreen.swift in Sources */,
 				A2DCF3C0254FA4330088492F /* SceneDelegate.swift in Sources */,
 				232A1ADC2550124F00374820 /* ProgressContainerView.swift in Sources */,
+				260EFDA425510436009DB0D2 /* FoodMapper.swift in Sources */,
 				233C55F7254FC5C60003252B /* TopProgressView.swift in Sources */,
 				23EB0D78255039C800A8C899 /* FoodInputViewController.swift in Sources */,
 				239526A92550550300B00E57 /* FoodCell.swift in Sources */,
@@ -771,6 +807,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		260EFD7D2550F86B009DB0D2 /* XCRemoteSwiftPackageReference "FatSecretSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NicholasBellucci/FatSecretSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		260EFD7E2550F86B009DB0D2 /* FatSecretSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 260EFD7D2550F86B009DB0D2 /* XCRemoteSwiftPackageReference "FatSecretSwift" */;
+			productName = FatSecretSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		A2DCF3C6254FA4330088492F /* iChol.xcdatamodeld */ = {

@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import FatSecretSwift
 import HealthKit
+
 class MainViewController: UIViewController {
     
     private var scrollView: UIScrollView!
     private var progressView: TopProgressView!
     private var mealTodayView: MealTodayView!
+
     let healthStore = HKHealthStore()
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Combine
+import FatSecretSwift
 
 class FoodDetailScreen: UIViewController {
     
@@ -19,11 +21,15 @@ class FoodDetailScreen: UIViewController {
     private var polyunsaturatedFat: HorizontalRow!
     private var monounsaturatedFat: HorizontalRow!
     
+    private var foodName: String = ""
+    
+    var foodId: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupView()
         setupLayout()
+        fetchingFood()
     }
     
     private func setupView() {
@@ -42,7 +48,7 @@ class FoodDetailScreen: UIViewController {
         addButton = UIButton()
         addButton.setAttributedTitle(
             NSAttributedString(
-                string: "Add Nasi Padang",
+                string: "Add \(foodName)",
                 attributes: [
                     NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .bold),
                     NSAttributedString.Key.foregroundColor: UIColor.white
@@ -95,6 +101,25 @@ class FoodDetailScreen: UIViewController {
             trailingAnchor: view.layoutMarginsGuide.trailingAnchor)
     }
     
+    private func fetchingFood() {
+        NetworkService.shared.getFood(id: foodId) { food in
+            switch food {
+            case .success(let food):
+                guard let servings = food.servings?.first else { return }
+                DispatchQueue.main.async {
+                    self.calorieAmount.text = servings.calories
+                    self.totalFat.setAmount(amount: Double(servings.fat ?? "0.0") ?? 0.0)
+                    self.saturatedFat.setAmount(amount: Double(servings.saturatedFat ?? "0.0") ?? 0.0)
+                    self.transFat.setAmount(amount: Double(servings.transFat ?? "0.0") ?? 0.0)
+                    self.monounsaturatedFat.setAmount(amount: Double(servings.monounsaturatedFat ?? "0.0") ?? 0.0)
+                    self.polyunsaturatedFat.setAmount(amount: Double(servings.polyunsaturatedFat ?? "0.0") ?? 0.0)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    
 }
 
 class HorizontalRow: UIView {
@@ -120,6 +145,10 @@ class HorizontalRow: UIView {
             leadingAnchor: leadingAnchor,
             trailingAnchor: trailingAnchor,
             centerYAnchor: centerYAnchor)
+    }
+    
+    func setAmount(amount: Double) {
+        amountLabel.text = "\(amount)g"
     }
     
     required init?(coder: NSCoder) {
