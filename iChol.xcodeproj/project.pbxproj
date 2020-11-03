@@ -33,6 +33,7 @@
 		A2DCF3CD254FA4340088492F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2DCF3CB254FA4340088492F /* LaunchScreen.storyboard */; };
 		A2DCF3D8254FA4350088492F /* iCholTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DCF3D7254FA4350088492F /* iCholTests.swift */; };
 		A2DCF3E3254FA4350088492F /* iCholUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DCF3E2254FA4350088492F /* iCholUITests.swift */; };
+		A2DCF44C2550FD6F0088492F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2DCF44B2550FD6F0088492F /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,8 @@
 		A2DCF3DE254FA4350088492F /* iCholUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCholUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2DCF3E2254FA4350088492F /* iCholUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCholUITests.swift; sourceTree = "<group>"; };
 		A2DCF3E4254FA4350088492F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2DCF4492550FD6F0088492F /* iChol.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iChol.entitlements; sourceTree = "<group>"; };
+		A2DCF44B2550FD6F0088492F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2DCF44C2550FD6F0088492F /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +236,7 @@
 				A2DCF3D6254FA4350088492F /* iCholTests */,
 				A2DCF3E1254FA4350088492F /* iCholUITests */,
 				A2DCF3BB254FA4330088492F /* Products */,
+				A2DCF44A2550FD6F0088492F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -248,6 +253,7 @@
 		A2DCF3BC254FA4330088492F /* iChol */ = {
 			isa = PBXGroup;
 			children = (
+				A2DCF4492550FD6F0088492F /* iChol.entitlements */,
 				232A1ABC254FFCCC00374820 /* Base */,
 				233C55D9254FB7A10003252B /* Constants */,
 				233C55CA254FB29D0003252B /* Extensions */,
@@ -276,6 +282,14 @@
 				A2DCF3E4254FA4350088492F /* Info.plist */,
 			);
 			path = iCholUITests;
+			sourceTree = "<group>";
+		};
+		A2DCF44A2550FD6F0088492F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A2DCF44B2550FD6F0088492F /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -596,8 +610,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iChol/iChol.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S9J6B4A78J;
+				DEVELOPMENT_TEAM = KVK7XD8255;
 				INFOPLIST_FILE = iChol/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -616,8 +631,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iChol/iChol.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S9J6B4A78J;
+				DEVELOPMENT_TEAM = KVK7XD8255;
 				INFOPLIST_FILE = iChol/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
