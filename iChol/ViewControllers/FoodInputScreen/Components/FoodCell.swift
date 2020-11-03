@@ -13,11 +13,18 @@ class FoodCell: UITableViewCell {
     
     private var nameLabel: UILabel!
     private var calorieLabel: UILabel!
+    private var fatLabel: UILabel!
     private var container: UIView!
     
-    func configureCell(foodName: String, calorie: String) {
+    func configureCell(foodName: String, description: String) {
         nameLabel.text = foodName
-        calorieLabel.text = "\(calorie) Cal"
+        
+        let components = description.split(separator: "|")
+        let calories = components[0]
+        let fat = components[1]
+
+        fatLabel.text = String(fat)
+        calorieLabel.text = String(calories)
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -26,12 +33,15 @@ class FoodCell: UITableViewCell {
         backgroundColor = Color.background
         
         nameLabel = UILabel()
-        nameLabel.font = .systemFont(ofSize: 20, weight: .bold)
+        nameLabel.font = .systemFont(ofSize: 17, weight: .bold)
         nameLabel.textColor = .black
+        nameLabel.lineBreakMode = .byTruncatingTail
         
         calorieLabel = UILabel()
-        calorieLabel.font = .systemFont(ofSize: 20, weight: .bold)
+        calorieLabel.font = .systemFont(ofSize: 17, weight: .regular)
         calorieLabel.textColor = .black
+        
+        fatLabel = UILabel()
         
         container = UIView()
         container.backgroundColor = .white
@@ -40,6 +50,7 @@ class FoodCell: UITableViewCell {
         addSubview(container)
         container.addSubview(nameLabel)
         container.addSubview(calorieLabel)
+        container.addSubview(fatLabel)
         
         container.setConstraint(
             topAnchor: topAnchor, topAnchorConstant: 16,
@@ -49,10 +60,19 @@ class FoodCell: UITableViewCell {
         
         nameLabel.setConstraint(
             topAnchor: container.topAnchor, topAnchorConstant: 16,
-            leadingAnchor: container.leadingAnchor, leadingAnchorConstant: 16)
+            leadingAnchor: container.leadingAnchor, leadingAnchorConstant: 16,
+            trailingAnchor: container.trailingAnchor, trailingAnchorConstant: -16)
         
-        calorieLabel.setConstraint(
-            topAnchor: container.topAnchor, topAnchorConstant: 16,
+        let mainStack = UIStackView(arrangedSubviews: [calorieLabel, fatLabel])
+        mainStack.spacing = 4
+        mainStack.axis = .vertical
+        mainStack.alignment = .leading
+        addSubview(mainStack)
+
+        mainStack.setConstraint(
+            topAnchor: nameLabel.bottomAnchor, topAnchorConstant: 4,
+            bottomAnchor: container.bottomAnchor, bottomAnchorConstant: -16,
+            leadingAnchor: container.leadingAnchor, leadingAnchorConstant: 16,
             trailingAnchor: container.trailingAnchor, trailingAnchorConstant: -16)
     }
     

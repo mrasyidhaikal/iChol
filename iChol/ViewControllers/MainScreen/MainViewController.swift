@@ -23,10 +23,6 @@ class MainViewController: UIViewController {
         setupScrollView()
         setupLayout()
         
-        fatSecretClient.searchFood(name: "Nasi") { search in
-            print(search.foods)
-        }
-        
 //        fatSecretClient.getFood(id: "6712789") { food in
 //            print(food)
 //        }

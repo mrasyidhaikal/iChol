@@ -142,7 +142,7 @@ extension FoodInputViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FoodCell.reuseIdentifier, for: indexPath) as! FoodCell
-        cell.configureCell(foodName: foods[indexPath.row].name, calorie: "")
+        cell.configureCell(foodName: foods[indexPath.row].name, description: foods[indexPath.row].description)
         cell.selectionStyle = .none
         return cell
     }
