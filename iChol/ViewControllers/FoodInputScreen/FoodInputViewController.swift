@@ -15,11 +15,11 @@ class FoodInputViewController: UIViewController {
     private var titleLabel: UILabel!
     private var searchBar: UISearchBar!
     private var tableView: UITableView!
-    
-    private let client = FatSecretClient()
-    
+        
     var cancelable = Set<AnyCancellable>()
     var timeLabel: String = ""
+    
+    @Published private var foods: [SearchedFood] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +31,36 @@ class FoodInputViewController: UIViewController {
         setupSearchBar()
         
         view.backgroundColor = Color.background
+    }
+    
+    private func setupSearchBar() {
+        let publisher = NotificationCenter.default.publisher(for: UISearchTextField.textDidChangeNotification, object: searchBar.searchTextField)
+        
+        publisher
+            .map({ ($0.object as! UISearchTextField).text })
+            .debounce(for: .milliseconds(400), scheduler: RunLoop.main)
+            .filter({ !$0!.isEmpty })
+            .sink { text in
+                guard let text = text else { return }
+                NetworkService.shared.searchFood(keyword: text) { (result) in
+                    switch result {
+                    case .success(let foods):
+                        self.foods = foods
+                    case .failure(let err):
+                        self.foods = []
+                        print(err.localizedDescription)
+                    }
+                }
+            }
+            .store(in: &cancelable)
+        
+        $foods
+            .sink { (_) in
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }.store(in: &cancelable)
+        
     }
     
     private func setupTableView() {
@@ -93,19 +123,6 @@ class FoodInputViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(handleAdd))
     }
     
-    private func setupSearchBar() {
-        let publisher = NotificationCenter.default.publisher(for: UISearchTextField.textDidChangeNotification, object: searchBar.searchTextField)
-        
-        publisher
-            .map({ ($0.object as! UISearchTextField).text })
-            .debounce(for: .milliseconds(500), scheduler: DispatchQueue.main)
-            .sink { text in
-//                NetworkService.shared.search(name: text)
-                print(text!)
-            }
-            .store(in: &cancelable)
-    }
-    
     @objc private func handleCancel() {
         dismiss(animated: true, completion: nil)
     }
@@ -120,12 +137,12 @@ class FoodInputViewController: UIViewController {
 extension FoodInputViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return foods.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FoodCell.reuseIdentifier, for: indexPath) as! FoodCell
-        cell.configureCell(foodName: "Nasi Lemak", calorie: Int.random(in: 100...500))
+        cell.configureCell(foodName: foods[indexPath.row].name, calorie: "")
         cell.selectionStyle = .none
         return cell
     }

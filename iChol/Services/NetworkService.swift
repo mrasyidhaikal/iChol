@@ -8,14 +8,22 @@
 import Foundation
 import FatSecretSwift
 
+enum ServiceError: Error {
+    case noResult
+}
+
 class NetworkService {
     
     private let client = FatSecretClient()
     static let shared = NetworkService()
     
-    func search(name: String = "Nasi Goreng") {
-        client.searchFood(name: name) { search in
-            print(search)
+    func searchFood(keyword: String, completion: @escaping (Result<[SearchedFood], Error>) -> Void) {
+        client.searchFood(name: keyword) { (result) in
+            if result.foods.isEmpty {
+                completion(.failure(ServiceError.noResult))
+            } else {
+                completion(.success(result.foods))
+            }
         }
     }
     

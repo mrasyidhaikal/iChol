@@ -15,7 +15,7 @@ class FoodCell: UITableViewCell {
     private var calorieLabel: UILabel!
     private var container: UIView!
     
-    func configureCell(foodName: String, calorie: Int) {
+    func configureCell(foodName: String, calorie: String) {
         nameLabel.text = foodName
         calorieLabel.text = "\(calorie) Cal"
     }
