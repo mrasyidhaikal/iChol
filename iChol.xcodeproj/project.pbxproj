@@ -7,9 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23267754255061E800E01739 /* FoodDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23267753255061E800E01739 /* FoodDetailScreen.swift */; };
+		232A1AC5255007D400374820 /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A1AC4255007D400374820 /* MealCell.swift */; };
+		232A1ACA255007E900374820 /* MealCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A1AC9255007E900374820 /* MealCollectionView.swift */; };
+		232A1ACF255011ED00374820 /* HorizontalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A1ACE255011ED00374820 /* HorizontalProgressView.swift */; };
+		232A1AD42550121200374820 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A1AD32550121200374820 /* ProgressBarView.swift */; };
+		232A1ADC2550124F00374820 /* ProgressContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A1ADB2550124F00374820 /* ProgressContainerView.swift */; };
+		232A1AE62550141B00374820 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A1AE52550141B00374820 /* CircularProgressView.swift */; };
+		233C55D2254FB3160003252B /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233C55D1254FB3160003252B /* UIView+Extensions.swift */; };
+		233C55DB254FB7AF0003252B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233C55DA254FB7AF0003252B /* Color.swift */; };
+		233C55E5254FBF6D0003252B /* DateCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233C55E4254FBF6D0003252B /* DateCollectionView.swift */; };
+		233C55ED254FBF860003252B /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233C55EC254FBF860003252B /* DayCell.swift */; };
+		233C55F2254FC59D0003252B /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233C55F1254FC59D0003252B /* Date+Extensions.swift */; };
+		233C55F7254FC5C60003252B /* TopProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233C55F6254FC5C60003252B /* TopProgressView.swift */; };
+		233C5606254FCB980003252B /* ActivityCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233C5605254FCB980003252B /* ActivityCellView.swift */; };
+		233C560B254FCBCA0003252B /* MealTodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233C560A254FCBCA0003252B /* MealTodayView.swift */; };
+		236DF48D2550352F008E736F /* EatingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236DF48C2550352F008E736F /* EatingTime.swift */; };
+		239526A92550550300B00E57 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239526A82550550300B00E57 /* FoodCell.swift */; };
+		23EB0D78255039C800A8C899 /* FoodInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB0D77255039C800A8C899 /* FoodInputViewController.swift */; };
 		A2DCF3BE254FA4330088492F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DCF3BD254FA4330088492F /* AppDelegate.swift */; };
 		A2DCF3C0254FA4330088492F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DCF3BF254FA4330088492F /* SceneDelegate.swift */; };
-		A2DCF3C2254FA4330088492F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DCF3C1254FA4330088492F /* ViewController.swift */; };
+		A2DCF3C2254FA4330088492F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DCF3C1254FA4330088492F /* MainViewController.swift */; };
 		A2DCF3C8254FA4330088492F /* iChol.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2DCF3C6254FA4330088492F /* iChol.xcdatamodeld */; };
 		A2DCF3CA254FA4340088492F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2DCF3C9254FA4340088492F /* Assets.xcassets */; };
 		A2DCF3CD254FA4340088492F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2DCF3CB254FA4340088492F /* LaunchScreen.storyboard */; };
@@ -35,10 +53,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		23267753255061E800E01739 /* FoodDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailScreen.swift; sourceTree = "<group>"; };
+		232A1AC4255007D400374820 /* MealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCell.swift; sourceTree = "<group>"; };
+		232A1AC9255007E900374820 /* MealCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCollectionView.swift; sourceTree = "<group>"; };
+		232A1ACE255011ED00374820 /* HorizontalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalProgressView.swift; sourceTree = "<group>"; };
+		232A1AD32550121200374820 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		232A1ADB2550124F00374820 /* ProgressContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressContainerView.swift; sourceTree = "<group>"; };
+		232A1AE52550141B00374820 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		233C55D1254FB3160003252B /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		233C55DA254FB7AF0003252B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		233C55E4254FBF6D0003252B /* DateCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionView.swift; sourceTree = "<group>"; };
+		233C55EC254FBF860003252B /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
+		233C55F1254FC59D0003252B /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		233C55F6254FC5C60003252B /* TopProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopProgressView.swift; sourceTree = "<group>"; };
+		233C5605254FCB980003252B /* ActivityCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCellView.swift; sourceTree = "<group>"; };
+		233C560A254FCBCA0003252B /* MealTodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTodayView.swift; sourceTree = "<group>"; };
+		236DF48C2550352F008E736F /* EatingTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatingTime.swift; sourceTree = "<group>"; };
+		239526A82550550300B00E57 /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
+		23EB0D77255039C800A8C899 /* FoodInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInputViewController.swift; sourceTree = "<group>"; };
 		A2DCF3BA254FA4330088492F /* iChol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2DCF3BD254FA4330088492F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2DCF3BF254FA4330088492F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A2DCF3C1254FA4330088492F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A2DCF3C1254FA4330088492F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A2DCF3C7254FA4330088492F /* iChol.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iChol.xcdatamodel; sourceTree = "<group>"; };
 		A2DCF3C9254FA4340088492F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2DCF3CC254FA4340088492F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,6 +112,119 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23267752255061D200E01739 /* FoodDetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				23267753255061E800E01739 /* FoodDetailScreen.swift */,
+			);
+			path = FoodDetailScreen;
+			sourceTree = "<group>";
+		};
+		232A1ABC254FFCCC00374820 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A2DCF3BD254FA4330088492F /* AppDelegate.swift */,
+				A2DCF3BF254FA4330088492F /* SceneDelegate.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		232A1AC0254FFCDF00374820 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A2DCF3C1254FA4330088492F /* MainViewController.swift */,
+				233C55E3254FBF4E0003252B /* Components */,
+				233C55FB254FC5D40003252B /* Unused */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		232A1AE02550127F00374820 /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				233C55F6254FC5C60003252B /* TopProgressView.swift */,
+				232A1ADB2550124F00374820 /* ProgressContainerView.swift */,
+				232A1AD32550121200374820 /* ProgressBarView.swift */,
+				233C5605254FCB980003252B /* ActivityCellView.swift */,
+				232A1ACE255011ED00374820 /* HorizontalProgressView.swift */,
+				232A1AE52550141B00374820 /* CircularProgressView.swift */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
+		232A1AE12550128A00374820 /* Meal */ = {
+			isa = PBXGroup;
+			children = (
+				233C560A254FCBCA0003252B /* MealTodayView.swift */,
+				232A1AC9255007E900374820 /* MealCollectionView.swift */,
+				232A1AC4255007D400374820 /* MealCell.swift */,
+			);
+			path = Meal;
+			sourceTree = "<group>";
+		};
+		233C55CA254FB29D0003252B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				233C55D1254FB3160003252B /* UIView+Extensions.swift */,
+				233C55F1254FC59D0003252B /* Date+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		233C55D9254FB7A10003252B /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				233C55DA254FB7AF0003252B /* Color.swift */,
+				236DF48C2550352F008E736F /* EatingTime.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		233C55DF254FBF240003252B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				232A1AC0254FFCDF00374820 /* MainScreen */,
+				23EB0D73255039A100A8C899 /* FoodInputScreen */,
+				23267752255061D200E01739 /* FoodDetailScreen */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		233C55E3254FBF4E0003252B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				232A1AE02550127F00374820 /* Progress */,
+				232A1AE12550128A00374820 /* Meal */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		233C55FB254FC5D40003252B /* Unused */ = {
+			isa = PBXGroup;
+			children = (
+				233C55E4254FBF6D0003252B /* DateCollectionView.swift */,
+				233C55EC254FBF860003252B /* DayCell.swift */,
+			);
+			path = Unused;
+			sourceTree = "<group>";
+		};
+		239526A7255054F600B00E57 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				239526A82550550300B00E57 /* FoodCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		23EB0D73255039A100A8C899 /* FoodInputScreen */ = {
+			isa = PBXGroup;
+			children = (
+				23EB0D77255039C800A8C899 /* FoodInputViewController.swift */,
+				239526A7255054F600B00E57 /* Components */,
+			);
+			path = FoodInputScreen;
+			sourceTree = "<group>";
+		};
 		A2DCF3B1254FA4330088492F = {
 			isa = PBXGroup;
 			children = (
@@ -99,9 +248,10 @@
 		A2DCF3BC254FA4330088492F /* iChol */ = {
 			isa = PBXGroup;
 			children = (
-				A2DCF3BD254FA4330088492F /* AppDelegate.swift */,
-				A2DCF3BF254FA4330088492F /* SceneDelegate.swift */,
-				A2DCF3C1254FA4330088492F /* ViewController.swift */,
+				232A1ABC254FFCCC00374820 /* Base */,
+				233C55D9254FB7A10003252B /* Constants */,
+				233C55CA254FB29D0003252B /* Extensions */,
+				233C55DF254FBF240003252B /* ViewControllers */,
 				A2DCF3C9254FA4340088492F /* Assets.xcassets */,
 				A2DCF3CB254FA4340088492F /* LaunchScreen.storyboard */,
 				A2DCF3CE254FA4340088492F /* Info.plist */,
@@ -257,10 +407,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2DCF3C2254FA4330088492F /* ViewController.swift in Sources */,
+				232A1ACF255011ED00374820 /* HorizontalProgressView.swift in Sources */,
+				A2DCF3C2254FA4330088492F /* MainViewController.swift in Sources */,
 				A2DCF3C8254FA4330088492F /* iChol.xcdatamodeld in Sources */,
+				233C5606254FCB980003252B /* ActivityCellView.swift in Sources */,
+				232A1ACA255007E900374820 /* MealCollectionView.swift in Sources */,
+				232A1AD42550121200374820 /* ProgressBarView.swift in Sources */,
+				233C55F2254FC59D0003252B /* Date+Extensions.swift in Sources */,
+				232A1AC5255007D400374820 /* MealCell.swift in Sources */,
+				233C55D2254FB3160003252B /* UIView+Extensions.swift in Sources */,
 				A2DCF3BE254FA4330088492F /* AppDelegate.swift in Sources */,
+				232A1AE62550141B00374820 /* CircularProgressView.swift in Sources */,
+				233C55E5254FBF6D0003252B /* DateCollectionView.swift in Sources */,
+				23267754255061E800E01739 /* FoodDetailScreen.swift in Sources */,
 				A2DCF3C0254FA4330088492F /* SceneDelegate.swift in Sources */,
+				232A1ADC2550124F00374820 /* ProgressContainerView.swift in Sources */,
+				233C55F7254FC5C60003252B /* TopProgressView.swift in Sources */,
+				23EB0D78255039C800A8C899 /* FoodInputViewController.swift in Sources */,
+				239526A92550550300B00E57 /* FoodCell.swift in Sources */,
+				233C560B254FCBCA0003252B /* MealTodayView.swift in Sources */,
+				233C55ED254FBF860003252B /* DayCell.swift in Sources */,
+				236DF48D2550352F008E736F /* EatingTime.swift in Sources */,
+				233C55DB254FB7AF0003252B /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,8 +597,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KVK7XD8255;
+				DEVELOPMENT_TEAM = S9J6B4A78J;
 				INFOPLIST_FILE = iChol/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -438,7 +607,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.protagonist.haikal.iChol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -448,8 +617,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KVK7XD8255;
+				DEVELOPMENT_TEAM = S9J6B4A78J;
 				INFOPLIST_FILE = iChol/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +627,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.protagonist.haikal.iChol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
