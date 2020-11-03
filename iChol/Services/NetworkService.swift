@@ -27,9 +27,13 @@ class NetworkService {
         }
     }
     
-    func get(id: String) {
+    func getFood(id: String, completion: @escaping (Result<Food, Error>) -> Void) {
         client.getFood(id: id) { food in
-            print(food)
+            if ((food.servings?.isEmpty) == nil) {
+                completion(.failure(ServiceError.noResult))
+            } else {
+                completion(.success(food))
+            }
         }
     }
     

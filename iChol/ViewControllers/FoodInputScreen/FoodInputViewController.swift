@@ -148,7 +148,9 @@ extension FoodInputViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(FoodDetailScreen(), animated: true)
+        let vc = FoodDetailScreen()
+        vc.foodId = foods[indexPath.row].id
+        self.navigationController?.pushViewController(vc, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

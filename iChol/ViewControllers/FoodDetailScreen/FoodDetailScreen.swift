@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FatSecretSwift
 
 class FoodDetailScreen: UIViewController {
     
@@ -18,6 +19,24 @@ class FoodDetailScreen: UIViewController {
     private var transFat: HorizontalRow!
     private var polyunsaturatedFat: HorizontalRow!
     private var monounsaturatedFat: HorizontalRow!
+    
+    private var foodName: String = ""
+    private var servings: [Serving]? = []
+    
+    var foodId: String = "" {
+        didSet {
+            NetworkService.shared.getFood(id: foodId) { food in
+                switch food {
+                case .success(let food):
+                    guard let servings = food.servings else { return }
+                    self.servings = servings
+                case .failure(let err):
+                    self.servings = []
+                    print(err.localizedDescription)
+                }
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +61,7 @@ class FoodDetailScreen: UIViewController {
         addButton = UIButton()
         addButton.setAttributedTitle(
             NSAttributedString(
-                string: "Add Nasi Padang",
+                string: "Add \(foodName)",
                 attributes: [
                     NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .bold),
                     NSAttributedString.Key.foregroundColor: UIColor.white
@@ -52,13 +71,22 @@ class FoodDetailScreen: UIViewController {
         addButton.layer.cornerRadius = 8
         view.addSubview(addButton)
         
-        totalFat = HorizontalRow(labelString: "Total Fat", amount: 0.0)
+        guard let serving = servings?.first else { return }
+        let totalFatNumber = Double(serving.fat ?? "0.0")
+        let satFatNumber = Double(serving.saturatedFat ?? "0.000")
+        let transFatNumber = Double(serving.transFat ?? "0.000")
+        let polyFatNumber = Double(serving.polyunsaturatedFat ?? "0.000")
+        let monoFatNumber = Double(serving.monounsaturatedFat ?? "0.000")
+        
+        print(serving)
+        
+        totalFat = HorizontalRow(labelString: "Total Fat", amount: totalFatNumber ?? 0.0)
         view.addSubview(totalFat)
         
-        saturatedFat = HorizontalRow(labelString: "Saturated Fat", amount: 0.000)
-        transFat = HorizontalRow(labelString: "Trans Fat", amount: 0.000)
-        polyunsaturatedFat = HorizontalRow(labelString: "Polyunsaturated Fat", amount: 0.000)
-        monounsaturatedFat = HorizontalRow(labelString: "monounsaturatedFat", amount: 0.000)
+        saturatedFat = HorizontalRow(labelString: "Saturated Fat", amount: satFatNumber ?? 0.000)
+        transFat = HorizontalRow(labelString: "Trans Fat", amount: transFatNumber ?? 0.000)
+        polyunsaturatedFat = HorizontalRow(labelString: "Polyunsaturated Fat", amount: polyFatNumber ?? 0.000)
+        monounsaturatedFat = HorizontalRow(labelString: "monounsaturatedFat", amount: monoFatNumber ?? 0.000)
     }
     
     private func setupLayout() {
