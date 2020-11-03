@@ -9,12 +9,16 @@ import UIKit
 
 class TopProgressView: UIView {
     
-    var todayLabel: UILabel!
-    private var progress: ProgressContainerView!
+    private let todayLabel: UILabel
+    private let progress: ProgressContainerView
     var activityCell: ActivityCellView!
     var waterCell: ActivityCellView!
     
     override init(frame: CGRect) {
+        
+        todayLabel = UILabel()
+        progress = ProgressContainerView()
+     
         super.init(frame: frame)
         
         backgroundColor = Color.background
@@ -24,19 +28,22 @@ class TopProgressView: UIView {
     }
     
     private func setupView() {
-        todayLabel = UILabel()
         todayLabel.text = Date().convertToString()
         todayLabel.font = .systemFont(ofSize: 22, weight: .bold)
         addSubview(todayLabel)
         
-        progress = ProgressContainerView()
-        
-        activityCell = ActivityCellView()
-        activityCell.configureCell(textLabel: "Activity", textContent: 300, activity: .activity)
+        activityCell = ActivityCellView(
+            frame: .zero,
+            textLabel: "Activity",
+            textContent: 300,
+            activity: .activity)
         addSubview(activityCell)
         
-        waterCell = ActivityCellView()
-        waterCell.configureCell(textLabel: "Water", textContent: 100, activity: .water)
+        waterCell = ActivityCellView(
+            frame: .zero,
+            textLabel: "Water",
+            textContent: 100,
+            activity: .water)
         addSubview(waterCell)
     }
     

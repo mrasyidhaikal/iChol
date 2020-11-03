@@ -14,10 +14,21 @@ enum ActivityType {
 
 class ActivityCellView: UIView {
     
-    var label: UILabel!
-    var contentLabel: UILabel!
-    
-    func configureCell(textLabel: String, textContent: Int, activity: ActivityType) {
+    let label: UILabel
+    let contentLabel: UILabel
+        
+    init(frame: CGRect, textLabel: String, textContent: Int, activity: ActivityType) {
+        
+        label = UILabel()
+        contentLabel = UILabel()
+        
+        super.init(frame: frame)
+        
+        layer.cornerRadius = 8
+        
+        addSubview(label)
+        addSubview(contentLabel)
+        
         label.text = textLabel
         if activity == .activity {
             contentLabel.text = "\(textContent) cal"
@@ -26,18 +37,6 @@ class ActivityCellView: UIView {
             contentLabel.text = "\(textContent) ml"
             backgroundColor = #colorLiteral(red: 0, green: 0.7325749993, blue: 1, alpha: 1)
         }
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        layer.cornerRadius = 8
-        
-        label = UILabel()
-        contentLabel = UILabel()
-        
-        addSubview(label)
-        addSubview(contentLabel)
         
         label.font = .preferredFont(forTextStyle: .title3)
         label.font = .boldSystemFont(ofSize: 20)

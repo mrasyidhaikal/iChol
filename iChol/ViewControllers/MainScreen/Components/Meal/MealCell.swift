@@ -15,28 +15,26 @@ class MealCell: UICollectionViewCell {
     let descriptionLabel = UILabel()
     let caloriesLabel = UILabel()
     
-    func configureCell(title: String, description: String, calories: String) {
+    func configureCell(title: String, description: String, calories: Int) {
         titleLabel.text = title
         descriptionLabel.text = description
-        caloriesLabel.text = calories
+        caloriesLabel.text = "\(calories)"
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         backgroundColor = .white
+        layer.cornerRadius = 16
         
         addSubview(titleLabel)
         addSubview(descriptionLabel)
         
         titleLabel.font = .systemFont(ofSize: 22, weight: .bold)
-        titleLabel.textColor = .black
         
         caloriesLabel.font = .preferredFont(forTextStyle: .largeTitle)
         caloriesLabel.font = .systemFont(ofSize: 34, weight: .bold)
-        caloriesLabel.textColor = .black
-        
-        descriptionLabel.textColor = .black
+    
         descriptionLabel.numberOfLines = 0
         
         let calLabel = UILabel()

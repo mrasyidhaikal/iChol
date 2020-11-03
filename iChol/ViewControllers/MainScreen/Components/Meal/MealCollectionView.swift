@@ -9,17 +9,20 @@ import UIKit
 
 class MealCollectionView: UICollectionView {
     
-    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+    let rootView: UIViewController
+    
+    init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout?, rootView: UIViewController) {
         
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 12
         layout.scrollDirection = .horizontal
         
+        self.rootView = rootView
+        
         super.init(frame: .zero, collectionViewLayout: layout)
         
         register(MealCell.self, forCellWithReuseIdentifier: MealCell.reuseIdentifier)
         backgroundColor = Color.background
-        layer.cornerRadius = 16
         showsHorizontalScrollIndicator = false
         
         delegate = self
@@ -35,7 +38,9 @@ class MealCollectionView: UICollectionView {
 extension MealCollectionView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Tap")
+        let foodInputVC = FoodInputViewController()
+        foodInputVC.timeLabel = EatingTime.eatingTime[indexPath.row]
+        rootView.present(UINavigationController(rootViewController: foodInputVC), animated: true, completion: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -44,12 +49,12 @@ extension MealCollectionView: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MealCell.reuseIdentifier, for: indexPath) as! MealCell
-        cell.configureCell(title: EatingTime.eatingTime[indexPath.row], description: "Oatmeal \nOatmeal", calories: "549")
+        cell.configureCell(title: EatingTime.eatingTime[indexPath.row], description: "Oatmeal \nOatmeal", calories: Int.random(in: 100...500))
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 180, height: 240)
+        return CGSize(width: 180, height: 200)
     }
     
 }

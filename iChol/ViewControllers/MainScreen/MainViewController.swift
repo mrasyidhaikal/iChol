@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     private var scrollView: UIScrollView!
     private var progressView: TopProgressView!
@@ -24,19 +24,19 @@ class ViewController: UIViewController {
     private func setupLayout() {
         
         progressView = TopProgressView()
-        mealTodayView = MealTodayView()
+        mealTodayView = MealTodayView(frame: .zero, rootView: self)
         
         let mainStack = UIStackView(arrangedSubviews: [progressView, mealTodayView])
         mainStack.axis = .vertical
-        mainStack.spacing = 32
+        mainStack.spacing = 56
         mainStack.backgroundColor = Color.background
-        
         scrollView.addSubview(mainStack)
         
         mainStack.setConstraint(
-            topAnchor: view.safeAreaLayoutGuide.topAnchor,
-            leadingAnchor: view.layoutMarginsGuide.leadingAnchor,
-            trailingAnchor: view.layoutMarginsGuide.trailingAnchor)
+            topAnchor: scrollView.topAnchor,
+            bottomAnchor: scrollView.bottomAnchor,
+            leadingAnchor: scrollView.safeAreaLayoutGuide.leadingAnchor,
+            trailingAnchor: scrollView.safeAreaLayoutGuide.trailingAnchor)
     }
     
     private func setNavBar() {
@@ -48,12 +48,14 @@ class ViewController: UIViewController {
     private func setupScrollView() {
         scrollView = UIScrollView()
         scrollView.backgroundColor = Color.background
+        scrollView.showsVerticalScrollIndicator = false
         view.addSubview(scrollView)
+        
         scrollView.setConstraint(
             topAnchor: view.safeAreaLayoutGuide.topAnchor,
-            bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor,
-            leadingAnchor: view.safeAreaLayoutGuide.leadingAnchor,
-            trailingAnchor: view.safeAreaLayoutGuide.trailingAnchor)
+            bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, bottomAnchorConstant: -16,
+            leadingAnchor: view.layoutMarginsGuide.leadingAnchor,
+            trailingAnchor: view.layoutMarginsGuide.trailingAnchor)
     }
 
 }

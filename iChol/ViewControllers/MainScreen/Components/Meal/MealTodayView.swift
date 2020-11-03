@@ -12,7 +12,7 @@ class MealTodayView: UIView {
     private var label: UILabel!
     private var mealCollectionView: MealCollectionView!
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, rootView: UIViewController) {
         super.init(frame: frame)
         
         backgroundColor = Color.background
@@ -22,8 +22,8 @@ class MealTodayView: UIView {
         label.text = "Meals Today"
         label.textColor = .black
         
-        mealCollectionView = MealCollectionView()
-
+        mealCollectionView = MealCollectionView(frame: .zero, collectionViewLayout: nil, rootView: rootView)
+        
         addSubview(label)
         addSubview(mealCollectionView)
         
@@ -32,7 +32,7 @@ class MealTodayView: UIView {
             leadingAnchor: leadingAnchor)
         
         mealCollectionView.setConstraint(
-            topAnchor: label.bottomAnchor, topAnchorConstant: 12,
+            topAnchor: label.bottomAnchor,
             bottomAnchor: bottomAnchor,
             leadingAnchor: leadingAnchor,
             trailingAnchor: trailingAnchor,
