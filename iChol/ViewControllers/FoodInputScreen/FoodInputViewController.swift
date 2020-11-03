@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Combine
+import FatSecretSwift
 
 class FoodInputViewController: UIViewController {
     
@@ -14,6 +16,9 @@ class FoodInputViewController: UIViewController {
     private var searchBar: UISearchBar!
     private var tableView: UITableView!
     
+    private let client = FatSecretClient()
+    
+    var cancelable = Set<AnyCancellable>()
     var timeLabel: String = ""
     
     override func viewDidLoad() {
@@ -23,6 +28,7 @@ class FoodInputViewController: UIViewController {
         setupView()
         setupTableView()
         setupLayout()
+        setupSearchBar()
         
         view.backgroundColor = Color.background
     }
@@ -85,6 +91,19 @@ class FoodInputViewController: UIViewController {
     private func setupNavBar() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancel))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(handleAdd))
+    }
+    
+    private func setupSearchBar() {
+        let publisher = NotificationCenter.default.publisher(for: UISearchTextField.textDidChangeNotification, object: searchBar.searchTextField)
+        
+        publisher
+            .map({ ($0.object as! UISearchTextField).text })
+            .debounce(for: .milliseconds(500), scheduler: DispatchQueue.main)
+            .sink { text in
+//                NetworkService.shared.search(name: text)
+                print(text!)
+            }
+            .store(in: &cancelable)
     }
     
     @objc private func handleCancel() {

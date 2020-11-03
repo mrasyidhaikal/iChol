@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import FatSecretSwift
 
 class MainViewController: UIViewController {
     
     private var scrollView: UIScrollView!
     private var progressView: TopProgressView!
     private var mealTodayView: MealTodayView!
+    
+    private let fatSecretClient = FatSecretClient()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +22,14 @@ class MainViewController: UIViewController {
         setNavBar()
         setupScrollView()
         setupLayout()
+        
+        fatSecretClient.searchFood(name: "Nasi") { search in
+            print(search.foods)
+        }
+        
+//        fatSecretClient.getFood(id: "6712789") { food in
+//            print(food)
+//        }
     }
     
     private func setupLayout() {
