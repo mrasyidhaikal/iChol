@@ -9,21 +9,31 @@ import UIKit
 import Combine
 import FatSecretSwift
 import HealthKit
+
 class FoodDetailScreen: UIViewController {
     
+    private var scrollView: UIScrollView!
+    
+    private var nutritionLabel: UILabel!
     private var calorieLabel: UILabel!
     private var calorieAmount: UILabel!
-    private var addButton: UIButton!
+//    private var addButton: UIButton!
     
+    private var protein: HorizontalRow!
+    private var carbs: HorizontalRow!
+    private var fiber: HorizontalRow!
+    private var sodium: HorizontalRow!
+    private var cholesterol: HorizontalRow!
+    private var sugar: HorizontalRow!
     private var totalFat: HorizontalRow!
     private var saturatedFat: HorizontalRow!
     private var transFat: HorizontalRow!
     private var polyunsaturatedFat: HorizontalRow!
     private var monounsaturatedFat: HorizontalRow!
     
-    private var foodName: String = ""
-    
+    var foodName: String = ""
     var foodId: String = ""
+    
     let healthStore = HKHealthStore()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,39 +43,60 @@ class FoodDetailScreen: UIViewController {
     }
     
     private func setupView() {
+        
         view.backgroundColor = Color.background
         
+        scrollView = UIScrollView()
+        view.addSubview(scrollView)
+        
         calorieLabel = UILabel()
-        calorieLabel.text = "Calories Intake"
-        calorieLabel.font = .preferredFont(forTextStyle: .title2)
-        view.addSubview(calorieLabel)
+        calorieLabel.text = "Calories"
+        calorieLabel.font = .preferredFont(forTextStyle: .title3)
+        scrollView.addSubview(calorieLabel)
         
         calorieAmount = UILabel()
         calorieAmount.text = "324"
         calorieAmount.font = .systemFont(ofSize: 34, weight: .bold)
-        view.addSubview(calorieAmount)
+        scrollView.addSubview(calorieAmount)
         
-        addButton = UIButton()
-        addButton.setAttributedTitle(
-            NSAttributedString(
-                string: "Add \(foodName)",
-                attributes: [
-                    NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .bold),
-                    NSAttributedString.Key.foregroundColor: UIColor.white
-                ]),
-            for: .normal)
-      
-        addButton.backgroundColor = Color.green
-        addButton.layer.cornerRadius = 8
-        view.addSubview(addButton)
-        addButton.addTarget(self, action: #selector(handleAdd), for: .touchUpInside)
-        totalFat = HorizontalRow(labelString: "Total Fat", amount: 0.0)
-        view.addSubview(totalFat)
+//        addButton = UIButton()
+//        addButton.setAttributedTitle(
+//            NSAttributedString(
+//                string: "Add \(foodName)",
+//                attributes: [
+//                    NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .bold),
+//                    NSAttributedString.Key.foregroundColor: UIColor.white
+//                ]),
+//            for: .normal)
+//
+//        addButton.backgroundColor = Color.green
+//        addButton.layer.cornerRadius = 8
+//        view.addSubview(addButton)
+//        addButton.addTarget(self, action: #selector(handleAdd), for: .touchUpInside)
         
+        nutritionLabel = UILabel()
+        nutritionLabel.text = "Nutritional Information"
+        nutritionLabel.font = .systemFont(ofSize: 26, weight: .bold)
+        scrollView.addSubview(nutritionLabel)
+        
+        totalFat = HorizontalRow(labelString: "Fat", amount: 0.0, header: true)
         saturatedFat = HorizontalRow(labelString: "Saturated Fat", amount: 0.000)
         transFat = HorizontalRow(labelString: "Trans Fat", amount: 0.000)
         polyunsaturatedFat = HorizontalRow(labelString: "Polyunsaturated Fat", amount: 0.000)
         monounsaturatedFat = HorizontalRow(labelString: "monounsaturatedFat", amount: 0.000)
+        
+        cholesterol = HorizontalRow(labelString: "Cholesterol", amount: 0.000, header: true)
+        scrollView.addSubview(cholesterol)
+        
+        sodium = HorizontalRow(labelString: "Sodium", amount: 0.000, header: true)
+        scrollView.addSubview(sodium)
+        
+        carbs = HorizontalRow(labelString: "Carbohydrate", amount: 0.000, header: true)
+        fiber = HorizontalRow(labelString: "Fiber", amount: 0.000)
+        sugar = HorizontalRow(labelString: "Sugars", amount: 0.000)
+        
+        protein = HorizontalRow(labelString: "Protein", amount: 0.000, header: true)
+        scrollView.addSubview(protein)
     }
 
     @objc private func handleAdd(){
@@ -76,13 +107,13 @@ class FoodDetailScreen: UIViewController {
             switch food {
             case .success(let food):
                 guard let servings = food.servings?.first else { return }
+                
                 DispatchQueue.main.async {
-
-
                     self.addDataToHealthKit(sugar:Double(servings.saturatedFat ?? "0.0") ?? 0.0, date: date, type: .dietaryFatSaturated, satuan: HKUnit.gram())
                     self.addDataToHealthKit(sugar:Double(servings.sugar ?? "0.0") ?? 0.0, date: date, type: .dietaryFatSaturated, satuan: HKUnit.gram())
                     self.addDataToHealthKit(sugar:Double(servings.calories ?? "0.0") ?? 0.0, date: date, type: .dietaryEnergyConsumed, satuan: HKUnit.smallCalorie())
                 }
+                
             case .failure(let err):
                 print(err.localizedDescription)
             }
@@ -113,37 +144,96 @@ class FoodDetailScreen: UIViewController {
     }
 
         private func setupLayout() {
+            scrollView.setConstraint(
+                topAnchor: view.topAnchor,
+                bottomAnchor: view.bottomAnchor,
+                leadingAnchor: view.leadingAnchor,
+                trailingAnchor: view.trailingAnchor
+            )
+            
+            nutritionLabel.setConstraint(
+                topAnchor: calorieAmount.bottomAnchor,
+                leadingAnchor: scrollView.layoutMarginsGuide.leadingAnchor,
+                trailingAnchor: scrollView.layoutMarginsGuide.trailingAnchor
+            )
+            
             calorieLabel.setConstraint(
-                topAnchor: view.safeAreaLayoutGuide.topAnchor, topAnchorConstant: 32,
-                leadingAnchor: view.layoutMarginsGuide.leadingAnchor)
+                topAnchor: scrollView.safeAreaLayoutGuide.topAnchor, topAnchorConstant: 32,
+                leadingAnchor: scrollView.layoutMarginsGuide.leadingAnchor)
             
             calorieAmount.setConstraint(
                 topAnchor: calorieLabel.bottomAnchor, topAnchorConstant: 8,
-                leadingAnchor: view.layoutMarginsGuide.leadingAnchor)
+                leadingAnchor: scrollView.layoutMarginsGuide.leadingAnchor)
             
-            addButton.setConstraint(
-                bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, bottomAnchorConstant: -32,
-                leadingAnchor: view.layoutMarginsGuide.leadingAnchor,
-                trailingAnchor: view.layoutMarginsGuide.trailingAnchor,
-                heighAnchorConstant: 50)
-            
-            totalFat.setConstraint(
-                topAnchor: calorieAmount.bottomAnchor, topAnchorConstant: 32,
-                leadingAnchor: view.layoutMarginsGuide.leadingAnchor,
-                trailingAnchor: view.layoutMarginsGuide.trailingAnchor)
+//            addButton.setConstraint(
+//                topAnchor: scrollView.bottomAnchor,
+//                bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, bottomAnchorConstant: -32,
+//                leadingAnchor: view.layoutMarginsGuide.leadingAnchor,
+//                trailingAnchor: view.layoutMarginsGuide.trailingAnchor,
+//                heighAnchorConstant: 50)
             
             let mainStack = UIStackView(arrangedSubviews: [
-                                            saturatedFat,
-                                            transFat,
-                                            polyunsaturatedFat,
-                                            monounsaturatedFat])
+                                        saturatedFat,
+                                        sugar])
             mainStack.axis = .vertical
             mainStack.spacing = 24
-            view.addSubview(mainStack)
+            scrollView.addSubview(mainStack)
             mainStack.setConstraint(
-                topAnchor: totalFat.bottomAnchor, topAnchorConstant: 24,
-                leadingAnchor: view.layoutMarginsGuide.leadingAnchor, leadingAnchorConstant: 16,
-                trailingAnchor: view.layoutMarginsGuide.trailingAnchor)
+                topAnchor: calorieAmount.bottomAnchor, topAnchorConstant: 24,
+                leadingAnchor: scrollView.layoutMarginsGuide.leadingAnchor,
+                trailingAnchor: scrollView.layoutMarginsGuide.trailingAnchor)
+            
+            nutritionLabel.setConstraint(
+                topAnchor: mainStack.bottomAnchor, topAnchorConstant: 32,
+                leadingAnchor: scrollView.layoutMarginsGuide.leadingAnchor,
+                trailingAnchor: scrollView.layoutMarginsGuide.trailingAnchor
+            )
+            
+            let fatStack = UIStackView(arrangedSubviews: [
+                                        totalFat,
+                                        saturatedFat,
+                                        transFat,
+                                        polyunsaturatedFat,
+                                        monounsaturatedFat])
+            fatStack.axis = .vertical
+            fatStack.spacing = 24
+            scrollView.addSubview(fatStack)
+            fatStack.setConstraint(
+                topAnchor: nutritionLabel.bottomAnchor, topAnchorConstant: 24,
+                leadingAnchor: scrollView.layoutMarginsGuide.leadingAnchor,
+                trailingAnchor: scrollView.layoutMarginsGuide.trailingAnchor)
+            
+            cholesterol.setConstraint(
+                topAnchor: fatStack.bottomAnchor, topAnchorConstant: 48,
+                leadingAnchor: scrollView.layoutMarginsGuide.leadingAnchor,
+                trailingAnchor: scrollView.layoutMarginsGuide.trailingAnchor
+            )
+            
+            sodium.setConstraint(
+                topAnchor: cholesterol.bottomAnchor, topAnchorConstant: 48,
+                leadingAnchor: scrollView.layoutMarginsGuide.leadingAnchor,
+                trailingAnchor: scrollView.layoutMarginsGuide.trailingAnchor
+            )
+            
+            let carbStack = UIStackView(arrangedSubviews: [
+                                        carbs,
+                                        fiber,
+                                        sugar])
+            carbStack.axis = .vertical
+            carbStack.spacing = 24
+            scrollView.addSubview(carbStack)
+            
+            carbStack.setConstraint(
+                topAnchor: sodium.bottomAnchor, topAnchorConstant: 48,
+                leadingAnchor: scrollView.layoutMarginsGuide.leadingAnchor,
+                trailingAnchor: scrollView.layoutMarginsGuide.trailingAnchor)
+            
+            protein.setConstraint(
+                topAnchor: carbStack.bottomAnchor, topAnchorConstant: 48,
+                leadingAnchor: scrollView.layoutMarginsGuide.leadingAnchor,
+                trailingAnchor: scrollView.layoutMarginsGuide.trailingAnchor
+            )
+            
         }
         
         private func fetchingFood() {
@@ -152,6 +242,7 @@ class FoodDetailScreen: UIViewController {
                 case .success(let food):
                     guard let servings = food.servings?.first else { return }
                     DispatchQueue.main.async {
+                        self.navigationItem.title = self.foodName
                         self.calorieAmount.text = servings.calories
                         self.totalFat.setAmount(amount: Double(servings.fat ?? "0.0") ?? 0.0)
                         self.saturatedFat.setAmount(amount: Double(servings.saturatedFat ?? "0.0") ?? 0.0)
@@ -172,14 +263,23 @@ class FoodDetailScreen: UIViewController {
         private let label: UILabel
         private let amountLabel: UILabel
         
-        init(labelString: String, amount: Double) {
+        var preferBold = false
+        
+        init(labelString: String, amount: Double, header: Bool = false) {
             label = UILabel()
             amountLabel = UILabel()
             
             super.init(frame: .zero)
             
+            backgroundColor = .red
+            
             label.text = labelString
-            amountLabel.text = "\(amount)g"
+            amountLabel.text = "\(amount) g"
+            
+            if (header) {
+                label.font = .systemFont(ofSize: 18, weight: .heavy)
+                amountLabel.font = .systemFont(ofSize: 18, weight: .heavy)
+            }
             
             let mainStack = UIStackView(arrangedSubviews: [label, amountLabel])
             mainStack.axis = .horizontal
@@ -193,7 +293,7 @@ class FoodDetailScreen: UIViewController {
         }
         
         func setAmount(amount: Double) {
-            amountLabel.text = "\(amount)g"
+            amountLabel.text = "\(amount) g"
         }
         
         required init?(coder: NSCoder) {
