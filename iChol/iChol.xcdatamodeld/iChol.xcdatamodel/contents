@@ -13,7 +13,7 @@
         <relationship name="breakfast" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Breakfast" inverseName="belongTo" inverseEntity="Breakfast"/>
         <relationship name="dinner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dinner" inverseName="belongTo" inverseEntity="Dinner"/>
         <relationship name="lunch" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Lunch" inverseName="belongTo" inverseEntity="Lunch"/>
-        <relationship name="snack" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Snack"/>
+        <relationship name="snack" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Snack" inverseName="belongTo" inverseEntity="Snack"/>
     </entity>
     <entity name="Dinner" representedClassName="Dinner" syncable="YES" codeGenerationType="class">
         <attribute name="food" optional="YES" attributeType="Transformable" customClassName="[String]"/>
@@ -25,13 +25,13 @@
     </entity>
     <entity name="Snack" representedClassName="Snack" syncable="YES" codeGenerationType="class">
         <attribute name="food" optional="YES" attributeType="Transformable" customClassName="[String]"/>
-        <relationship name="belongTo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Snack" inverseName="belongTo" inverseEntity="Snack"/>
+        <relationship name="belongTo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DailyIntake" inverseName="snack" inverseEntity="DailyIntake"/>
     </entity>
     <elements>
-        <element name="Breakfast" positionX="250.29296875" positionY="-17.44921875" width="128" height="73"/>
+        <element name="Breakfast" positionX="209.62890625" positionY="-314.0234375" width="128" height="73"/>
         <element name="DailyIntake" positionX="-63" positionY="-18" width="128" height="178"/>
-        <element name="Dinner" positionX="117" positionY="63" width="128" height="73"/>
-        <element name="Lunch" positionX="108" positionY="45" width="128" height="73"/>
-        <element name="Snack" positionX="126" positionY="72" width="128" height="73"/>
+        <element name="Dinner" positionX="225.51171875" positionY="-96.8671875" width="128" height="73"/>
+        <element name="Lunch" positionX="222.671875" positionY="172.32421875" width="128" height="73"/>
+        <element name="Snack" positionX="170.765625" positionY="289.375" width="128" height="73"/>
     </elements>
 </model>

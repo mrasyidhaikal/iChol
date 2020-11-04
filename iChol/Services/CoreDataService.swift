@@ -14,6 +14,19 @@ class CoreDataService {
     
     private let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
+    func getDailyIntake(completion: @escaping ([DailyIntake]) -> ()) {
+        let fetch = NSFetchRequest<DailyIntake>(entityName: "DailyIntake")
+        
+        do {
+            let result = try moc.fetch(fetch)
+            completion(result)
+        } catch let err {
+            print(err.localizedDescription)
+            completion([])
+        }
+        
+    }
+    
     func createDailyIntake(id: UUID, fat: Double, calories: Int, sugar: Double, date: Date) {
         
         let dailyIntake = DailyIntake(context: moc)
@@ -32,11 +45,11 @@ class CoreDataService {
     
     func updateDailyIntake(fat: Double, calories: Int, sugar: Double, date: Date) {
         
-        let dailyIntake = getCurrentDay(date: date)
-        dailyIntake?.saturatedFat = fat
-        dailyIntake?.totalCalories = Int64(calories)
-        dailyIntake?.sugar = sugar
-        dailyIntake?.date = date
+        guard let dailyIntake = getCurrentDay(date: date) else { return }
+        dailyIntake.saturatedFat = fat
+        dailyIntake.totalCalories = Int64(calories)
+        dailyIntake.sugar = sugar
+        dailyIntake.date = date
         
         do {
             try moc.save()
@@ -48,7 +61,8 @@ class CoreDataService {
     func getCurrentDay(date: Date) -> DailyIntake? {
         
         let fetchRequest = NSFetchRequest<DailyIntake>(entityName: "DailyIntake")
-        fetchRequest.predicate = NSPredicate(format: "date >= %@ date <= %@", date.startOfTheDay() as CVarArg,  date as CVarArg)
+        fetchRequest.predicate = NSPredicate(format: "date >= %@ AND date <= %@", date.startOfTheDay() as CVarArg,  date as CVarArg)
+        fetchRequest.fetchLimit = 1
         
         do {
             let result = try moc.fetch(fetchRequest)
@@ -62,21 +76,41 @@ class CoreDataService {
     
     func addFood(foodName: String, date: Date, eatingTime: EatTime) {
         
-        let today = getCurrentDay(date: date)
-                
+        guard let today = getCurrentDay(date: date) else { return }
+        
         switch eatingTime {
         case .breakfast:
-            let breakfast = today?.breakfast
-            breakfast?.food?.append(foodName)
+            if today.breakfast == nil {
+                let breakfast = Breakfast(context: moc)
+                breakfast.food = [foodName]
+                today.breakfast = breakfast
+            } else {
+                today.breakfast?.food?.append(foodName)
+            }
         case .lunch:
-            let lunch = today?.lunch
-            lunch?.food?.append(foodName)
+            if today.lunch == nil {
+                let lunch = Lunch(context: moc)
+                lunch.food = [foodName]
+                today.lunch = lunch
+            } else {
+                today.lunch?.food?.append(foodName)
+            }
         case .dinner:
-            let dinner = today?.dinner
-            dinner?.food?.append(foodName)
+            if today.dinner == nil {
+                let dinner = Dinner(context: moc)
+                dinner.food = [foodName]
+                today.dinner = dinner
+            } else {
+                today.dinner?.food?.append(foodName)
+            }
         case .snack:
-            let snack = today?.snack
-            snack?.food?.append(foodName)
+            if today.snack == nil {
+                let snack = Snack(context: moc)
+                snack.food = [foodName]
+                today.snack = snack
+            } else {
+                today.snack?.food?.append(foodName)
+            }
         }
         
         do {
