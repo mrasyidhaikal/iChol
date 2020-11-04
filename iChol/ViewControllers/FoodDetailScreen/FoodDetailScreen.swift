@@ -224,6 +224,11 @@ class FoodDetailScreen: UIViewController {
                     self.transFat.setAmount(amount: Double(servings.transFat ?? "0.0") ?? 0.0)
                     self.monounsaturatedFat.setAmount(amount: Double(servings.monounsaturatedFat ?? "0.0") ?? 0.0)
                     self.polyunsaturatedFat.setAmount(amount: Double(servings.polyunsaturatedFat ?? "0.0") ?? 0.0)
+                    self.cholesterol.setAmount(amount: Double(servings.cholesterol ?? "0.0") ?? 0.0)
+                    self.sodium.setAmount(amount: Double(servings.sodium ?? "0.0") ?? 0.0)
+                    self.sugar.setAmount(amount: Double(servings.sugar ?? "0.0") ?? 0.0)
+                    self.fiber.setAmount(amount: Double(servings.fiber ?? "0.0") ?? 0.0)
+                    self.carbs.setAmount(amount: Double(servings.carbohydrate ?? "0.0") ?? 0.0)
                 }
             case .failure(let err):
                 print(err.localizedDescription)
