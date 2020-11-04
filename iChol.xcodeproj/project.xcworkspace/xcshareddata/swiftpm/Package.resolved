@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CryptoSwift",
+        "repositoryURL": "https://github.com/krzyzanowskim/CryptoSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "af1b58fc569bfde777462349b9f7314b61762be0",
+          "version": "1.3.2"
+        }
+      },
+      {
+        "package": "FatSecretSwift",
+        "repositoryURL": "https://github.com/NicholasBellucci/FatSecretSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "3bd0b8b3fc1c88a96aa4d8b582563a85f9259e24",
+          "version": "0.1.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
