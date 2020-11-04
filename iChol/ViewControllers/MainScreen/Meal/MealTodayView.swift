@@ -19,7 +19,7 @@ class MealTodayView: UIView {
         
         label = UILabel()
         label.font = .systemFont(ofSize: 22, weight: .bold)
-        label.text = "Meals Today"
+        label.text = "Food"
         label.textColor = .black
         
         mealCollectionView = MealCollectionView(frame: .zero, collectionViewLayout: nil, rootView: rootView)

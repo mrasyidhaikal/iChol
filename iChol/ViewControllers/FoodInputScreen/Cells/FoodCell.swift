@@ -59,7 +59,7 @@ class FoodCell: UITableViewCell {
         container.addSubview(nameLabel)
         
         container.setConstraint(
-            topAnchor: topAnchor, topAnchorConstant: 16,
+            topAnchor: topAnchor,
             bottomAnchor: bottomAnchor, bottomAnchorConstant: -16,
             leadingAnchor: leadingAnchor,
             trailingAnchor: trailingAnchor)

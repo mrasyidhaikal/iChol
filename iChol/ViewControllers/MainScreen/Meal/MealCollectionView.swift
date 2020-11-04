@@ -40,7 +40,7 @@ extension MealCollectionView: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let foodInputVC = FoodInputViewController()
         foodInputVC.timeLabel = EatingTime.eatingTime[indexPath.row]
-        rootView.present(UINavigationController(rootViewController: foodInputVC), animated: true, completion: nil)
+        rootView.navigationController?.pushViewController(foodInputVC, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -66,20 +66,6 @@ extension MealCollectionView: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 180, height: 200)
-    }
-    
-}
-
-extension Array {
-    
-    func convertToString() -> String {
-        var container: String = ""
-        
-        self.forEach { (string) in
-            container.append("\(string) \n")
-        }
-        
-        return container
     }
     
 }

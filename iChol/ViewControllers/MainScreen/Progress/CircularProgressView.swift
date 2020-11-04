@@ -9,15 +9,35 @@ import UIKit
 
 class CircularProgressView: UIView {
     
-    private var shapeLayer: CAShapeLayer!
-    private var calorieLabel: UILabel!
+    private let shapeLayer: CAShapeLayer
+    private let calorieLabel: UILabel
+    private var progress: Double = 0.0
     
-    func configureView(howMuchLeft: Int, progress: CGFloat) {
-        shapeLayer.strokeEnd = progress * 0.8
-        calorieLabel.text = "\(howMuchLeft)"
+    func configureView(howMuchLeft: Double, progress: Double) {
+        if progress == 0 {
+            shapeLayer.strokeEnd = CGFloat(0.001)
+        } else {
+            shapeLayer.strokeEnd = CGFloat(progress * 0.8)
+        }
+        calorieLabel.text = "\(Int(howMuchLeft))"
+        
+        self.progress = progress * 0.8
+    }
+    
+    func animate() {
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.toValue = progress
+        animation.duration = 2
+        animation.fillMode = .forwards
+        animation.isRemovedOnCompletion = false
+        shapeLayer.add(animation, forKey: "strokeEnd")
     }
     
     override init(frame: CGRect) {
+        
+        shapeLayer = CAShapeLayer()
+        calorieLabel = UILabel()
+        
         super.init(frame: frame)
         
         setupLayer()
@@ -32,8 +52,6 @@ class CircularProgressView: UIView {
         leftLabel.textColor = .black
         leftLabel.font = .preferredFont(forTextStyle: .callout)
         
-        calorieLabel = UILabel()
-        calorieLabel.text = "2000"
         calorieLabel.textColor = .black
         calorieLabel.font = .systemFont(ofSize: 34, weight: .semibold)
         
@@ -63,7 +81,6 @@ class CircularProgressView: UIView {
         trackLayer.fillColor = UIColor.clear.cgColor
         layer.addSublayer(trackLayer)
         
-        shapeLayer = CAShapeLayer()
         shapeLayer.lineCap = .round
         shapeLayer.path = circularPath.cgPath
         shapeLayer.strokeColor = Color.green.cgColor
@@ -72,15 +89,6 @@ class CircularProgressView: UIView {
         shapeLayer.fillColor = UIColor.clear.cgColor
         
         layer.addSublayer(shapeLayer)
-    }
-    
-    @objc private func handeTap() {
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.toValue = 1
-        animation.duration = 2
-        animation.fillMode = .forwards
-        animation.isRemovedOnCompletion = false
-        shapeLayer.add(animation, forKey: "strokeEnd")
     }
     
     required init?(coder: NSCoder) {

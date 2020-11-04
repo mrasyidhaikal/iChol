@@ -58,22 +58,7 @@ class FoodDetailScreen: UIViewController {
         calorieAmount.text = "324"
         calorieAmount.font = .systemFont(ofSize: 34, weight: .bold)
         scrollView.addSubview(calorieAmount)
-        
-        //        addButton = UIButton()
-        //        addButton.setAttributedTitle(
-        //            NSAttributedString(
-        //                string: "Add \(foodName)",
-        //                attributes: [
-        //                    NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .bold),
-        //                    NSAttributedString.Key.foregroundColor: UIColor.white
-        //                ]),
-        //            for: .normal)
-        //
-        //        addButton.backgroundColor = Color.green
-        //        addButton.layer.cornerRadius = 8
-        //        view.addSubview(addButton)
-        //        addButton.addTarget(self, action: #selector(handleAdd), for: .touchUpInside)
-        
+   
         nutritionLabel = UILabel()
         nutritionLabel.text = "Nutritional Information"
         nutritionLabel.font = .systemFont(ofSize: 26, weight: .bold)
@@ -94,10 +79,7 @@ class FoodDetailScreen: UIViewController {
         carbs = HorizontalRow(labelString: "Carbohydrate", amount: 0.000, header: true)
         fiber = HorizontalRow(labelString: "Fiber", amount: 0.000)
         sugar = HorizontalRow(labelString: "Sugars", amount: 0.000)
-        
-//        protein = HorizontalRow(labelString: "Protein", amount: 0.000, header: true)
-//        scrollView.addSubview(protein)
-        
+
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(handleAdd))
     }
     
@@ -106,11 +88,11 @@ class FoodDetailScreen: UIViewController {
             switch food {
             case .success(let food):
                 guard let servings = food.servings?.first else { return }
-                DispatchQueue.main.async {
-                    self.addDataToHealthKit(sugar:Double(servings.saturatedFat ?? "0.0") ?? 0.0, date: Date(), type: .dietaryFatSaturated, satuan: HKUnit.gram())
-                    self.addDataToHealthKit(sugar:Double(servings.sugar ?? "0.0") ?? 0.0, date: Date(), type: .dietaryFatSaturated, satuan: HKUnit.gram())
-                    self.addDataToHealthKit(sugar:Double(servings.calories ?? "0.0") ?? 0.0, date: Date(), type: .dietaryEnergyConsumed, satuan: HKUnit.smallCalorie())
-                }
+                
+                HealthKitService.addData(sugar: Double(servings.saturatedFat ?? "0") ?? 0, date: Date(), type: .dietaryFatSaturated, unit: HKUnit.gram())
+                HealthKitService.addData(sugar: Double(servings.sugar ?? "0") ?? 0, date: Date(), type: .dietarySugar, unit: HKUnit.gram())
+                HealthKitService.addData(sugar: Double(servings.calories ?? "0") ?? 0, date: Date(), type: .dietaryEnergyConsumed, unit: HKUnit.smallCalorie())
+                
             case .failure(let err):
                 print(err.localizedDescription)
             }
@@ -118,24 +100,7 @@ class FoodDetailScreen: UIViewController {
         
         CoreDataService.shared.addFood(foodName: foodName, date: Date(), eatingTime: .breakfast, calorie: Int(calorieAmount.text ?? "0") ?? 0)
         
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    func addDataToHealthKit(sugar:Double,date:Date,type:HKQuantityTypeIdentifier,satuan:HKUnit){
-        guard let dietType = HKQuantityType.quantityType(forIdentifier: type) else {
-            fatalError("Error")
-        }
-        let gram = satuan
-        let dietQuantity = HKQuantity(unit: gram, doubleValue: Double(sugar))
-        let dietSample = HKQuantitySample(type: dietType, quantity: dietQuantity, start: date, end: date)
-        
-        HKHealthStore().save(dietSample) { (success, error) in
-            if let error = error {
-                print("Error Saving : \(error)")
-            } else {
-                print("Successfully saved")
-            }
-        }
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     private func setupLayout() {

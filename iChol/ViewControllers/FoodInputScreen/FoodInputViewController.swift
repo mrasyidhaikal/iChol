@@ -23,19 +23,14 @@ class FoodInputViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupNavBar()
         setupView()
         setupTableView()
         setupLayout()
         setupSearchBar()
-        
-        view.backgroundColor = Color.background
     }
     
     private func setupSearchBar() {
-        let publisher = NotificationCenter.default.publisher(for: UISearchTextField.textDidChangeNotification, object: searchBar.searchTextField)
-        
-        publisher
+        NotificationCenter.default.publisher(for: UISearchTextField.textDidChangeNotification, object: searchBar.searchTextField)
             .map({ ($0.object as! UISearchTextField).text })
             .debounce(for: .milliseconds(400), scheduler: RunLoop.main)
             .filter({ !$0!.isEmpty })
@@ -68,13 +63,12 @@ class FoodInputViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(FoodCell.self, forCellReuseIdentifier: FoodCell.reuseIdentifier)
         tableView.backgroundColor = Color.background
-        tableView.rowHeight = 160
+        tableView.rowHeight = 140
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
         view.addSubview(tableView)
     }
 
-    
     private func setupView() {
         view.backgroundColor = Color.background
         
@@ -101,7 +95,7 @@ class FoodInputViewController: UIViewController {
         view.addSubview(mainStack)
         
         mascotImage.setConstraint(
-            topAnchor: view.safeAreaLayoutGuide.topAnchor, topAnchorConstant: 32,
+            topAnchor: view.safeAreaLayoutGuide.topAnchor,
             centerXAnchor: view.centerXAnchor,
             heighAnchorConstant: 155, widthAnchorConstant: 135)
         
@@ -111,24 +105,10 @@ class FoodInputViewController: UIViewController {
             trailingAnchor: view.safeAreaLayoutGuide.trailingAnchor, trailingAnchorConstant: -10)
         
         tableView.setConstraint(
-            topAnchor: mainStack.bottomAnchor,
+            topAnchor: mainStack.bottomAnchor, topAnchorConstant: 8,
             bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor,
             leadingAnchor: view.layoutMarginsGuide.leadingAnchor,
             trailingAnchor: view.layoutMarginsGuide.trailingAnchor)
-    }
-    
-    private func setupNavBar() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancel))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(handleAdd))
-    }
-    
-    @objc private func handleCancel() {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @objc private func handleAdd() {
-        /// Do something when tap Add
-        dismiss(animated: true, completion: nil)
     }
     
 }
@@ -153,12 +133,6 @@ extension FoodInputViewController: UITableViewDataSource, UITableViewDelegate {
         vc.foodName = food.name
         self.navigationController?.pushViewController(vc, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            /// Delete
-        }
     }
     
 }

@@ -14,17 +14,36 @@ class MainViewController: UIViewController {
     private var progressView: TopProgressView!
     private var mealTodayView: MealTodayView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        HealthKitService.fetchCalorie { (totalCalorie) in
+            self.progressView.totalCalorie = totalCalorie
+            self.progressView.progress.calorieProgress.animate()
+            
+        }
+        HealthKitService.fetchSugar { (totalSugar) in
+            self.progressView.totalSugar = totalSugar
+        }
+        HealthKitService.fetchSaturatedFat { (saturatedFat) in
+            self.progressView.totalFat = saturatedFat
+        }
+        
+        DispatchQueue.main.async {
+            self.progressView.configureView()
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        HealthKitService.shared.authorization()
+
         setNavBar()
         setupScrollView()
         setupLayout()
     }
     
     private func setupLayout() {
-        
         progressView = TopProgressView()
         mealTodayView = MealTodayView(frame: .zero, rootView: self)
         
@@ -42,9 +61,8 @@ class MainViewController: UIViewController {
     }
     
     private func setNavBar() {
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.barTintColor = Color.background
-        view.backgroundColor = Color.background
+        title = "Today"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     private func setupScrollView() {
