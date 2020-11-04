@@ -80,8 +80,8 @@ class FoodDetailScreen: UIViewController {
 
 
                     self.addDataToHealthKit(sugar:Double(servings.saturatedFat ?? "0.0") ?? 0.0, date: date, type: .dietaryFatSaturated, satuan: HKUnit.gram())
-                    self.addDataToHealthKit(sugar:Double(servings.sugar ?? "0.0") ?? 0.0, date: date, type: .dietaryFatSaturated, satuan: HKUnit.gram())
-                    self.addDataToHealthKit(sugar:Double(servings.calories ?? "0.0") ?? 0.0, date: date, type: .dietaryEnergyConsumed, satuan: HKUnit.smallCalorie())
+                    self.addDataToHealthKit(sugar:Double(servings.sugar ?? "0.0") ?? 0.0, date: date, type: .dietarySugar, satuan: HKUnit.gram())
+                    self.addDataToHealthKit(sugar:Double(servings.calories ?? "0.0") ?? 0.0, date: date, type: .dietaryEnergyConsumed, satuan: HKUnit.calorie())
                 }
             case .failure(let err):
                 print(err.localizedDescription)
