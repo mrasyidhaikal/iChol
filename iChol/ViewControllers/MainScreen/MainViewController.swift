@@ -13,16 +13,14 @@ class MainViewController: UIViewController {
     private var scrollView: UIScrollView!
     private var progressView: TopProgressView!
     private var mealTodayView: MealTodayView!
-
-    let healthStore = HKHealthStore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Auth()
+        
+        HealthKitService.shared.authorization()
         setNavBar()
         setupScrollView()
         setupLayout()
-      
     }
     
     private func setupLayout() {
@@ -61,37 +59,5 @@ class MainViewController: UIViewController {
             leadingAnchor: view.layoutMarginsGuide.leadingAnchor,
             trailingAnchor: view.layoutMarginsGuide.trailingAnchor)
     }
-    private func Auth() {
-        let HealthKitTypesToRead : Set <HKObjectType> = [
-            HKQuantityType.quantityType(forIdentifier: .dietaryFatSaturated)!,
-            HKQuantityType.quantityType(forIdentifier: .dietarySugar)!,
-            HKQuantityType.quantityType(forIdentifier: .dietaryEnergyConsumed)!,
-        ]
-        let healthKitTypesToWrite : Set<HKSampleType> = [
-            HKQuantityType.quantityType(forIdentifier: .dietaryFatSaturated)!,
-            HKQuantityType.quantityType(forIdentifier: .dietarySugar)!,
-            HKQuantityType.quantityType(forIdentifier: .dietaryEnergyConsumed)!,
-        ]
-        if !HKHealthStore.isHealthDataAvailable() {
-            print("Error occured")
-            return
-        }
-        healthStore.requestAuthorization(toShare: healthKitTypesToWrite, read: HealthKitTypesToRead){ (success, error) in
-            if !success {
-                print("error")
-            } else {
-                print("Success")
-                
-            }
-        }
-            healthStore.requestAuthorization(toShare: healthKitTypesToWrite, read: HealthKitTypesToRead){ (success, error) in
-                if !success {
-                    print("error")
-                } else {
-                    print("Success")
-                    
-                }
-            }
-        }
 
 }

@@ -32,33 +32,33 @@ class TopProgressView: UIView {
         todayLabel.font = .systemFont(ofSize: 22, weight: .bold)
         addSubview(todayLabel)
         
-        activityCell = ActivityCellView(
-            frame: .zero,
-            textLabel: "Activity",
-            textContent: 300,
-            activity: .activity)
-        addSubview(activityCell)
-        
-        waterCell = ActivityCellView(
-            frame: .zero,
-            textLabel: "Water",
-            textContent: 100,
-            activity: .water)
-        addSubview(waterCell)
+//        activityCell = ActivityCellView(
+//            frame: .zero,
+//            textLabel: "Activity",
+//            textContent: 300,
+//            activity: .activity)
+//        addSubview(activityCell)
+//
+//        waterCell = ActivityCellView(
+//            frame: .zero,
+//            textLabel: "Water",
+//            textContent: 100,
+//            activity: .water)
+//        addSubview(waterCell)
     }
     
     private func setupLayout() {
-        let mainStack = UIStackView(arrangedSubviews: [todayLabel, progress, activityCell, waterCell])
+        let mainStack = UIStackView(arrangedSubviews: [todayLabel, progress])
         mainStack.spacing = 16
         mainStack.axis = .vertical
         addSubview(mainStack)
         
         progress.setConstraint(
             heighAnchorConstant: 200)
-        activityCell.setConstraint(
-            heighAnchorConstant: 46)
-        waterCell.setConstraint(
-            heighAnchorConstant: 46)
+//        activityCell.setConstraint(
+//            heighAnchorConstant: 46)
+//        waterCell.setConstraint(
+//            heighAnchorConstant: 46)
         
         mainStack.setConstraint(
             topAnchor: topAnchor,

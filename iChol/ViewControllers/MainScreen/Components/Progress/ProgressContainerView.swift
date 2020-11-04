@@ -7,6 +7,7 @@
 
 import UIKit
 import HealthKit
+
 class ProgressContainerView: UIView {
     
     var fatProgress: ProgressBarView!
@@ -15,6 +16,7 @@ class ProgressContainerView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         fetchCalorie()
         fetchSatFat()
         fetchSugar()
@@ -27,15 +29,14 @@ class ProgressContainerView: UIView {
         addSubview(divider)
         
         fatProgress = ProgressBarView()
-        
+        fatProgress.configureView(label: "Saturated", left: 0, progress: 0)
         addSubview(fatProgress)
         
         sugarProgress = ProgressBarView()
-
+        sugarProgress.configureView(label: "Sugar", left: 0, progress: 0)
         addSubview(sugarProgress)
         
         calorieProgress = CircularProgressView()
-        
         addSubview(calorieProgress)
         
         divider.setConstraint(
@@ -58,12 +59,10 @@ class ProgressContainerView: UIView {
             trailingAnchor: divider.trailingAnchor, trailingAnchorConstant: -90,
             centerYAnchor: centerYAnchor)
     }
-    func fetchCalorie()  {
+    
+    func fetchCalorie() {
         
-        guard let energyType = HKSampleType.quantityType(forIdentifier: .dietaryEnergyConsumed) else {
-            print("Sample type not available")
-            return
-        }
+        guard let energyType = HKSampleType.quantityType(forIdentifier: .dietaryEnergyConsumed) else { return }
         let start = Calendar.current.date(byAdding: .day, value: -1, to: .distantPast)!
         let last24hPredicate = HKQuery.predicateForSamples(withStart: start, end: Date(), options: .strictEndDate)
         
@@ -73,12 +72,8 @@ class ProgressContainerView: UIView {
                                         sortDescriptors: nil) {
             (query, sample, error) in
             
-            guard
-                error == nil,
-                let quantitySamples = sample as? [HKQuantitySample] else {
-                print("Something went wrong: \(error)")
-                return
-            }
+            guard error == nil,
+                  let quantitySamples = sample as? [HKQuantitySample] else { return }
             
             let total = quantitySamples.reduce(0.0) { $0 + $1.quantity.doubleValue(for: HKUnit.calorie()) }
             let cal = 2000 - Int(total)
@@ -92,14 +87,15 @@ class ProgressContainerView: UIView {
         }
         HKHealthStore().execute(energyQuery)
     }
-    func fetchSatFat()  {
+    
+    func fetchSatFat() {
         
         guard let energyType = HKSampleType.quantityType(forIdentifier: .dietaryFatSaturated) else {
             print("Sample type not available")
             return
         }
-        let start = Calendar.current.date(byAdding: .day, value: -1, to: .distantPast)!
-        let last24hPredicate = HKQuery.predicateForSamples(withStart: start, end: Date(), options: .strictEndDate)
+        
+        let last24hPredicate = HKQuery.predicateForSamples(withStart: Date().startDate(of: Date()), end: Date(), options: .strictEndDate)
         
         let energyQuery = HKSampleQuery(sampleType: energyType,
                                         predicate: last24hPredicate,
@@ -109,10 +105,7 @@ class ProgressContainerView: UIView {
             
             guard
                 error == nil,
-                let quantitySamples = sample as? [HKQuantitySample] else {
-                print("Something went wrong: \(error)")
-                return
-            }
+                let quantitySamples = sample as? [HKQuantitySample] else { return }
             
             let total = quantitySamples.reduce(0.0) { $0 + $1.quantity.doubleValue(for: HKUnit.gram()) }
             let cal = 22.2 - total
@@ -125,7 +118,7 @@ class ProgressContainerView: UIView {
         }
         HKHealthStore().execute(energyQuery)
     }
-    func fetchSugar()  {
+    func fetchSugar() {
         
         guard let energyType = HKSampleType.quantityType(forIdentifier: .dietarySugar) else {
             print("Sample type not available")
@@ -140,22 +133,17 @@ class ProgressContainerView: UIView {
                                         sortDescriptors: nil) {
             (query, sample, error) in
             
-            guard
-                error == nil,
-                let quantitySamples = sample as? [HKQuantitySample] else {
-                print("Something went wrong: \(error)")
-                return
-            }
+            guard error == nil,
+                  let quantitySamples = sample as? [HKQuantitySample] else { return }
             
             let total = quantitySamples.reduce(0.0) { $0 + $1.quantity.doubleValue(for: HKUnit.gram()) }
             let cal = 25 - total
             let prog = cal / 25
             print("Total Saturated Fat: \(prog)")
-           
+            
             self.sugarProgress.configureView(label: "Sugar Fat", left: Int(cal), progress: CGFloat(Double(prog)))
-            
-            
         }
+        
         HKHealthStore().execute(energyQuery)
     }
     
