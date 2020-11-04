@@ -7,7 +7,6 @@
 
 import UIKit
 import Combine
-import FatSecretSwift
 
 class FoodInputViewController: UIViewController {
     
