@@ -16,12 +16,14 @@ class MainViewController: UIViewController {
     private var mealTodayView: MealTodayView!
 
     let healthStore = HKHealthStore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Auth()
         setNavBar()
         setupScrollView()
         setupLayout()
+      
     }
     
     private func setupLayout() {
