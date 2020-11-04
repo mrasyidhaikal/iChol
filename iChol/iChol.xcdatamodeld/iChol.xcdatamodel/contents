@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Breakfast" representedClassName="Breakfast" syncable="YES" codeGenerationType="class">
         <attribute name="food" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="total" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="belongTo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DailyIntake" inverseName="breakfast" inverseEntity="DailyIntake"/>
     </entity>
     <entity name="DailyIntake" representedClassName="DailyIntake" syncable="YES" codeGenerationType="class">
@@ -17,21 +18,24 @@
     </entity>
     <entity name="Dinner" representedClassName="Dinner" syncable="YES" codeGenerationType="class">
         <attribute name="food" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="total" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="belongTo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DailyIntake" inverseName="dinner" inverseEntity="DailyIntake"/>
     </entity>
     <entity name="Lunch" representedClassName="Lunch" syncable="YES" codeGenerationType="class">
         <attribute name="food" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="total" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="belongTo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DailyIntake" inverseName="lunch" inverseEntity="DailyIntake"/>
     </entity>
     <entity name="Snack" representedClassName="Snack" syncable="YES" codeGenerationType="class">
         <attribute name="food" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="total" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="belongTo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DailyIntake" inverseName="snack" inverseEntity="DailyIntake"/>
     </entity>
     <elements>
-        <element name="Breakfast" positionX="209.62890625" positionY="-314.0234375" width="128" height="73"/>
+        <element name="Breakfast" positionX="209.62890625" positionY="-314.0234375" width="128" height="88"/>
         <element name="DailyIntake" positionX="-63" positionY="-18" width="128" height="178"/>
-        <element name="Dinner" positionX="225.51171875" positionY="-96.8671875" width="128" height="73"/>
-        <element name="Lunch" positionX="222.671875" positionY="172.32421875" width="128" height="73"/>
-        <element name="Snack" positionX="170.765625" positionY="289.375" width="128" height="73"/>
+        <element name="Dinner" positionX="225.51171875" positionY="-96.8671875" width="128" height="88"/>
+        <element name="Lunch" positionX="222.671875" positionY="172.32421875" width="128" height="88"/>
+        <element name="Snack" positionX="170.765625" positionY="289.375" width="128" height="88"/>
     </elements>
 </model>

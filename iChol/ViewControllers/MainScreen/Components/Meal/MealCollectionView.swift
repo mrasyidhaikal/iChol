@@ -48,8 +48,19 @@ extension MealCollectionView: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        var food: [String] = []
+        var calorie = 0
+        
+        CoreDataService.shared.getDailyIntake { (daily) in
+            food = daily.first?.breakfast?.food ?? []
+            calorie = Int(daily.first?.breakfast?.total ?? 0)
+        }
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MealCell.reuseIdentifier, for: indexPath) as! MealCell
-        cell.configureCell(title: EatingTime.eatingTime[indexPath.row], description: "Oatmeal \nOatmeal", calories: Int.random(in: 100...500))
+        cell.configureCell(title: EatingTime.eatingTime[indexPath.row],
+                           description: food.convertToString(),
+                           calories: calorie)
         return cell
     }
     
@@ -59,3 +70,16 @@ extension MealCollectionView: UICollectionViewDataSource, UICollectionViewDelega
     
 }
 
+extension Array {
+    
+    func convertToString() -> String {
+        var container: String = ""
+        
+        self.forEach { (string) in
+            container.append("\(string) \n")
+        }
+        
+        return container
+    }
+    
+}

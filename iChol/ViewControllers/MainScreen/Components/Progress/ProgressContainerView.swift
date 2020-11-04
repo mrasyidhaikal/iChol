@@ -80,6 +80,7 @@ class ProgressContainerView: UIView {
             let prog = total / 2000
             print("Total kcal: \(Int(cal))")
             print(prog)
+            
             self.calorieProgress.configureView(howMuchLeft: Int(cal), progress: CGFloat(Double(prog)))
             //                                               DispatchQueue.main.async {
             //                                                   print(String(format: "Energy: %.2f", total))

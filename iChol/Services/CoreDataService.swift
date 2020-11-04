@@ -13,7 +13,7 @@ class CoreDataService {
     static let shared = CoreDataService()
     
     private let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
+    
     func getDailyIntake(completion: @escaping ([DailyIntake]) -> ()) {
         let fetch = NSFetchRequest<DailyIntake>(entityName: "DailyIntake")
         
@@ -66,7 +66,7 @@ class CoreDataService {
         
         do {
             let result = try moc.fetch(fetchRequest)
-            return result[0]
+            return result.first
         } catch let err {
             print(err.localizedDescription)
         }
@@ -74,43 +74,53 @@ class CoreDataService {
         return nil
     }
     
-    func addFood(foodName: String, date: Date, eatingTime: EatTime) {
+    func addFood(foodName: String, date: Date, eatingTime: EatTime, calorie: Int) {
         
-        guard let today = getCurrentDay(date: date) else { return }
-        
-        switch eatingTime {
-        case .breakfast:
-            if today.breakfast == nil {
-                let breakfast = Breakfast(context: moc)
-                breakfast.food = [foodName]
-                today.breakfast = breakfast
-            } else {
-                today.breakfast?.food?.append(foodName)
+        if let today = getCurrentDay(date: date) {
+            
+            switch eatingTime {
+            case .breakfast:
+                if today.breakfast == nil {
+                    let breakfast = Breakfast(context: moc)
+                    breakfast.food = [foodName]
+                    breakfast.total = Int64(calorie)
+                    today.breakfast = breakfast
+                } else {
+                    today.breakfast?.food?.append(foodName)
+                    today.breakfast?.total = Int64(calorie)
+                }
+            case .lunch:
+                if today.lunch == nil {
+                    let lunch = Lunch(context: moc)
+                    lunch.food = [foodName]
+                    today.lunch = lunch
+                } else {
+                    today.lunch?.food?.append(foodName)
+                    today.lunch?.total = Int64(calorie)
+                }
+            case .dinner:
+                if today.dinner == nil {
+                    let dinner = Dinner(context: moc)
+                    dinner.food = [foodName]
+                    today.dinner = dinner
+                } else {
+                    today.dinner?.food?.append(foodName)
+                    today.dinner?.total = Int64(calorie)
+                }
+            case .snack:
+                if today.snack == nil {
+                    let snack = Snack(context: moc)
+                    snack.food = [foodName]
+                    today.snack = snack
+                } else {
+                    today.snack?.food?.append(foodName)
+                    today.snack?.total = Int64(calorie)
+                }
             }
-        case .lunch:
-            if today.lunch == nil {
-                let lunch = Lunch(context: moc)
-                lunch.food = [foodName]
-                today.lunch = lunch
-            } else {
-                today.lunch?.food?.append(foodName)
-            }
-        case .dinner:
-            if today.dinner == nil {
-                let dinner = Dinner(context: moc)
-                dinner.food = [foodName]
-                today.dinner = dinner
-            } else {
-                today.dinner?.food?.append(foodName)
-            }
-        case .snack:
-            if today.snack == nil {
-                let snack = Snack(context: moc)
-                snack.food = [foodName]
-                today.snack = snack
-            } else {
-                today.snack?.food?.append(foodName)
-            }
+        } else {
+            
+            CoreDataService.shared.createDailyIntake(id: UUID(), fat: 0, calories: 0, sugar: 0, date: Date())
+            CoreDataService.shared.addFood(foodName: foodName, date: date, eatingTime: eatingTime, calorie: calorie)
         }
         
         do {
@@ -120,22 +130,22 @@ class CoreDataService {
         }
     }
     
-//    func deleteHabit(id: UUID) {
-//        let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//        let fetchRequest = NSFetchRequest<Habit>(entityName: HabitConstant.entityName)
-//        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-//
-//        do {
-//            let result = try moc.fetch(fetchRequest)
-//            let dataToDelete = result[0]
-//
-//            moc.delete(dataToDelete)
-//
-//            try moc.save()
-//        } catch let err {
-//            print(err.localizedDescription)
-//        }
-//    }
+    //    func deleteHabit(id: UUID) {
+    //        let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    //        let fetchRequest = NSFetchRequest<Habit>(entityName: HabitConstant.entityName)
+    //        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+    //
+    //        do {
+    //            let result = try moc.fetch(fetchRequest)
+    //            let dataToDelete = result[0]
+    //
+    //            moc.delete(dataToDelete)
+    //
+    //            try moc.save()
+    //        } catch let err {
+    //            print(err.localizedDescription)
+    //        }
+    //    }
     
 }
 

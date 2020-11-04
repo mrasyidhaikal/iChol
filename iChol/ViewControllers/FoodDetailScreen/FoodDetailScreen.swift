@@ -38,6 +38,8 @@ class FoodDetailScreen: UIViewController {
         setupView()
         setupLayout()
         fetchingFood()
+        
+        CoreDataService.shared.createDailyIntake(id: UUID(), fat: 0, calories: 0, sugar: 0, date: Date())
     }
     
     private func setupView() {
@@ -113,6 +115,10 @@ class FoodDetailScreen: UIViewController {
                 print(err.localizedDescription)
             }
         }
+        
+        CoreDataService.shared.addFood(foodName: foodName, date: Date(), eatingTime: .breakfast, calorie: Int(calorieAmount.text ?? "0") ?? 0)
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
     func addDataToHealthKit(sugar:Double,date:Date,type:HKQuantityTypeIdentifier,satuan:HKUnit){
