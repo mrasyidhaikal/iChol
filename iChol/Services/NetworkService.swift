@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FatSecretSwift
 
 enum ServiceError: Error {
     case noResult
