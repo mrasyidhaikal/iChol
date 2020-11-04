@@ -14,9 +14,12 @@ class ProgressBarView: UIView {
     private var progressView: HorizontalProgressView!
     
     func configureView(label: String, left: Int, progress: CGFloat) {
-        nutritionLabel.text = label
-        howMuchLeftLabel.text = "\(left)g left"
-        progressView.progress = progress
+        DispatchQueue.main.async {
+            self.nutritionLabel.text = label
+            self.howMuchLeftLabel.text = "\(left)g left"
+            self.progressView.progress = progress
+        }
+      
     }
     
     override init(frame: CGRect) {

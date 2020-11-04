@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FatSecretSwift
 
 enum ServiceError: Error {
     case noResult
@@ -18,11 +17,13 @@ class NetworkService {
     static let shared = NetworkService()
     
     func searchFood(keyword: String, completion: @escaping (Result<[SearchedFood], Error>) -> Void) {
-        client.searchFood(name: keyword) { (result) in
-            if result.foods.isEmpty {
+        client.searchFood(name: keyword) { result in
+            switch result {
+            case .success(let search):
+                completion(.success(search.foods))
+            case .failure(let error):
                 completion(.failure(ServiceError.noResult))
-            } else {
-                completion(.success(result.foods))
+                print(error.localizedDescription)
             }
         }
     }

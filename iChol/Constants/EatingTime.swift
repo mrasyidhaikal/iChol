@@ -10,3 +10,10 @@ import Foundation
 struct EatingTime {
     static let eatingTime = ["Breakfast", "Lunch", "Dinner", "Snacks"]
 }
+
+enum EatTime: String {
+    case breakfast = "Breakfast"
+    case lunch = "Lunch"
+    case dinner = "Dinner"
+    case snack = "Snack"
+}

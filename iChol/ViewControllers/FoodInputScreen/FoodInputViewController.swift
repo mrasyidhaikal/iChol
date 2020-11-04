@@ -7,7 +7,6 @@
 
 import UIKit
 import Combine
-import FatSecretSwift
 
 class FoodInputViewController: UIViewController {
     
@@ -69,7 +68,7 @@ class FoodInputViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(FoodCell.self, forCellReuseIdentifier: FoodCell.reuseIdentifier)
         tableView.backgroundColor = Color.background
-        tableView.rowHeight = 132
+        tableView.rowHeight = 160
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
         view.addSubview(tableView)

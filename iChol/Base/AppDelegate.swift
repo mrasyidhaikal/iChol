@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FatSecretSwift
 import CoreData
 
 @main

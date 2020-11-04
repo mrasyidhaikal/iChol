@@ -14,6 +14,7 @@ class FoodCell: UITableViewCell {
     private var nameLabel: UILabel!
     private var calorieLabel: UILabel!
     private var fatLabel: UILabel!
+    private var sugarLabel: UILabel!
     private var container: UIView!
     
     func configureCell(foodName: String, description: String) {
@@ -21,10 +22,16 @@ class FoodCell: UITableViewCell {
         
         let components = description.split(separator: "|")
         let calories = components[0]
-        let fat = components[1]
+        var fat = components[1]
+        fat.removeFirst()
+        var sugar = components[3]
+        sugar.removeFirst()
+        
+        print(description)
 
         fatLabel.text = String(fat)
         calorieLabel.text = String(calories)
+        sugarLabel.text = String(sugar)
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -42,6 +49,7 @@ class FoodCell: UITableViewCell {
         calorieLabel.textColor = .black
         
         fatLabel = UILabel()
+        sugarLabel = UILabel()
         
         container = UIView()
         container.backgroundColor = .white
@@ -49,8 +57,6 @@ class FoodCell: UITableViewCell {
         
         addSubview(container)
         container.addSubview(nameLabel)
-        container.addSubview(calorieLabel)
-        container.addSubview(fatLabel)
         
         container.setConstraint(
             topAnchor: topAnchor, topAnchorConstant: 16,
@@ -63,11 +69,11 @@ class FoodCell: UITableViewCell {
             leadingAnchor: container.leadingAnchor, leadingAnchorConstant: 16,
             trailingAnchor: container.trailingAnchor, trailingAnchorConstant: -16)
         
-        let mainStack = UIStackView(arrangedSubviews: [calorieLabel, fatLabel])
+        let mainStack = UIStackView(arrangedSubviews: [calorieLabel, fatLabel, sugarLabel])
         mainStack.spacing = 4
         mainStack.axis = .vertical
         mainStack.alignment = .leading
-        addSubview(mainStack)
+        container.addSubview(mainStack)
 
         mainStack.setConstraint(
             topAnchor: nameLabel.bottomAnchor, topAnchorConstant: 4,
