@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FatSecretSwift
 import HealthKit
 
 class MainViewController: UIViewController {

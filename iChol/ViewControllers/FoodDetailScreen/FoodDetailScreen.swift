@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import Combine
-import FatSecretSwift
 import HealthKit
+
 class FoodDetailScreen: UIViewController {
     
     private var calorieLabel: UILabel!
