@@ -8,6 +8,14 @@
 import CoreData
 import UIKit
 
+struct CoreDataConstant {
+    static let entityName = "DailyIntake"
+    static let date = "date"
+    static let saturatedFat = "saturatedFat"
+    static let sugar = "sugar"
+    static let id = "id"
+}
+
 class CoreDataService {
     
     static let shared = CoreDataService()
@@ -15,7 +23,7 @@ class CoreDataService {
     private let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     func getDailyIntake(completion: @escaping ([DailyIntake]) -> ()) {
-        let fetch = NSFetchRequest<DailyIntake>(entityName: "DailyIntake")
+        let fetch = NSFetchRequest<DailyIntake>(entityName: CoreDataConstant.entityName)
         
         do {
             let result = try moc.fetch(fetch)
@@ -60,8 +68,10 @@ class CoreDataService {
     
     func getCurrentDay(date: Date) -> DailyIntake? {
         
-        let fetchRequest = NSFetchRequest<DailyIntake>(entityName: "DailyIntake")
-        fetchRequest.predicate = NSPredicate(format: "date >= %@ AND date <= %@", date.startOfTheDay() as CVarArg,  date as CVarArg)
+        let fetchRequest = NSFetchRequest<DailyIntake>(entityName: CoreDataConstant.entityName)
+        fetchRequest.predicate = NSPredicate(
+            format: "\(CoreDataConstant.date) >= %@ AND \(CoreDataConstant.date) <= %@",
+            date.startOfTheDay() as CVarArg,  date as CVarArg)
         fetchRequest.fetchLimit = 1
         
         do {
@@ -129,23 +139,6 @@ class CoreDataService {
             print(err.localizedDescription)
         }
     }
-    
-    //    func deleteHabit(id: UUID) {
-    //        let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    //        let fetchRequest = NSFetchRequest<Habit>(entityName: HabitConstant.entityName)
-    //        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-    //
-    //        do {
-    //            let result = try moc.fetch(fetchRequest)
-    //            let dataToDelete = result[0]
-    //
-    //            moc.delete(dataToDelete)
-    //
-    //            try moc.save()
-    //        } catch let err {
-    //            print(err.localizedDescription)
-    //        }
-    //    }
     
 }
 

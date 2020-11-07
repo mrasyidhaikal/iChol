@@ -16,10 +16,6 @@ extension Date {
         return formatter.string(from: self)
     }
     
-    func startDate(of date: Date) -> Date {
-        return Calendar.current.startOfDay(for: date)
-    }
-    
     func startOfTheDay() -> Date {
         return Calendar.current.startOfDay(for: self)
     }
@@ -29,7 +25,7 @@ extension Date {
         components.day = 1
         components.second = -1
         
-        return Calendar.current.date(byAdding: components, to: self.startDate(of: date))!
+        return Calendar.current.date(byAdding: components, to: Date().startOfTheDay())!
     }
     
     func nextDate() -> Date {

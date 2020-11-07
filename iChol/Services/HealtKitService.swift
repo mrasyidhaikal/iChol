@@ -35,7 +35,6 @@ class HealthKitService {
                 print("error")
             } else {
                 print("Success")
-                
             }
         }
         healthStore.requestAuthorization(toShare: healthKitTypesToWrite, read: HealthKitTypesToRead){ (success, error) in
@@ -99,7 +98,7 @@ class HealthKitService {
             return
         }
         
-        let last24hPredicate = HKQuery.predicateForSamples(withStart: Date().startDate(of: Date()), end: Date(), options: .strictEndDate)
+        let last24hPredicate = HKQuery.predicateForSamples(withStart: Date().startOfTheDay(), end: Date(), options: .strictEndDate)
         
         let energyQuery = HKSampleQuery(sampleType: energyType,
                                         predicate: last24hPredicate,
