@@ -254,6 +254,13 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		235193E32558418800F07DB2 /* OnboardingScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OnboardingScreen;
+			sourceTree = "<group>";
+		};
 		239526A7255054F600B00E57 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +363,7 @@
 				233C55D9254FB7A10003252B /* Constants */,
 				260EFD94255100AE009DB0D2 /* Services */,
 				233C55CA254FB29D0003252B /* Extensions */,
+				235193E32558418800F07DB2 /* OnboardingScreen */,
 				233C55DF254FBF240003252B /* ViewControllers */,
 				A2DCF3C9254FA4340088492F /* Assets.xcassets */,
 				A2DCF3CB254FA4340088492F /* LaunchScreen.storyboard */,
