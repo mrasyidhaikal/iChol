@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		230515562552F3160061D519 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230515552552F3160061D519 /* Array+Extensions.swift */; };
+		23255EC82558F2A900D2B8E3 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23255EC72558F2A900D2B8E3 /* CryptoSwift */; };
 		23267754255061E800E01739 /* FoodDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23267753255061E800E01739 /* FoodDetailScreen.swift */; };
 		232A1AC5255007D400374820 /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A1AC4255007D400374820 /* MealCell.swift */; };
 		232A1ACA255007E900374820 /* MealCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A1AC9255007E900374820 /* MealCollectionView.swift */; };
@@ -32,7 +33,6 @@
 		239526A92550550300B00E57 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239526A82550550300B00E57 /* FoodCell.swift */; };
 		23D487AF255259EB003DAED8 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D487AE255259EB003DAED8 /* CoreDataService.swift */; };
 		23EB0D78255039C800A8C899 /* FoodInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB0D77255039C800A8C899 /* FoodInputViewController.swift */; };
-		260EFD7F2550F86B009DB0D2 /* FatSecretSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 260EFD7E2550F86B009DB0D2 /* FatSecretSwift */; };
 		260EFD842550F9A3009DB0D2 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260EFD832550F9A3009DB0D2 /* APIKey.swift */; };
 		260EFD96255100CF009DB0D2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260EFD95255100CF009DB0D2 /* NetworkService.swift */; };
 		26ABEBFC25525CAD00F8BA6F /* FatSecretClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ABEBEE25525CAD00F8BA6F /* FatSecretClient.swift */; };
@@ -115,7 +115,7 @@
 		26ABEBF925525CAD00F8BA6F /* URLComponents+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLComponents+Utils.swift"; sourceTree = "<group>"; };
 		26ABEBFA25525CAD00F8BA6F /* String+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		26ABEBFB25525CAD00F8BA6F /* FatSecretParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatSecretParams.swift; sourceTree = "<group>"; };
-		A2DCF3BA254FA4330088492F /* iChol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChol.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2DCF3BA254FA4330088492F /* Picho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2DCF3BD254FA4330088492F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2DCF3BF254FA4330088492F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A2DCF3C1254FA4330088492F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -123,10 +123,10 @@
 		A2DCF3C9254FA4340088492F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2DCF3CC254FA4340088492F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2DCF3CE254FA4340088492F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A2DCF3D3254FA4350088492F /* iCholTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCholTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2DCF3D3254FA4350088492F /* PichoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PichoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2DCF3D7254FA4350088492F /* iCholTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCholTests.swift; sourceTree = "<group>"; };
 		A2DCF3D9254FA4350088492F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A2DCF3DE254FA4350088492F /* iCholUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCholUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2DCF3DE254FA4350088492F /* PichoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PichoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2DCF3E2254FA4350088492F /* iCholUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCholUITests.swift; sourceTree = "<group>"; };
 		A2DCF3E4254FA4350088492F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2DCF4492550FD6F0088492F /* iChol.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iChol.entitlements; sourceTree = "<group>"; };
@@ -138,8 +138,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				260EFD7F2550F86B009DB0D2 /* FatSecretSwift in Frameworks */,
 				A2DCF44C2550FD6F0088492F /* HealthKit.framework in Frameworks */,
+				23255EC82558F2A900D2B8E3 /* CryptoSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,9 +353,9 @@
 		A2DCF3BB254FA4330088492F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A2DCF3BA254FA4330088492F /* iChol.app */,
-				A2DCF3D3254FA4350088492F /* iCholTests.xctest */,
-				A2DCF3DE254FA4350088492F /* iCholUITests.xctest */,
+				A2DCF3BA254FA4330088492F /* Picho.app */,
+				A2DCF3D3254FA4350088492F /* PichoTests.xctest */,
+				A2DCF3DE254FA4350088492F /* PichoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -408,9 +408,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A2DCF3B9254FA4330088492F /* iChol */ = {
+		A2DCF3B9254FA4330088492F /* Picho */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A2DCF3E7254FA4350088492F /* Build configuration list for PBXNativeTarget "iChol" */;
+			buildConfigurationList = A2DCF3E7254FA4350088492F /* Build configuration list for PBXNativeTarget "Picho" */;
 			buildPhases = (
 				A2DCF3B6254FA4330088492F /* Sources */,
 				A2DCF3B7254FA4330088492F /* Frameworks */,
@@ -420,17 +420,17 @@
 			);
 			dependencies = (
 			);
-			name = iChol;
+			name = Picho;
 			packageProductDependencies = (
-				260EFD7E2550F86B009DB0D2 /* FatSecretSwift */,
+				23255EC72558F2A900D2B8E3 /* CryptoSwift */,
 			);
 			productName = iChol;
-			productReference = A2DCF3BA254FA4330088492F /* iChol.app */;
+			productReference = A2DCF3BA254FA4330088492F /* Picho.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A2DCF3D2254FA4350088492F /* iCholTests */ = {
+		A2DCF3D2254FA4350088492F /* PichoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A2DCF3EA254FA4350088492F /* Build configuration list for PBXNativeTarget "iCholTests" */;
+			buildConfigurationList = A2DCF3EA254FA4350088492F /* Build configuration list for PBXNativeTarget "PichoTests" */;
 			buildPhases = (
 				A2DCF3CF254FA4350088492F /* Sources */,
 				A2DCF3D0254FA4350088492F /* Frameworks */,
@@ -441,14 +441,14 @@
 			dependencies = (
 				A2DCF3D5254FA4350088492F /* PBXTargetDependency */,
 			);
-			name = iCholTests;
+			name = PichoTests;
 			productName = iCholTests;
-			productReference = A2DCF3D3254FA4350088492F /* iCholTests.xctest */;
+			productReference = A2DCF3D3254FA4350088492F /* PichoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A2DCF3DD254FA4350088492F /* iCholUITests */ = {
+		A2DCF3DD254FA4350088492F /* PichoUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A2DCF3ED254FA4350088492F /* Build configuration list for PBXNativeTarget "iCholUITests" */;
+			buildConfigurationList = A2DCF3ED254FA4350088492F /* Build configuration list for PBXNativeTarget "PichoUITests" */;
 			buildPhases = (
 				A2DCF3DA254FA4350088492F /* Sources */,
 				A2DCF3DB254FA4350088492F /* Frameworks */,
@@ -459,9 +459,9 @@
 			dependencies = (
 				A2DCF3E0254FA4350088492F /* PBXTargetDependency */,
 			);
-			name = iCholUITests;
+			name = PichoUITests;
 			productName = iCholUITests;
-			productReference = A2DCF3DE254FA4350088492F /* iCholUITests.xctest */;
+			productReference = A2DCF3DE254FA4350088492F /* PichoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -486,7 +486,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A2DCF3B5254FA4330088492F /* Build configuration list for PBXProject "iChol" */;
+			buildConfigurationList = A2DCF3B5254FA4330088492F /* Build configuration list for PBXProject "Picho" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -497,14 +497,15 @@
 			mainGroup = A2DCF3B1254FA4330088492F;
 			packageReferences = (
 				260EFD7D2550F86B009DB0D2 /* XCRemoteSwiftPackageReference "FatSecretSwift" */,
+				23255EC62558F2A900D2B8E3 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
 			);
 			productRefGroup = A2DCF3BB254FA4330088492F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A2DCF3B9254FA4330088492F /* iChol */,
-				A2DCF3D2254FA4350088492F /* iCholTests */,
-				A2DCF3DD254FA4350088492F /* iCholUITests */,
+				A2DCF3B9254FA4330088492F /* Picho */,
+				A2DCF3D2254FA4350088492F /* PichoTests */,
+				A2DCF3DD254FA4350088492F /* PichoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -607,12 +608,12 @@
 /* Begin PBXTargetDependency section */
 		A2DCF3D5254FA4350088492F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A2DCF3B9254FA4330088492F /* iChol */;
+			target = A2DCF3B9254FA4330088492F /* Picho */;
 			targetProxy = A2DCF3D4254FA4350088492F /* PBXContainerItemProxy */;
 		};
 		A2DCF3E0254FA4350088492F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A2DCF3B9254FA4330088492F /* iChol */;
+			target = A2DCF3B9254FA4330088492F /* Picho */;
 			targetProxy = A2DCF3DF254FA4350088492F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -759,7 +760,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.protagonist.haikal.iChol;
+				PRODUCT_BUNDLE_IDENTIFIER = com.protagonist.Picho;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -780,7 +781,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.protagonist.haikal.iChol;
+				PRODUCT_BUNDLE_IDENTIFIER = com.protagonist.Picho;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -805,7 +806,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iChol.app/iChol";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Picho.app/Picho";
 			};
 			name = Debug;
 		};
@@ -827,7 +828,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iChol.app/iChol";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Picho.app/Picho";
 			};
 			name = Release;
 		};
@@ -874,7 +875,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A2DCF3B5254FA4330088492F /* Build configuration list for PBXProject "iChol" */ = {
+		A2DCF3B5254FA4330088492F /* Build configuration list for PBXProject "Picho" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A2DCF3E5254FA4350088492F /* Debug */,
@@ -883,7 +884,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A2DCF3E7254FA4350088492F /* Build configuration list for PBXNativeTarget "iChol" */ = {
+		A2DCF3E7254FA4350088492F /* Build configuration list for PBXNativeTarget "Picho" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A2DCF3E8254FA4350088492F /* Debug */,
@@ -892,7 +893,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A2DCF3EA254FA4350088492F /* Build configuration list for PBXNativeTarget "iCholTests" */ = {
+		A2DCF3EA254FA4350088492F /* Build configuration list for PBXNativeTarget "PichoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A2DCF3EB254FA4350088492F /* Debug */,
@@ -901,7 +902,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A2DCF3ED254FA4350088492F /* Build configuration list for PBXNativeTarget "iCholUITests" */ = {
+		A2DCF3ED254FA4350088492F /* Build configuration list for PBXNativeTarget "PichoUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A2DCF3EE254FA4350088492F /* Debug */,
@@ -913,6 +914,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		23255EC62558F2A900D2B8E3 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.2;
+			};
+		};
 		260EFD7D2550F86B009DB0D2 /* XCRemoteSwiftPackageReference "FatSecretSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/NicholasBellucci/FatSecretSwift.git";
@@ -924,10 +933,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		260EFD7E2550F86B009DB0D2 /* FatSecretSwift */ = {
+		23255EC72558F2A900D2B8E3 /* CryptoSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 260EFD7D2550F86B009DB0D2 /* XCRemoteSwiftPackageReference "FatSecretSwift" */;
-			productName = FatSecretSwift;
+			package = 23255EC62558F2A900D2B8E3 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 

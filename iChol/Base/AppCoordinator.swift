@@ -51,7 +51,7 @@ class AppCoordinator {
         
         historyViewController = UINavigationController(rootViewController: HistoryViewController())
         historyViewController.tabBarItem = UITabBarItem(
-            title: "History",
+            title: "Progress",
             image: UIImage(named: "history"), tag: 1)
     }
     
