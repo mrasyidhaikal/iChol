@@ -32,6 +32,7 @@
 		236DF48D2550352F008E736F /* EatingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236DF48C2550352F008E736F /* EatingTime.swift */; };
 		239526A92550550300B00E57 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239526A82550550300B00E57 /* FoodCell.swift */; };
 		23D487AF255259EB003DAED8 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D487AE255259EB003DAED8 /* CoreDataService.swift */; };
+		23EAB24325598B19004BA11E /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAB24225598B19004BA11E /* UILabel+Extensions.swift */; };
 		23EB0D78255039C800A8C899 /* FoodInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB0D77255039C800A8C899 /* FoodInputViewController.swift */; };
 		260EFD842550F9A3009DB0D2 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260EFD832550F9A3009DB0D2 /* APIKey.swift */; };
 		260EFD96255100CF009DB0D2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260EFD95255100CF009DB0D2 /* NetworkService.swift */; };
@@ -100,6 +101,7 @@
 		236DF48C2550352F008E736F /* EatingTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatingTime.swift; sourceTree = "<group>"; };
 		239526A82550550300B00E57 /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
 		23D487AE255259EB003DAED8 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		23EAB24225598B19004BA11E /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		23EB0D77255039C800A8C899 /* FoodInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInputViewController.swift; sourceTree = "<group>"; };
 		260EFD832550F9A3009DB0D2 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		260EFD95255100CF009DB0D2 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				233C55D1254FB3160003252B /* UIView+Extensions.swift */,
 				233C55F1254FC59D0003252B /* Date+Extensions.swift */,
 				230515552552F3160061D519 /* Array+Extensions.swift */,
+				23EAB24225598B19004BA11E /* UILabel+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				26ABEBFC25525CAD00F8BA6F /* FatSecretClient.swift in Sources */,
 				232A1AE62550141B00374820 /* CircularProgressView.swift in Sources */,
 				26ABEC0125525CAD00F8BA6F /* Search.swift in Sources */,
+				23EAB24325598B19004BA11E /* UILabel+Extensions.swift in Sources */,
 				23D487AF255259EB003DAED8 /* CoreDataService.swift in Sources */,
 				23267754255061E800E01739 /* FoodDetailScreen.swift in Sources */,
 				26ABEC0025525CAD00F8BA6F /* Food.swift in Sources */,
