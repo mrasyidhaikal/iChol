@@ -40,6 +40,7 @@ class MealCellView: UIView {
         addSubview(totalCalorieLabel)
         addSubview(button)
         
+        layer.cornerRadius = 16
         backgroundColor = .white
         
         iconView.image = UIImage(named: iconImage)
@@ -52,10 +53,15 @@ class MealCellView: UIView {
         
         button.tintColor = Color.green
         button.setAttributedTitle(NSAttributedString.bodyFont(text: buttonText), for: .normal)
+        button.addTarget(self, action: #selector(handleTap(sender:)), for: .touchUpInside)
         
         totalCalorieLabel.setFont(text: "322 cal", size: 17, weight: .bold)
         
         setupLayout()
+    }
+    
+    @objc func handleTap(sender: UIButton) {
+        print(sender.titleLabel?.text)
     }
     
     private func setupLayout() {

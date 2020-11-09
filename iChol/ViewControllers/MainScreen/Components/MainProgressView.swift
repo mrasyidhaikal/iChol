@@ -24,8 +24,7 @@ class MainProgressView: UIView {
     private let totalCalorieLabel: UILabel
     let calorieProgress: CircularProgressView
     
-    override init(frame: CGRect) {
-                
+    override init(frame: CGRect) {   
         calorieLabel = UILabel()
         totalCalorieLabel = UILabel()
         calorieProgress = CircularProgressView()

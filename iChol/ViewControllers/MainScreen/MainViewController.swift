@@ -31,7 +31,6 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        hideNavBar()
         setupScrollView()
         setupMainProgress()
         setupPichoCard()
@@ -82,8 +81,8 @@ class MainViewController: UIViewController {
     private func setupActivity() {
         waterView = HorizontalView(
             labelText: "Water",
-            detailText: "💧 8 cup remaining",
-            iconImage: UIImage(systemName: "flame")!,
+            detailText: "💧 8 cups remaining",
+            iconImage: UIImage(),
             background: Color.blue)
         waterView.setConstraint(heighAnchorConstant: 46)
         
@@ -113,14 +112,6 @@ class MainViewController: UIViewController {
             bottomAnchor: scrollView.bottomAnchor, bottomAnchorConstant: -16,
             leadingAnchor: view.layoutMarginsGuide.leadingAnchor,
             trailingAnchor: view.layoutMarginsGuide.trailingAnchor)
-    }
-    
-    private func hideNavBar() {
-        let app = UINavigationBarAppearance()
-        app.configureWithTransparentBackground()
-        self.navigationController?.navigationBar.standardAppearance = app
-        self.navigationController?.navigationBar.scrollEdgeAppearance = app
-        self.navigationController?.navigationBar.compactAppearance = app
     }
     
 }

@@ -42,6 +42,8 @@ class AppCoordinator {
     
     private func setupHomeVC() {
         mainViewController = UINavigationController(rootViewController: MainViewController())
+        mainViewController.navigationBar.barTintColor = Color.background
+        mainViewController.navigationBar.shadowImage = UIImage()
         mainViewController.tabBarItem = UITabBarItem(
             title: "Journal",
             image: UIImage(named: "journal"), tag: 0)
