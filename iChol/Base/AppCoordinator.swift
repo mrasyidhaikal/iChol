@@ -59,7 +59,7 @@ class AppCoordinator {
         profileViewController = UINavigationController(rootViewController: ProfileViewController())
         profileViewController.tabBarItem = UITabBarItem(
             title: "Profile",
-            image: UIImage(named: "profile"), tag: 2)
+            image: UIImage(named: "Profile"), tag: 2)
     }
     
 }
