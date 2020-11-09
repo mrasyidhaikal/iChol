@@ -11,60 +11,61 @@ import HealthKit
 class MainViewController: UIViewController {
     
     private var scrollView: UIScrollView!
-    private var progressView: TopProgressView!
-    private var mealTodayView: MealTodayView!
+    
+    private var mainProgressView: MainProgressView!
+    private var pichoCardView: PichoCardView!
+    
+    private var waterView: HorizontalView!
+    private var activityView: HorizontalView!
+    private var activityStack: UIStackView!
+    
+    private var mealTodayView: MealsTodayView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        HealthKitService.fetchCalorie { (totalCalorie) in
-            self.progressView.totalCalorie = totalCalorie
-            self.progressView.progress.calorieProgress.animate()
-            
-        }
-        HealthKitService.fetchSugar { (totalSugar) in
-            self.progressView.totalSugar = totalSugar
-        }
-        HealthKitService.fetchSaturatedFat { (saturatedFat) in
-            self.progressView.totalFat = saturatedFat
-        }
-        
-        DispatchQueue.main.async {
-            self.progressView.configureView()
-        }
-        
+        mainProgressView.calorieProgress.animate()
+        mainProgressView.sugarProgress.animate()
+        mainProgressView.satFatProgress.animate()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setNavBar()
+        hideNavBar()
         setupScrollView()
-        setupLayout()
+        setupMainProgress()
+        setupPichoCard()
+        setupActivity()
+        setupMealTodayView()
     }
     
-    private func setupLayout() {
-        progressView = TopProgressView()
-        mealTodayView = MealTodayView(frame: .zero, rootView: self)
+    private func setupMainProgress() {
+        mainProgressView = MainProgressView()
+        scrollView.addSubview(mainProgressView)
         
-        let mainStack = UIStackView(arrangedSubviews: [progressView, mealTodayView])
-        mainStack.axis = .vertical
-        mainStack.spacing = 56
-        mainStack.backgroundColor = Color.background
-        scrollView.addSubview(mainStack)
-        
-        mainStack.setConstraint(
+        mainProgressView.setConstraint(
             topAnchor: scrollView.topAnchor,
-            bottomAnchor: scrollView.bottomAnchor,
-            leadingAnchor: scrollView.safeAreaLayoutGuide.leadingAnchor,
-            trailingAnchor: scrollView.safeAreaLayoutGuide.trailingAnchor)
+            leadingAnchor: view.layoutMarginsGuide.leadingAnchor,
+            trailingAnchor: view.layoutMarginsGuide.trailingAnchor,
+            heighAnchorConstant: 206)
     }
     
-    private func setNavBar() {
-        title = "Today"
-        navigationController?.navigationBar.prefersLargeTitles = true
+    private func setupPichoCard() {
+        pichoCardView = PichoCardView(
+            mascot: "mascot_sad",
+            title: "You haven't started!",
+            detail: "Start by logging in what you eat today",
+            buttonText: "Log Breakfast",
+            rootView: self)
+        scrollView.addSubview(pichoCardView)
+        
+        pichoCardView.setConstraint(
+            topAnchor: mainProgressView.bottomAnchor, topAnchorConstant: 24,
+            leadingAnchor: view.layoutMarginsGuide.leadingAnchor,
+            trailingAnchor: view.layoutMarginsGuide.trailingAnchor,
+            heighAnchorConstant: 130)
     }
-
+    
     private func setupScrollView() {
         scrollView = UIScrollView()
         scrollView.backgroundColor = Color.background
@@ -73,9 +74,54 @@ class MainViewController: UIViewController {
         
         scrollView.setConstraint(
             topAnchor: view.safeAreaLayoutGuide.topAnchor,
-            bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, bottomAnchorConstant: -16,
+            bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor,
             leadingAnchor: view.layoutMarginsGuide.leadingAnchor,
             trailingAnchor: view.layoutMarginsGuide.trailingAnchor)
     }
-
+    
+    private func setupActivity() {
+        waterView = HorizontalView(
+            labelText: "Water",
+            detailText: "💧 8 cup remaining",
+            iconImage: UIImage(systemName: "flame")!,
+            background: Color.blue)
+        waterView.setConstraint(heighAnchorConstant: 46)
+        
+        activityView = HorizontalView(
+            labelText: "Activity",
+            detailText: "🔥 300cal",
+            iconImage: UIImage(),
+            background: Color.red)
+        activityView.setConstraint(heighAnchorConstant: 46)
+        
+        activityStack = UIStackView(arrangedSubviews: [waterView, activityView])
+        activityStack.spacing = 16
+        activityStack.axis = .vertical
+        view.addSubview(activityStack)
+        activityStack.setConstraint(
+            topAnchor: pichoCardView.bottomAnchor, topAnchorConstant: 16,
+            leadingAnchor: view.layoutMarginsGuide.leadingAnchor,
+            trailingAnchor: view.layoutMarginsGuide.trailingAnchor)
+    }
+    
+    private func setupMealTodayView() {
+        mealTodayView = MealsTodayView()
+        scrollView.addSubview(mealTodayView)
+        
+        mealTodayView.setConstraint(
+            topAnchor: activityStack.bottomAnchor, topAnchorConstant: 24,
+            bottomAnchor: scrollView.bottomAnchor, bottomAnchorConstant: -16,
+            leadingAnchor: view.layoutMarginsGuide.leadingAnchor,
+            trailingAnchor: view.layoutMarginsGuide.trailingAnchor)
+    }
+    
+    private func hideNavBar() {
+        let app = UINavigationBarAppearance()
+        app.configureWithTransparentBackground()
+        self.navigationController?.navigationBar.standardAppearance = app
+        self.navigationController?.navigationBar.scrollEdgeAppearance = app
+        self.navigationController?.navigationBar.compactAppearance = app
+    }
+    
 }
+
