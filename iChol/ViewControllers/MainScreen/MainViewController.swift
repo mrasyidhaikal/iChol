@@ -37,7 +37,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        checkUser()
         setNavBar()
         setupScrollView()
         setupLayout()
@@ -59,6 +59,14 @@ class MainViewController: UIViewController {
             leadingAnchor: scrollView.safeAreaLayoutGuide.leadingAnchor,
             trailingAnchor: scrollView.safeAreaLayoutGuide.trailingAnchor)
     }
+    private func checkUser(){
+        if Core.shared.isNewUser(){
+            //show onboarding
+            let vc = PageControlDescription()
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+        }
+    }
     
     private func setNavBar() {
         title = "Today"
@@ -78,4 +86,15 @@ class MainViewController: UIViewController {
             trailingAnchor: view.layoutMarginsGuide.trailingAnchor)
     }
 
+}
+
+class Core{
+    static let shared = Core()
+    
+    func isNewUser() ->Bool {
+        return !UserDefaults.standard.bool(forKey: "isNewUser")
+    }
+    func setIsNotUser(){
+        UserDefaults.standard.set(true, forKey: "isNewUser")
+    }
 }
