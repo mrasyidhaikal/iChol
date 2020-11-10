@@ -12,6 +12,7 @@ class ProfileViewModel {
     var fullName: [String] = []
     var secondSection: [String] = []
     var isSync: Bool = false
+    var imageProfile: String = ""
     
     let secondSectionLabel = ["Gender", "Age", "Height", "Weight"]
     let thirdSectionLabel = ["Sync to HealthKit", "Notifications"]

@@ -104,7 +104,7 @@ class MainViewController: UIViewController {
     }
     
     private func setupMealTodayView() {
-        mealTodayView = MealsTodayView()
+        mealTodayView = MealsTodayView(rootView: self)
         scrollView.addSubview(mealTodayView)
         
         mealTodayView.setConstraint(

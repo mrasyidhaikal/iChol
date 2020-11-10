@@ -263,8 +263,8 @@
 		23EAB24A25598B85004BA11E /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
-				232A1AD32550121200374820 /* PichoCardView.swift */,
 				232A1AE52550141B00374820 /* CircularProgressView.swift */,
+				232A1AD32550121200374820 /* PichoCardView.swift */,
 				23EAB24E25598BBF004BA11E /* SmallCircularProgressView.swift */,
 				23EAB26F25599866004BA11E /* MealCellView.swift */,
 			);

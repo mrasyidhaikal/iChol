@@ -10,15 +10,17 @@ import UIKit
 class MealsTodayView: UIView {
     
     private let title: UILabel
+    private let rootView: UIViewController
     
     var breakFastCard: MealCellView!
     var lunchCard: MealCellView!
     var dinnerCard: MealCellView!
     var snackCard: MealCellView!
     
-    override init(frame: CGRect) {
+    init(frame: CGRect = .zero, rootView: UIViewController) {
         
         title = UILabel()
+        self.rootView = rootView
         
         super.init(frame: frame)
         
@@ -27,20 +29,55 @@ class MealsTodayView: UIView {
     }
     
     private func setupView() {
-      
+        
+        let tapBreakfast = UITapGestureRecognizer(target: self, action: #selector(handleBreakfast(sender:)))
+        let tapLunch = UITapGestureRecognizer(target: self, action: #selector(handleLunch(sender:)))
+        let tapDinner = UITapGestureRecognizer(target: self, action: #selector(handleDinner(sender:)))
+        let tapSnack = UITapGestureRecognizer(target: self, action: #selector(handleDinner(sender:)))
+        
         title.setFont(text: "Meals Today", size: 22, weight: .bold)
         
         breakFastCard = MealCellView(iconImage: "breakfast", title: "Breakfast", buttonText: "Add Breakfast")
+        breakFastCard.addGestureRecognizer(tapBreakfast)
         
         lunchCard = MealCellView(iconImage: "lunch", title: "Lunch", buttonText: "Add Lunch")
+        lunchCard.addGestureRecognizer(tapLunch)
+        
         dinnerCard = MealCellView(iconImage: "dinner", title: "Dinner", buttonText: "Add Dinner")
+        dinnerCard.addGestureRecognizer(tapDinner)
+        
         snackCard = MealCellView(iconImage: "lunch", title: "Snacks", buttonText: "Add Snacks")
+        snackCard.addGestureRecognizer(tapSnack)
         
         addSubview(title)
         addSubview(breakFastCard)
         addSubview(lunchCard)
         addSubview(dinnerCard)
         addSubview(snackCard)
+    }
+    
+    @objc private func handleBreakfast(sender: UITapGestureRecognizer) {
+        let vc = FoodInputViewController()
+        vc.timeLabel = "Breakfast"
+        rootView.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc private func handleLunch(sender: UITapGestureRecognizer) {
+        let vc = FoodInputViewController()
+        vc.timeLabel = "Lunch"
+        rootView.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc private func handleDinner(sender: UITapGestureRecognizer) {
+        let vc = FoodInputViewController()
+        vc.timeLabel = "Dinner"
+        rootView.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc private func handleSnacks(sender: UITapGestureRecognizer) {
+        let vc = FoodInputViewController()
+        vc.timeLabel = "Lunch"
+        rootView.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func setupLayout() {

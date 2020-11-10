@@ -9,6 +9,8 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    private var imageProfile: UIImageView!
+    private var editButton: UIButton!
     private var tableView: UITableView!
     
     let viewModel = ProfileViewModel()
@@ -16,7 +18,23 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupView()
         setupTableView()
+    }
+    
+    private func setupView() {
+        imageProfile = UIImageView()
+        imageProfile.image = UIImage(named: viewModel.imageProfile)
+        imageProfile.layer.borderWidth = 5
+        imageProfile.layer.borderColor = Color.green.cgColor
+        view.addSubview(imageProfile)
+        
+        imageProfile.setConstraint(
+            topAnchor: view.safeAreaLayoutGuide.topAnchor, topAnchorConstant: 32,
+            centerXAnchor: view.centerXAnchor,
+            heighAnchorConstant: 110, widthAnchorConstant: 110)
+        
+        editButton = UIButton()
     }
     
     private func setupTableView() {
@@ -33,6 +51,10 @@ class ProfileViewController: UIViewController {
             bottomAnchor: safeArea.bottomAnchor, bottomAnchorConstant: 0,
             leadingAnchor: safeArea.leadingAnchor, leadingAnchorConstant: 0,
             trailingAnchor: safeArea.trailingAnchor, trailingAnchorConstant: 0)
+    }
+    
+    @objc private func handleSwitch(sender: UISwitch) {
+        viewModel.handleSwitch(value: sender.isOn)
     }
     
 }
@@ -81,10 +103,6 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
-    @objc private func handleSwitch(sender: UISwitch) {
-        viewModel.handleSwitch(value: sender.isOn)
-    }
-    
+     
 }
 
