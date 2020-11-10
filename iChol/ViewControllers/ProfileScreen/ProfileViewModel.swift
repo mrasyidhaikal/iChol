@@ -23,6 +23,10 @@ class ProfileViewModel {
     
     func handleSwitch(value: Bool) {
         isSync.toggle()
+        
+        if value {
+            HealthKitService.authorization()
+        }
     }
     
     private func fetchUserDefault() {

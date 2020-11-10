@@ -24,7 +24,7 @@
 		233C55F7254FC5C60003252B /* MainProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233C55F6254FC5C60003252B /* MainProgressView.swift */; };
 		235193DF25583FDA00F07DB2 /* UserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235193DE25583FDA00F07DB2 /* UserDefaultService.swift */; };
 		235193E825584FED00F07DB2 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235193E725584FED00F07DB2 /* ProfileViewModel.swift */; };
-		235193ED25584FFC00F07DB2 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235193EC25584FFC00F07DB2 /* ProfileCell.swift */; };
+		235193ED25584FFC00F07DB2 /* Value1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235193EC25584FFC00F07DB2 /* Value1Cell.swift */; };
 		236DF48D2550352F008E736F /* EatingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236DF48C2550352F008E736F /* EatingTime.swift */; };
 		239526A92550550300B00E57 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239526A82550550300B00E57 /* FoodCell.swift */; };
 		23D487AF255259EB003DAED8 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D487AE255259EB003DAED8 /* CoreDataService.swift */; };
@@ -34,6 +34,7 @@
 		23EAB26B2559969C004BA11E /* NSAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAB26A2559969C004BA11E /* NSAttributedString+Extensions.swift */; };
 		23EAB27025599866004BA11E /* MealCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAB26F25599866004BA11E /* MealCellView.swift */; };
 		23EB0D78255039C800A8C899 /* FoodInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB0D77255039C800A8C899 /* FoodInputViewController.swift */; };
+		23FA735F255A47B200BA9664 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FA735E255A47B200BA9664 /* NotificationViewController.swift */; };
 		260EFD842550F9A3009DB0D2 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260EFD832550F9A3009DB0D2 /* APIKey.swift */; };
 		260EFD96255100CF009DB0D2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260EFD95255100CF009DB0D2 /* NetworkService.swift */; };
 		26ABEBFC25525CAD00F8BA6F /* FatSecretClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ABEBEE25525CAD00F8BA6F /* FatSecretClient.swift */; };
@@ -93,7 +94,7 @@
 		233C55F6254FC5C60003252B /* MainProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProgressView.swift; sourceTree = "<group>"; };
 		235193DE25583FDA00F07DB2 /* UserDefaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultService.swift; sourceTree = "<group>"; };
 		235193E725584FED00F07DB2 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		235193EC25584FFC00F07DB2 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		235193EC25584FFC00F07DB2 /* Value1Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value1Cell.swift; sourceTree = "<group>"; };
 		236DF48C2550352F008E736F /* EatingTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatingTime.swift; sourceTree = "<group>"; };
 		239526A82550550300B00E57 /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
 		23D487AE255259EB003DAED8 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
@@ -103,6 +104,7 @@
 		23EAB26A2559969C004BA11E /* NSAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		23EAB26F25599866004BA11E /* MealCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCellView.swift; sourceTree = "<group>"; };
 		23EB0D77255039C800A8C899 /* FoodInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInputViewController.swift; sourceTree = "<group>"; };
+		23FA735E255A47B200BA9664 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		260EFD832550F9A3009DB0D2 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		260EFD95255100CF009DB0D2 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		26ABEBEE25525CAD00F8BA6F /* FatSecretClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatSecretClient.swift; sourceTree = "<group>"; };
@@ -206,7 +208,7 @@
 			children = (
 				235193E725584FED00F07DB2 /* ProfileViewModel.swift */,
 				233BCA912556BB4B00C4DD7E /* ProfileViewController.swift */,
-				235193EC25584FFC00F07DB2 /* ProfileCell.swift */,
+				23FA735A255A42DC00BA9664 /* ReusableViews */,
 			);
 			path = ProfileScreen;
 			sourceTree = "<group>";
@@ -278,6 +280,22 @@
 				239526A7255054F600B00E57 /* Cells */,
 			);
 			path = FoodInputScreen;
+			sourceTree = "<group>";
+		};
+		23FA735A255A42DC00BA9664 /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				235193EC25584FFC00F07DB2 /* Value1Cell.swift */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		23FA7363255A47B700BA9664 /* NotificationScreen */ = {
+			isa = PBXGroup;
+			children = (
+				23FA735E255A47B200BA9664 /* NotificationViewController.swift */,
+			);
+			path = NotificationScreen;
 			sourceTree = "<group>";
 		};
 		260EFD94255100AE009DB0D2 /* Services */ = {
@@ -366,6 +384,7 @@
 				260EFD94255100AE009DB0D2 /* Services */,
 				233C55CA254FB29D0003252B /* Extensions */,
 				233C55DF254FBF240003252B /* ViewControllers */,
+				23FA7363255A47B700BA9664 /* NotificationScreen */,
 				A2DCF3C9254FA4340088492F /* Assets.xcassets */,
 				A2DCF3CB254FA4340088492F /* LaunchScreen.storyboard */,
 				A2DCF3CE254FA4340088492F /* Info.plist */,
@@ -537,10 +556,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2DCF3C2254FA4330088492F /* MainViewController.swift in Sources */,
-				235193ED25584FFC00F07DB2 /* ProfileCell.swift in Sources */,
+				235193ED25584FFC00F07DB2 /* Value1Cell.swift in Sources */,
 				A2DCF3C8254FA4330088492F /* iChol.xcdatamodeld in Sources */,
 				26ABEC0225525CAD00F8BA6F /* FatSecretCredentials.swift in Sources */,
 				26ABEC0525525CAD00F8BA6F /* URLComponents+Utils.swift in Sources */,
+				23FA735F255A47B200BA9664 /* NotificationViewController.swift in Sources */,
 				235193E825584FED00F07DB2 /* ProfileViewModel.swift in Sources */,
 				260EFD96255100CF009DB0D2 /* NetworkService.swift in Sources */,
 				26ABEC0425525CAD00F8BA6F /* Array+Utils.swift in Sources */,
