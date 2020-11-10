@@ -10,11 +10,8 @@
 		230515562552F3160061D519 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230515552552F3160061D519 /* Array+Extensions.swift */; };
 		23255EC82558F2A900D2B8E3 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23255EC72558F2A900D2B8E3 /* CryptoSwift */; };
 		23267754255061E800E01739 /* FoodDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23267753255061E800E01739 /* FoodDetailScreen.swift */; };
-		232A1AC5255007D400374820 /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A1AC4255007D400374820 /* MealCell.swift */; };
-		232A1ACA255007E900374820 /* MealCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A1AC9255007E900374820 /* MealCollectionView.swift */; };
-		232A1ACF255011ED00374820 /* HorizontalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A1ACE255011ED00374820 /* HorizontalProgressView.swift */; };
-		232A1AD42550121200374820 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A1AD32550121200374820 /* ProgressBarView.swift */; };
-		232A1ADC2550124F00374820 /* ProgressContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A1ADB2550124F00374820 /* ProgressContainerView.swift */; };
+		232A1AD42550121200374820 /* PichoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A1AD32550121200374820 /* PichoCardView.swift */; };
+		232A1ADC2550124F00374820 /* HorizontalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A1ADB2550124F00374820 /* HorizontalView.swift */; };
 		232A1AE62550141B00374820 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A1AE52550141B00374820 /* CircularProgressView.swift */; };
 		233AF4D12552B07C0034A3A3 /* HorizontalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233AF4D02552B07C0034A3A3 /* HorizontalRow.swift */; };
 		233AF4D62552B0C50034A3A3 /* HealtKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233AF4D52552B0C50034A3A3 /* HealtKitService.swift */; };
@@ -24,16 +21,20 @@
 		233C55D2254FB3160003252B /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233C55D1254FB3160003252B /* UIView+Extensions.swift */; };
 		233C55DB254FB7AF0003252B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233C55DA254FB7AF0003252B /* Color.swift */; };
 		233C55F2254FC59D0003252B /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233C55F1254FC59D0003252B /* Date+Extensions.swift */; };
-		233C55F7254FC5C60003252B /* TopProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233C55F6254FC5C60003252B /* TopProgressView.swift */; };
-		233C560B254FCBCA0003252B /* MealTodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233C560A254FCBCA0003252B /* MealTodayView.swift */; };
+		233C55F7254FC5C60003252B /* MainProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233C55F6254FC5C60003252B /* MainProgressView.swift */; };
 		235193DF25583FDA00F07DB2 /* UserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235193DE25583FDA00F07DB2 /* UserDefaultService.swift */; };
 		235193E825584FED00F07DB2 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235193E725584FED00F07DB2 /* ProfileViewModel.swift */; };
-		235193ED25584FFC00F07DB2 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235193EC25584FFC00F07DB2 /* ProfileCell.swift */; };
+		235193ED25584FFC00F07DB2 /* Value1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235193EC25584FFC00F07DB2 /* Value1Cell.swift */; };
 		236DF48D2550352F008E736F /* EatingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236DF48C2550352F008E736F /* EatingTime.swift */; };
 		239526A92550550300B00E57 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239526A82550550300B00E57 /* FoodCell.swift */; };
 		23D487AF255259EB003DAED8 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D487AE255259EB003DAED8 /* CoreDataService.swift */; };
 		23EAB24325598B19004BA11E /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAB24225598B19004BA11E /* UILabel+Extensions.swift */; };
+		23EAB24F25598BBF004BA11E /* SmallCircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAB24E25598BBF004BA11E /* SmallCircularProgressView.swift */; };
+		23EAB26325598EEB004BA11E /* MealsTodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAB26225598EEB004BA11E /* MealsTodayView.swift */; };
+		23EAB26B2559969C004BA11E /* NSAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAB26A2559969C004BA11E /* NSAttributedString+Extensions.swift */; };
+		23EAB27025599866004BA11E /* MealCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAB26F25599866004BA11E /* MealCellView.swift */; };
 		23EB0D78255039C800A8C899 /* FoodInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB0D77255039C800A8C899 /* FoodInputViewController.swift */; };
+		23FA735F255A47B200BA9664 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FA735E255A47B200BA9664 /* NotificationViewController.swift */; };
 		260EFD842550F9A3009DB0D2 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260EFD832550F9A3009DB0D2 /* APIKey.swift */; };
 		260EFD96255100CF009DB0D2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260EFD95255100CF009DB0D2 /* NetworkService.swift */; };
 		26ABEBFC25525CAD00F8BA6F /* FatSecretClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ABEBEE25525CAD00F8BA6F /* FatSecretClient.swift */; };
@@ -79,11 +80,8 @@
 /* Begin PBXFileReference section */
 		230515552552F3160061D519 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		23267753255061E800E01739 /* FoodDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailScreen.swift; sourceTree = "<group>"; };
-		232A1AC4255007D400374820 /* MealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCell.swift; sourceTree = "<group>"; };
-		232A1AC9255007E900374820 /* MealCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCollectionView.swift; sourceTree = "<group>"; };
-		232A1ACE255011ED00374820 /* HorizontalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalProgressView.swift; sourceTree = "<group>"; };
-		232A1AD32550121200374820 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
-		232A1ADB2550124F00374820 /* ProgressContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressContainerView.swift; sourceTree = "<group>"; };
+		232A1AD32550121200374820 /* PichoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PichoCardView.swift; sourceTree = "<group>"; };
+		232A1ADB2550124F00374820 /* HorizontalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalView.swift; sourceTree = "<group>"; };
 		232A1AE52550141B00374820 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		233AF4D02552B07C0034A3A3 /* HorizontalRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalRow.swift; sourceTree = "<group>"; };
 		233AF4D52552B0C50034A3A3 /* HealtKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealtKitService.swift; sourceTree = "<group>"; };
@@ -93,16 +91,20 @@
 		233C55D1254FB3160003252B /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		233C55DA254FB7AF0003252B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		233C55F1254FC59D0003252B /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
-		233C55F6254FC5C60003252B /* TopProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopProgressView.swift; sourceTree = "<group>"; };
-		233C560A254FCBCA0003252B /* MealTodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTodayView.swift; sourceTree = "<group>"; };
+		233C55F6254FC5C60003252B /* MainProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProgressView.swift; sourceTree = "<group>"; };
 		235193DE25583FDA00F07DB2 /* UserDefaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultService.swift; sourceTree = "<group>"; };
 		235193E725584FED00F07DB2 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		235193EC25584FFC00F07DB2 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		235193EC25584FFC00F07DB2 /* Value1Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value1Cell.swift; sourceTree = "<group>"; };
 		236DF48C2550352F008E736F /* EatingTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatingTime.swift; sourceTree = "<group>"; };
 		239526A82550550300B00E57 /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
 		23D487AE255259EB003DAED8 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		23EAB24225598B19004BA11E /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		23EAB24E25598BBF004BA11E /* SmallCircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCircularProgressView.swift; sourceTree = "<group>"; };
+		23EAB26225598EEB004BA11E /* MealsTodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsTodayView.swift; sourceTree = "<group>"; };
+		23EAB26A2559969C004BA11E /* NSAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extensions.swift"; sourceTree = "<group>"; };
+		23EAB26F25599866004BA11E /* MealCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCellView.swift; sourceTree = "<group>"; };
 		23EB0D77255039C800A8C899 /* FoodInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInputViewController.swift; sourceTree = "<group>"; };
+		23FA735E255A47B200BA9664 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		260EFD832550F9A3009DB0D2 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		260EFD95255100CF009DB0D2 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		26ABEBEE25525CAD00F8BA6F /* FatSecretClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatSecretClient.swift; sourceTree = "<group>"; };
@@ -185,32 +187,20 @@
 			isa = PBXGroup;
 			children = (
 				A2DCF3C1254FA4330088492F /* MainViewController.swift */,
-				232A1AE02550127F00374820 /* Progress */,
-				232A1AE12550128A00374820 /* Meal */,
+				232A1AE02550127F00374820 /* Components */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
 		};
-		232A1AE02550127F00374820 /* Progress */ = {
+		232A1AE02550127F00374820 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				233C55F6254FC5C60003252B /* TopProgressView.swift */,
-				232A1ADB2550124F00374820 /* ProgressContainerView.swift */,
-				232A1AD32550121200374820 /* ProgressBarView.swift */,
-				232A1ACE255011ED00374820 /* HorizontalProgressView.swift */,
-				232A1AE52550141B00374820 /* CircularProgressView.swift */,
+				233C55F6254FC5C60003252B /* MainProgressView.swift */,
+				232A1ADB2550124F00374820 /* HorizontalView.swift */,
+				23EAB26225598EEB004BA11E /* MealsTodayView.swift */,
+				23EAB24A25598B85004BA11E /* ReusableViews */,
 			);
-			path = Progress;
-			sourceTree = "<group>";
-		};
-		232A1AE12550128A00374820 /* Meal */ = {
-			isa = PBXGroup;
-			children = (
-				233C560A254FCBCA0003252B /* MealTodayView.swift */,
-				232A1AC9255007E900374820 /* MealCollectionView.swift */,
-				232A1AC4255007D400374820 /* MealCell.swift */,
-			);
-			path = Meal;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		233BCA962556BB4F00C4DD7E /* ProfileScreen */ = {
@@ -218,7 +208,7 @@
 			children = (
 				235193E725584FED00F07DB2 /* ProfileViewModel.swift */,
 				233BCA912556BB4B00C4DD7E /* ProfileViewController.swift */,
-				235193EC25584FFC00F07DB2 /* ProfileCell.swift */,
+				23FA735A255A42DC00BA9664 /* ReusableViews */,
 			);
 			path = ProfileScreen;
 			sourceTree = "<group>";
@@ -238,6 +228,7 @@
 				233C55F1254FC59D0003252B /* Date+Extensions.swift */,
 				230515552552F3160061D519 /* Array+Extensions.swift */,
 				23EAB24225598B19004BA11E /* UILabel+Extensions.swift */,
+				23EAB26A2559969C004BA11E /* NSAttributedString+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -271,6 +262,17 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		23EAB24A25598B85004BA11E /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				232A1AE52550141B00374820 /* CircularProgressView.swift */,
+				232A1AD32550121200374820 /* PichoCardView.swift */,
+				23EAB24E25598BBF004BA11E /* SmallCircularProgressView.swift */,
+				23EAB26F25599866004BA11E /* MealCellView.swift */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
 		23EB0D73255039A100A8C899 /* FoodInputScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +280,22 @@
 				239526A7255054F600B00E57 /* Cells */,
 			);
 			path = FoodInputScreen;
+			sourceTree = "<group>";
+		};
+		23FA735A255A42DC00BA9664 /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				235193EC25584FFC00F07DB2 /* Value1Cell.swift */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		23FA7363255A47B700BA9664 /* NotificationScreen */ = {
+			isa = PBXGroup;
+			children = (
+				23FA735E255A47B200BA9664 /* NotificationViewController.swift */,
+			);
+			path = NotificationScreen;
 			sourceTree = "<group>";
 		};
 		260EFD94255100AE009DB0D2 /* Services */ = {
@@ -366,6 +384,7 @@
 				260EFD94255100AE009DB0D2 /* Services */,
 				233C55CA254FB29D0003252B /* Extensions */,
 				233C55DF254FBF240003252B /* ViewControllers */,
+				23FA7363255A47B700BA9664 /* NotificationScreen */,
 				A2DCF3C9254FA4340088492F /* Assets.xcassets */,
 				A2DCF3CB254FA4340088492F /* LaunchScreen.storyboard */,
 				A2DCF3CE254FA4340088492F /* Info.plist */,
@@ -536,24 +555,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				232A1ACF255011ED00374820 /* HorizontalProgressView.swift in Sources */,
 				A2DCF3C2254FA4330088492F /* MainViewController.swift in Sources */,
-				235193ED25584FFC00F07DB2 /* ProfileCell.swift in Sources */,
+				235193ED25584FFC00F07DB2 /* Value1Cell.swift in Sources */,
 				A2DCF3C8254FA4330088492F /* iChol.xcdatamodeld in Sources */,
 				26ABEC0225525CAD00F8BA6F /* FatSecretCredentials.swift in Sources */,
 				26ABEC0525525CAD00F8BA6F /* URLComponents+Utils.swift in Sources */,
-				232A1ACA255007E900374820 /* MealCollectionView.swift in Sources */,
+				23FA735F255A47B200BA9664 /* NotificationViewController.swift in Sources */,
 				235193E825584FED00F07DB2 /* ProfileViewModel.swift in Sources */,
 				260EFD96255100CF009DB0D2 /* NetworkService.swift in Sources */,
 				26ABEC0425525CAD00F8BA6F /* Array+Utils.swift in Sources */,
 				260EFD842550F9A3009DB0D2 /* APIKey.swift in Sources */,
-				232A1AD42550121200374820 /* ProgressBarView.swift in Sources */,
+				232A1AD42550121200374820 /* PichoCardView.swift in Sources */,
 				230515562552F3160061D519 /* Array+Extensions.swift in Sources */,
+				23EAB26325598EEB004BA11E /* MealsTodayView.swift in Sources */,
 				233BCA8D2556BB4200C4DD7E /* HistoryViewController.swift in Sources */,
 				233BCA9F2556BB6C00C4DD7E /* AppCoordinator.swift in Sources */,
 				26ABEC0725525CAD00F8BA6F /* FatSecretParams.swift in Sources */,
+				23EAB27025599866004BA11E /* MealCellView.swift in Sources */,
 				233C55F2254FC59D0003252B /* Date+Extensions.swift in Sources */,
-				232A1AC5255007D400374820 /* MealCell.swift in Sources */,
 				26ABEBFE25525CAD00F8BA6F /* FatSecretError.swift in Sources */,
 				233C55D2254FB3160003252B /* UIView+Extensions.swift in Sources */,
 				A2DCF3BE254FA4330088492F /* AppDelegate.swift in Sources */,
@@ -565,19 +584,20 @@
 				23267754255061E800E01739 /* FoodDetailScreen.swift in Sources */,
 				26ABEC0025525CAD00F8BA6F /* Food.swift in Sources */,
 				A2DCF3C0254FA4330088492F /* SceneDelegate.swift in Sources */,
-				232A1ADC2550124F00374820 /* ProgressContainerView.swift in Sources */,
+				232A1ADC2550124F00374820 /* HorizontalView.swift in Sources */,
 				26ABEC0325525CAD00F8BA6F /* CharacterSet+Utils.swift in Sources */,
-				233C55F7254FC5C60003252B /* TopProgressView.swift in Sources */,
+				233C55F7254FC5C60003252B /* MainProgressView.swift in Sources */,
 				26ABEBFD25525CAD00F8BA6F /* SearchedFood.swift in Sources */,
 				26ABEBFF25525CAD00F8BA6F /* Serving.swift in Sources */,
 				233AF4D62552B0C50034A3A3 /* HealtKitService.swift in Sources */,
 				235193DF25583FDA00F07DB2 /* UserDefaultService.swift in Sources */,
 				23EB0D78255039C800A8C899 /* FoodInputViewController.swift in Sources */,
 				239526A92550550300B00E57 /* FoodCell.swift in Sources */,
-				233C560B254FCBCA0003252B /* MealTodayView.swift in Sources */,
 				26ABEC0625525CAD00F8BA6F /* String+Utils.swift in Sources */,
 				233AF4D12552B07C0034A3A3 /* HorizontalRow.swift in Sources */,
+				23EAB26B2559969C004BA11E /* NSAttributedString+Extensions.swift in Sources */,
 				233BCA922556BB4B00C4DD7E /* ProfileViewController.swift in Sources */,
+				23EAB24F25598BBF004BA11E /* SmallCircularProgressView.swift in Sources */,
 				236DF48D2550352F008E736F /* EatingTime.swift in Sources */,
 				233C55DB254FB7AF0003252B /* Color.swift in Sources */,
 			);
@@ -749,14 +769,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iChol/iChol.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KVK7XD8255;
+				DEVELOPMENT_TEAM = S9J6B4A78J;
 				INFOPLIST_FILE = iChol/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.protagonist.Picho;
+				PRODUCT_BUNDLE_IDENTIFIER = com.protagonist.haikal.Picho;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -770,14 +790,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iChol/iChol.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KVK7XD8255;
+				DEVELOPMENT_TEAM = S9J6B4A78J;
 				INFOPLIST_FILE = iChol/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.protagonist.Picho;
+				PRODUCT_BUNDLE_IDENTIFIER = com.protagonist.haikal.Picho;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

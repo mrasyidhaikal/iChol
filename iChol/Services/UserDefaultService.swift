@@ -5,7 +5,7 @@
 //  Created by Windy on 08/11/20.
 //
 
-import Foundation
+import UIKit
 
 class UserDefaultService {
     
@@ -92,6 +92,20 @@ class UserDefaultService {
     
     static func synchronize() {
         UserDefaults.standard.synchronize()
+    }
+    
+    func savePic(image: UIImage, key: String) {
+        if let pngRepresentation = image.pngData() {
+            UserDefaults.standard.set(pngRepresentation, forKey: key)
+        }
+    }
+    
+    func getPic(forKey key: String) -> UIImage {
+        if let imageData = UserDefaults.standard.object(forKey: key) as? Data,
+            let image = UIImage(data: imageData) {
+            return image
+        }
+        return UIImage(named: "dummy")!
     }
     
 }

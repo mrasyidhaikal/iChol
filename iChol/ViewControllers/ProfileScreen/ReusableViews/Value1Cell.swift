@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ProfileCell: UITableViewCell {
+class Value1Cell: UITableViewCell {
     
-    static let reuseIdentifier = "ProfileCell"
+    static let reuseIdentifier = "Value1Cell"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
