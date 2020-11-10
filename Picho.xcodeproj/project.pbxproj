@@ -47,6 +47,9 @@
 		26ABEC0525525CAD00F8BA6F /* URLComponents+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ABEBF925525CAD00F8BA6F /* URLComponents+Utils.swift */; };
 		26ABEC0625525CAD00F8BA6F /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ABEBFA25525CAD00F8BA6F /* String+Utils.swift */; };
 		26ABEC0725525CAD00F8BA6F /* FatSecretParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ABEBFB25525CAD00F8BA6F /* FatSecretParams.swift */; };
+		26DBE549255A434D00C7038A /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DBE548255A434D00C7038A /* DetailCell.swift */; };
+		26E23A02255AECE900CD517A /* StringOptional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E23A01255AECE900CD517A /* StringOptional+Extensions.swift */; };
+		26EF44C72558F9CC00561246 /* FoodSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EF44C62558F9CC00561246 /* FoodSearchViewController.swift */; };
 		A2DCF3BE254FA4330088492F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DCF3BD254FA4330088492F /* AppDelegate.swift */; };
 		A2DCF3C0254FA4330088492F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DCF3BF254FA4330088492F /* SceneDelegate.swift */; };
 		A2DCF3C2254FA4330088492F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DCF3C1254FA4330088492F /* MainViewController.swift */; };
@@ -115,6 +118,9 @@
 		26ABEBF925525CAD00F8BA6F /* URLComponents+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLComponents+Utils.swift"; sourceTree = "<group>"; };
 		26ABEBFA25525CAD00F8BA6F /* String+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		26ABEBFB25525CAD00F8BA6F /* FatSecretParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatSecretParams.swift; sourceTree = "<group>"; };
+		26DBE548255A434D00C7038A /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		26E23A01255AECE900CD517A /* StringOptional+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringOptional+Extensions.swift"; sourceTree = "<group>"; };
+		26EF44C62558F9CC00561246 /* FoodSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchViewController.swift; sourceTree = "<group>"; };
 		A2DCF3BA254FA4330088492F /* Picho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2DCF3BD254FA4330088492F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2DCF3BF254FA4330088492F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +171,7 @@
 			children = (
 				23267753255061E800E01739 /* FoodDetailScreen.swift */,
 				233AF4D02552B07C0034A3A3 /* HorizontalRow.swift */,
+				26DBE547255A430C00C7038A /* Cells */,
 			);
 			path = FoodDetailScreen;
 			sourceTree = "<group>";
@@ -235,6 +242,7 @@
 				233C55D1254FB3160003252B /* UIView+Extensions.swift */,
 				233C55F1254FC59D0003252B /* Date+Extensions.swift */,
 				230515552552F3160061D519 /* Array+Extensions.swift */,
+				26E23A01255AECE900CD517A /* StringOptional+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -252,19 +260,13 @@
 			isa = PBXGroup;
 			children = (
 				232A1AC0254FFCDF00374820 /* MainScreen */,
+				26EF44C52558F96600561246 /* FoodSearchScreen */,
 				23EB0D73255039A100A8C899 /* FoodInputScreen */,
 				23267752255061D200E01739 /* FoodDetailScreen */,
 				233BCA9A2556BB5600C4DD7E /* HistoryScreen */,
 				233BCA962556BB4F00C4DD7E /* ProfileScreen */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		235193E32558418800F07DB2 /* OnboardingScreen */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = OnboardingScreen;
 			sourceTree = "<group>";
 		};
 		239526A7255054F600B00E57 /* Cells */ = {
@@ -279,7 +281,6 @@
 			isa = PBXGroup;
 			children = (
 				23EB0D77255039C800A8C899 /* FoodInputViewController.swift */,
-				239526A7255054F600B00E57 /* Cells */,
 			);
 			path = FoodInputScreen;
 			sourceTree = "<group>";
@@ -339,6 +340,23 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		26DBE547255A430C00C7038A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				26DBE548255A434D00C7038A /* DetailCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		26EF44C52558F96600561246 /* FoodSearchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				26EF44C62558F9CC00561246 /* FoodSearchViewController.swift */,
+				239526A7255054F600B00E57 /* Cells */,
+			);
+			path = FoodSearchScreen;
+			sourceTree = "<group>";
+		};
 		A2DCF3B1254FA4330088492F = {
 			isa = PBXGroup;
 			children = (
@@ -369,7 +387,6 @@
 				233C55D9254FB7A10003252B /* Constants */,
 				260EFD94255100AE009DB0D2 /* Services */,
 				233C55CA254FB29D0003252B /* Extensions */,
-				235193E32558418800F07DB2 /* OnboardingScreen */,
 				233C55DF254FBF240003252B /* ViewControllers */,
 				A2DCF3C9254FA4340088492F /* Assets.xcassets */,
 				A2DCF3CB254FA4340088492F /* LaunchScreen.storyboard */,
@@ -559,7 +576,10 @@
 				26ABEC0725525CAD00F8BA6F /* FatSecretParams.swift in Sources */,
 				233C55F2254FC59D0003252B /* Date+Extensions.swift in Sources */,
 				232A1AC5255007D400374820 /* MealCell.swift in Sources */,
+				26EF44C72558F9CC00561246 /* FoodSearchViewController.swift in Sources */,
 				26ABEBFE25525CAD00F8BA6F /* FatSecretError.swift in Sources */,
+				26E23A02255AECE900CD517A /* StringOptional+Extensions.swift in Sources */,
+				26DBE549255A434D00C7038A /* DetailCell.swift in Sources */,
 				233C55D2254FB3160003252B /* UIView+Extensions.swift in Sources */,
 				A2DCF3BE254FA4330088492F /* AppDelegate.swift in Sources */,
 				26ABEBFC25525CAD00F8BA6F /* FatSecretClient.swift in Sources */,

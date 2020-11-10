@@ -8,198 +8,230 @@
 import UIKit
 import HealthKit
 
-class FoodDetailScreen: UIViewController {
+class FoodDetailScreen: UITableViewController {
     
-    private var scrollView: UIScrollView!
-    
+    private var calorieHeader: UIView!
+    private var nutritionHeader: UIView!
     private var nutritionLabel: UILabel!
+    private var servingLabel: UILabel!
     private var calorieLabel: UILabel!
     private var calorieAmount: UILabel!
-    //    private var addButton: UIButton!
     
-    private var protein: HorizontalRow!
-    private var carbs: HorizontalRow!
-    private var fiber: HorizontalRow!
-    private var sodium: HorizontalRow!
-    private var cholesterol: HorizontalRow!
-    private var sugar: HorizontalRow!
-    private var totalFat: HorizontalRow!
-    private var saturatedFat: HorizontalRow!
-    private var transFat: HorizontalRow!
-    private var polyunsaturatedFat: HorizontalRow!
-    private var monounsaturatedFat: HorizontalRow!
+    private var mainNutritions: [String] = []
+    private var fatNutritions: [String] = []
+    private var cholesterolNutritions: [String] = []
+    private var sodiumNutritions: [String] = []
+    private var carbohydrateNutritions: [String] = []
+    private var proteinNutritions: [String] = []
     
-    var foodName: String = ""
-    var foodId: String = ""
+    private var mainAmounts: [Double] = []
+    private var fatAmounts: [Double] = []
+    private var cholesterolAmounts: [Double] = []
+    private var sodiumAmounts: [Double] = []
+    private var carbohydrateAmounts: [Double] = []
+    private var proteinAmounts: [Double] = []
+
+    private var nutritions: [[String]] = []
+    private var amounts: [[Double]] = []
     
     let healthStore = HKHealthStore()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupView()
-        setupLayout()
-        fetchingFood()
         
-        CoreDataService.shared.createDailyIntake(id: UUID(), fat: 0, calories: 0, sugar: 0, date: Date())
+    var foodId: String = "" {
+        didSet {
+            fetchingFood()
+        }
     }
     
-    private func setupView() {
+    var foodName: String = ""
+    
+    var isFavorite: Bool = false
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
+        setupLabel()
+        setupView()
+        setupLayout()
+
+//        CoreDataService.shared.createDailyIntake(id: UUID(), fat: 0, calories: 0, sugar: 0, date: Date())
+    }
+    
+    private func setupLabel() {
+        mainNutritions = ["Saturated Fat", "Sugars"]
+        fatNutritions = ["Fat", "Saturated Fat", "Trans Fat", "Polysaturated Fat", "Monosaturated Fat"]
+        cholesterolNutritions = ["Cholesterol"]
+        sodiumNutritions = ["Sodium"]
+        carbohydrateNutritions = ["Carbohydrate", "Fiber", "Sugars"]
+        proteinNutritions = ["Protein"]
+        
+        nutritions = [mainNutritions, fatNutritions, cholesterolNutritions, sodiumNutritions, carbohydrateNutritions, proteinNutritions]
+    }
+
+    private func setupView() {
         view.backgroundColor = Color.background
         
-        scrollView = UIScrollView()
-        view.addSubview(scrollView)
+        calorieHeader = UIView()
         
         calorieLabel = UILabel()
         calorieLabel.text = "Calories"
-        calorieLabel.font = .preferredFont(forTextStyle: .title3)
-        scrollView.addSubview(calorieLabel)
-        
+        calorieLabel.font = .preferredFont(forTextStyle: .title2)
+        calorieLabel.font = .boldSystemFont(ofSize: 24)
+
         calorieAmount = UILabel()
         calorieAmount.text = "324"
         calorieAmount.font = .systemFont(ofSize: 34, weight: .bold)
-        scrollView.addSubview(calorieAmount)
-   
+        
+        nutritionHeader = UIView()
+        
         nutritionLabel = UILabel()
         nutritionLabel.text = "Nutritional Information"
         nutritionLabel.font = .systemFont(ofSize: 26, weight: .bold)
-        scrollView.addSubview(nutritionLabel)
+        nutritionHeader.addSubview(nutritionLabel)
         
-        totalFat = HorizontalRow(labelString: "Fat", amount: 0.0, header: true)
-        saturatedFat = HorizontalRow(labelString: "Saturated Fat", amount: 0.000)
-        transFat = HorizontalRow(labelString: "Trans Fat", amount: 0.000)
-        polyunsaturatedFat = HorizontalRow(labelString: "Polyunsaturated Fat", amount: 0.000)
-        monounsaturatedFat = HorizontalRow(labelString: "monounsaturatedFat", amount: 0.000)
+        servingLabel = UILabel()
+        servingLabel.text = "Per serve"
+        servingLabel.font = .systemFont(ofSize: 17, weight: .bold)
+        nutritionHeader.addSubview(servingLabel)
         
-        cholesterol = HorizontalRow(labelString: "Cholesterol", amount: 0.000, header: true)
-        scrollView.addSubview(cholesterol)
-        
-        sodium = HorizontalRow(labelString: "Sodium", amount: 0.000, header: true)
-        scrollView.addSubview(sodium)
-        
-        carbs = HorizontalRow(labelString: "Carbohydrate", amount: 0.000, header: true)
-        fiber = HorizontalRow(labelString: "Fiber", amount: 0.000)
-        sugar = HorizontalRow(labelString: "Sugars", amount: 0.000)
-
+        navigationItem.title = "Nasi Lemak"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(handleAdd))
+        
+        setupFavorite()
+        
+        tableView.register(DetailCell.self, forCellReuseIdentifier: DetailCell.reuseIdentifier)
+        tableView.allowsSelection = false
     }
     
+    private func setupLayout() {
+        let calorieStack = UIStackView(arrangedSubviews: [calorieLabel, calorieAmount])
+        calorieStack.axis = .vertical
+        calorieStack.alignment = .leading
+        calorieStack.spacing = 8
+        calorieHeader.addSubview(calorieStack)
+        
+        calorieStack.setConstraint(
+            topAnchor: calorieHeader.layoutMarginsGuide.topAnchor,
+            bottomAnchor: calorieHeader.layoutMarginsGuide.bottomAnchor,
+            leadingAnchor: calorieHeader.layoutMarginsGuide.leadingAnchor
+        )
+
+        nutritionLabel.setConstraint(
+            topAnchor: nutritionHeader.layoutMarginsGuide.topAnchor,
+            leadingAnchor: nutritionHeader.layoutMarginsGuide.leadingAnchor
+        )
+
+        servingLabel.setConstraint(
+            topAnchor: nutritionLabel.bottomAnchor, topAnchorConstant: 8,
+            bottomAnchor: nutritionHeader.bottomAnchor, bottomAnchorConstant: -8,
+            trailingAnchor: nutritionHeader.trailingAnchor, trailingAnchorConstant: -10)
+    }
+    
+    private func setupFavorite() {
+        let heart = isFavorite ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+        heart?.withTintColor(.red, renderingMode: .alwaysTemplate)
+        
+        let favoriteBarButton = UIBarButtonItem(image: heart, style: .done, target: self, action: #selector(handleFavoriteAdd))
+        favoriteBarButton.tintColor = .red
+        
+        navigationItem.leftBarButtonItem = favoriteBarButton
+    }
+    
+    @objc private func handleFavoriteAdd() {
+        isFavorite = !isFavorite
+        setupFavorite()
+    }
+
     @objc private func handleAdd() {
         NetworkService.shared.getFood(id: foodId) { food in
             switch food {
             case .success(let food):
                 guard let servings = food.servings?.first else { return }
-                
+
                 HealthKitService.addData(sugar: Double(servings.saturatedFat ?? "0") ?? 0, date: Date(), type: .dietaryFatSaturated, unit: HKUnit.gram())
                 HealthKitService.addData(sugar: Double(servings.sugar ?? "0") ?? 0, date: Date(), type: .dietarySugar, unit: HKUnit.gram())
                 HealthKitService.addData(sugar: Double(servings.calories ?? "0") ?? 0, date: Date(), type: .dietaryEnergyConsumed, unit: HKUnit.smallCalorie())
-                
+
             case .failure(let err):
                 print(err.localizedDescription)
             }
         }
-        
+
         CoreDataService.shared.addFood(foodName: foodName, date: Date(), eatingTime: .breakfast, calorie: Int(calorieAmount.text ?? "0") ?? 0)
-        
+
         self.navigationController?.popToRootViewController(animated: true)
     }
-    
-    private func setupLayout() {
-        
-        scrollView.setConstraint(
-            topAnchor: view.safeAreaLayoutGuide.topAnchor,
-            bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor,
-            leadingAnchor: view.layoutMarginsGuide.leadingAnchor,
-            trailingAnchor: view.layoutMarginsGuide.trailingAnchor
-        )
-        
-        calorieLabel.setConstraint(
-            topAnchor: scrollView.topAnchor, topAnchorConstant: 32,
-            leadingAnchor: scrollView.leadingAnchor)
-        
-        calorieAmount.setConstraint(
-            topAnchor: calorieLabel.bottomAnchor, topAnchorConstant: 8,
-            leadingAnchor: scrollView.layoutMarginsGuide.leadingAnchor)
-        
-        let mainStack = UIStackView(arrangedSubviews: [saturatedFat, sugar])
-        mainStack.axis = .vertical
-        mainStack.spacing = 24
-        scrollView.addSubview(mainStack)
-        
-        mainStack.setConstraint(
-            topAnchor: calorieAmount.bottomAnchor, topAnchorConstant: 24,
-            leadingAnchor: scrollView.leadingAnchor,
-            trailingAnchor: scrollView.trailingAnchor)
 
-        nutritionLabel.setConstraint(
-            topAnchor: mainStack.bottomAnchor, topAnchorConstant: 32,
-            leadingAnchor: scrollView.leadingAnchor,
-            trailingAnchor: scrollView.trailingAnchor
-        )
-
-        let fatStack = UIStackView(arrangedSubviews: [
-                                    totalFat,
-                                    transFat,
-                                    polyunsaturatedFat,
-                                    monounsaturatedFat])
-        fatStack.axis = .vertical
-        fatStack.spacing = 24
-        scrollView.addSubview(fatStack)
-
-        fatStack.setConstraint(
-            topAnchor: nutritionLabel.bottomAnchor, topAnchorConstant: 24,
-            leadingAnchor: scrollView.layoutMarginsGuide.leadingAnchor,
-            trailingAnchor: scrollView.layoutMarginsGuide.trailingAnchor)
-
-        cholesterol.setConstraint(
-            topAnchor: fatStack.bottomAnchor, topAnchorConstant: 48,
-            leadingAnchor: scrollView.layoutMarginsGuide.leadingAnchor,
-            trailingAnchor: scrollView.layoutMarginsGuide.trailingAnchor
-        )
-
-        sodium.setConstraint(
-            topAnchor: cholesterol.bottomAnchor, topAnchorConstant: 48,
-            leadingAnchor: scrollView.layoutMarginsGuide.leadingAnchor,
-            trailingAnchor: scrollView.layoutMarginsGuide.trailingAnchor
-        )
-
-        let carbStack = UIStackView(arrangedSubviews: [
-                                        carbs,
-                                        fiber])
-        carbStack.axis = .vertical
-        carbStack.spacing = 24
-        scrollView.addSubview(carbStack)
-
-        carbStack.setConstraint(
-            topAnchor: sodium.bottomAnchor, topAnchorConstant: 48,
-            bottomAnchor: scrollView.bottomAnchor,
-            leadingAnchor: scrollView.layoutMarginsGuide.leadingAnchor,
-            trailingAnchor: scrollView.layoutMarginsGuide.trailingAnchor)
-    }
-    
     private func fetchingFood() {
         NetworkService.shared.getFood(id: foodId) { food in
             switch food {
             case .success(let food):
                 guard let servings = food.servings?.first else { return }
+                
                 DispatchQueue.main.async {
                     self.navigationItem.title = self.foodName
-                    self.calorieAmount.text = servings.calories
-                    self.totalFat.setAmount(amount: Double(servings.fat ?? "0.0") ?? 0.0)
-                    self.saturatedFat.setAmount(amount: Double(servings.saturatedFat ?? "0.0") ?? 0.0)
-                    self.transFat.setAmount(amount: Double(servings.transFat ?? "0.0") ?? 0.0)
-                    self.monounsaturatedFat.setAmount(amount: Double(servings.monounsaturatedFat ?? "0.0") ?? 0.0)
-                    self.polyunsaturatedFat.setAmount(amount: Double(servings.polyunsaturatedFat ?? "0.0") ?? 0.0)
-                    self.cholesterol.setAmount(amount: Double(servings.cholesterol ?? "0.0") ?? 0.0)
-                    self.sodium.setAmount(amount: Double(servings.sodium ?? "0.0") ?? 0.0)
-                    self.sugar.setAmount(amount: Double(servings.sugar ?? "0.0") ?? 0.0)
-                    self.fiber.setAmount(amount: Double(servings.fiber ?? "0.0") ?? 0.0)
-                    self.carbs.setAmount(amount: Double(servings.carbohydrate ?? "0.0") ?? 0.0)
+                    
+                    self.mainAmounts.append(servings.saturatedFat.convertToDouble())
+                    self.mainAmounts.append(servings.sugar.convertToDouble())
+                    
+                    self.fatAmounts.append(servings.fat.convertToDouble())
+                    self.fatAmounts.append(servings.saturatedFat.convertToDouble())
+                    self.fatAmounts.append(servings.transFat.convertToDouble())
+                    self.fatAmounts.append(servings.polyunsaturatedFat.convertToDouble())
+                    self.fatAmounts.append(servings.monounsaturatedFat.convertToDouble())
+                    
+                    self.cholesterolAmounts.append(servings.cholesterol.convertToDouble())
+                    
+                    self.sodiumAmounts.append(servings.sodium.convertToDouble())
+                    
+                    self.carbohydrateAmounts.append(servings.carbohydrate.convertToDouble())
+                    self.carbohydrateAmounts.append(servings.fiber.convertToDouble())
+                    self.carbohydrateAmounts.append(servings.sugar.convertToDouble())
+                    
+                    self.proteinAmounts.append(servings.protein.convertToDouble())
+                    
+                    self.amounts = [self.mainAmounts, self.fatAmounts, self.cholesterolAmounts, self.sodiumAmounts, self.carbohydrateAmounts, self.proteinAmounts]
+                    
+                    self.tableView.reloadData()
                 }
+        
             case .failure(let err):
                 print(err.localizedDescription)
             }
         }
     }
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return nutritions.count
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        switch section {
+        case 0:
+            return calorieHeader
+        case 2:
+            return nutritionHeader
+        default:
+            return UIView()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return nutritions[section].count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: DetailCell.reuseIdentifier, for: indexPath) as! DetailCell
+        
+        let nutrition = nutritions[indexPath.section][indexPath.row]
+        var amount = 0.0
+        
+        if !amounts.isEmpty {
+            amount = amounts[indexPath.section][indexPath.row]
+        }
+        
+        cell.configureCell(label: nutrition, value: amount)
+        
+        return cell
+    }
+    
 }
-

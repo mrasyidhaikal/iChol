@@ -12,63 +12,25 @@ class FoodInputViewController: UIViewController {
     
     private var mascotImage: UIImageView!
     private var titleLabel: UILabel!
-    private var searchBar: UISearchBar!
+    private var addButton: UIButton!
     private var tableView: UITableView!
-        
-    var cancelable = Set<AnyCancellable>()
-    var timeLabel: String = ""
+//    private var separator: UIView!
     
-    @Published private var foods: [SearchedFood] = []
+    private let foods = [
+        SearchedFood(id: "5873608", name: "Nasi Goreng", description: "Per 1122g - Calories: 1850kcal | Fat: 65.44g | Carbs: 240.17g | Protein: 69.07g", brand: nil, type: "Generic", url: "https://www.fatsecret.com/calories-nutrition/generic/nasi-goreng"),
+        SearchedFood(id: "5873608", name: "Nasi Goreng", description: "Per 1122g - Calories: 1850kcal | Fat: 65.44g | Carbs: 240.17g | Protein: 69.07g", brand: nil, type: "Generic", url: "https://www.fatsecret.com/calories-nutrition/generic/nasi-goreng")
+    ]
+    
+    var timeLabel: String = "Breakfast"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupView()
-        setupTableView()
-        setupLayout()
-        setupSearchBar()
-    }
-    
-    private func setupSearchBar() {
-        NotificationCenter.default.publisher(for: UISearchTextField.textDidChangeNotification, object: searchBar.searchTextField)
-            .map({ ($0.object as! UISearchTextField).text })
-            .debounce(for: .milliseconds(400), scheduler: RunLoop.main)
-            .filter({ !$0!.isEmpty })
-            .sink { text in
-                guard let text = text else { return }
-                NetworkService.shared.searchFood(keyword: text) { (result) in
-                    switch result {
-                    case .success(let foods):
-                        self.foods = foods
-                    case .failure(let err):
-                        self.foods = []
-                        print(err.localizedDescription)
-                    }
-                }
-            }
-            .store(in: &cancelable)
-        
-        $foods
-            .sink { (_) in
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }.store(in: &cancelable)
-        
-    }
-    
-    private func setupTableView() {
-        tableView = UITableView()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(FoodCell.self, forCellReuseIdentifier: FoodCell.reuseIdentifier)
-        tableView.backgroundColor = Color.background
-        tableView.rowHeight = 140
-        tableView.separatorStyle = .none
-        tableView.showsVerticalScrollIndicator = false
-        view.addSubview(tableView)
-    }
 
+        setupView()
+        setupTable()
+        setupLayout()
+    }
+    
     private func setupView() {
         view.backgroundColor = Color.background
         
@@ -83,15 +45,40 @@ class FoodInputViewController: UIViewController {
         titleLabel.font = .systemFont(ofSize: 22, weight: .bold)
         titleLabel.text = "Would you mind to share your \n\(timeLabel) with me?"
         
-        searchBar = UISearchBar()
-        searchBar.placeholder = "Enter your food"
-        searchBar.searchBarStyle = .minimal
+        addButton = UIButton()
+        addButton.backgroundColor = Color.green
+        addButton.layer.cornerRadius = 8
+        addButton.contentEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        addButton.setTitle("Add \(timeLabel)", for: .normal)
+        addButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        addButton.addTarget(self, action: #selector(handleAdd), for: .touchUpInside)
+        
+        
+//        separator = UIView()
+//        separator.frame = CGRect(x: 0, y: 200, width: self.view.bounds.size.width, height: 1)
+//        separator.backgroundColor = .red
+//        view.addSubview(separator)
+    }
+    
+    private func setupTable() {
+        tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(FoodCell.self, forCellReuseIdentifier: FoodCell.reuseIdentifier)
+        
+        tableView.backgroundColor = Color.background
+        tableView.rowHeight = 160
+        tableView.showsVerticalScrollIndicator = false
+        tableView.contentInsetAdjustmentBehavior = .never
+        tableView.tableFooterView = UIView()
+        
+        view.addSubview(tableView)
     }
     
     private func setupLayout() {
-        let mainStack = UIStackView(arrangedSubviews: [titleLabel, searchBar])
+        let mainStack = UIStackView(arrangedSubviews: [titleLabel, addButton])
         mainStack.axis = .vertical
-        mainStack.spacing = 16
+        mainStack.spacing = 24
         view.addSubview(mainStack)
         
         mascotImage.setConstraint(
@@ -103,36 +90,54 @@ class FoodInputViewController: UIViewController {
             topAnchor: mascotImage.bottomAnchor, topAnchorConstant: 16,
             leadingAnchor: view.safeAreaLayoutGuide.leadingAnchor, leadingAnchorConstant: 10,
             trailingAnchor: view.safeAreaLayoutGuide.trailingAnchor, trailingAnchorConstant: -10)
-        
+
+//        separator.setConstraint(
+//            topAnchor: mainStack.bottomAnchor, topAnchorConstant: 20,
+//            leadingAnchor: view.safeAreaLayoutGuide.leadingAnchor, leadingAnchorConstant: 10,
+//            trailingAnchor: view.safeAreaLayoutGuide.trailingAnchor, trailingAnchorConstant: -10
+//            )
+
         tableView.setConstraint(
             topAnchor: mainStack.bottomAnchor, topAnchorConstant: 8,
-            bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor,
-            leadingAnchor: view.layoutMarginsGuide.leadingAnchor,
-            trailingAnchor: view.layoutMarginsGuide.trailingAnchor)
+            bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, bottomAnchorConstant: 8,
+            leadingAnchor: view.leadingAnchor,
+            trailingAnchor: view.trailingAnchor
+        )
+    }
+    
+    @objc private func handleAdd() {
+        let vc = FoodSearchViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
 
-extension FoodInputViewController: UITableViewDataSource, UITableViewDelegate {
+extension FoodInputViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let foodVC = FoodDetailScreen()
+        let food = foods[indexPath.row]
+        foodVC.foodId = food.id
+        foodVC.foodName = food.name
+        
+        let vc = UINavigationController(rootViewController: foodVC)
+        self.navigationController?.present(vc, animated: true, completion: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+}
+
+extension FoodInputViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return foods.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FoodCell.reuseIdentifier, for: indexPath) as! FoodCell
         cell.configureCell(foodName: foods[indexPath.row].name, description: foods[indexPath.row].description)
         cell.selectionStyle = .none
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = FoodDetailScreen()
-        let food = foods[indexPath.row]
-        vc.foodId = food.id
-        vc.foodName = food.name
-        self.navigationController?.pushViewController(vc, animated: true)
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
