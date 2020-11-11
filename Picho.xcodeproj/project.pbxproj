@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EE3DAC6431240E3F8254D72 /* Pods_Picho_PichoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EAB769F130A8CE05F19D615 /* Pods_Picho_PichoUITests.framework */; };
 		230515562552F3160061D519 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230515552552F3160061D519 /* Array+Extensions.swift */; };
-		23255EC82558F2A900D2B8E3 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23255EC72558F2A900D2B8E3 /* CryptoSwift */; };
+		23255EC82558F2A900D2B8E3 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 23255EC72558F2A900D2B8E3 /* SwiftPackageProductDependency */; };
 		23267754255061E800E01739 /* FoodDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23267753255061E800E01739 /* FoodDetailScreen.swift */; };
 		232A1AC5255007D400374820 /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A1AC4255007D400374820 /* MealCell.swift */; };
 		232A1ACA255007E900374820 /* MealCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A1AC9255007E900374820 /* MealCollectionView.swift */; };
@@ -48,6 +49,8 @@
 		26ABEC0525525CAD00F8BA6F /* URLComponents+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ABEBF925525CAD00F8BA6F /* URLComponents+Utils.swift */; };
 		26ABEC0625525CAD00F8BA6F /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ABEBFA25525CAD00F8BA6F /* String+Utils.swift */; };
 		26ABEC0725525CAD00F8BA6F /* FatSecretParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ABEBFB25525CAD00F8BA6F /* FatSecretParams.swift */; };
+		41ADFECF73F6C4EFBDD59559 /* Pods_PichoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D8C45C9236F29664BF8267 /* Pods_PichoTests.framework */; };
+		7FD27E13145D24FFF4EBAE07 /* Pods_Picho.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 078B8B3446A0D5395235865C /* Pods_Picho.framework */; };
 		A2DCF3BE254FA4330088492F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DCF3BD254FA4330088492F /* AppDelegate.swift */; };
 		A2DCF3C0254FA4330088492F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DCF3BF254FA4330088492F /* SceneDelegate.swift */; };
 		A2DCF3C2254FA4330088492F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DCF3C1254FA4330088492F /* MainViewController.swift */; };
@@ -77,6 +80,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		078B8B3446A0D5395235865C /* Pods_Picho.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Picho.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C433C9BCCF9B2BA85D32140 /* Pods-Picho-PichoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Picho-PichoUITests.debug.xcconfig"; path = "Target Support Files/Pods-Picho-PichoUITests/Pods-Picho-PichoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		230515552552F3160061D519 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		23267753255061E800E01739 /* FoodDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailScreen.swift; sourceTree = "<group>"; };
 		232A1AC4255007D400374820 /* MealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCell.swift; sourceTree = "<group>"; };
@@ -117,6 +122,11 @@
 		26ABEBF925525CAD00F8BA6F /* URLComponents+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLComponents+Utils.swift"; sourceTree = "<group>"; };
 		26ABEBFA25525CAD00F8BA6F /* String+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		26ABEBFB25525CAD00F8BA6F /* FatSecretParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatSecretParams.swift; sourceTree = "<group>"; };
+		347BF22BE934ADA538DBB98F /* Pods-Picho-PichoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Picho-PichoUITests.release.xcconfig"; path = "Target Support Files/Pods-Picho-PichoUITests/Pods-Picho-PichoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		50D8C45C9236F29664BF8267 /* Pods_PichoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PichoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DF93B93E5144970BC1943A2 /* Pods-Picho.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Picho.debug.xcconfig"; path = "Target Support Files/Pods-Picho/Pods-Picho.debug.xcconfig"; sourceTree = "<group>"; };
+		8EAB769F130A8CE05F19D615 /* Pods_Picho_PichoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Picho_PichoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9100DC4E86695EA472943CB3 /* Pods-PichoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PichoTests.debug.xcconfig"; path = "Target Support Files/Pods-PichoTests/Pods-PichoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A2DCF3BA254FA4330088492F /* Picho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2DCF3BD254FA4330088492F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2DCF3BF254FA4330088492F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +143,8 @@
 		A2DCF3E4254FA4350088492F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2DCF4492550FD6F0088492F /* iChol.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iChol.entitlements; sourceTree = "<group>"; };
 		A2DCF44B2550FD6F0088492F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		A3758B324334221F17DB4E51 /* Pods-PichoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PichoTests.release.xcconfig"; path = "Target Support Files/Pods-PichoTests/Pods-PichoTests.release.xcconfig"; sourceTree = "<group>"; };
+		DF1CE7FCCA2B0C5E986A06EF /* Pods-Picho.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Picho.release.xcconfig"; path = "Target Support Files/Pods-Picho/Pods-Picho.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +153,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2DCF44C2550FD6F0088492F /* HealthKit.framework in Frameworks */,
-				23255EC82558F2A900D2B8E3 /* CryptoSwift in Frameworks */,
+				23255EC82558F2A900D2B8E3 /* BuildFile in Frameworks */,
+				7FD27E13145D24FFF4EBAE07 /* Pods_Picho.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41ADFECF73F6C4EFBDD59559 /* Pods_PichoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EE3DAC6431240E3F8254D72 /* Pods_Picho_PichoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +350,20 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		78216FC2803B771D13BE61DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8DF93B93E5144970BC1943A2 /* Pods-Picho.debug.xcconfig */,
+				DF1CE7FCCA2B0C5E986A06EF /* Pods-Picho.release.xcconfig */,
+				0C433C9BCCF9B2BA85D32140 /* Pods-Picho-PichoUITests.debug.xcconfig */,
+				347BF22BE934ADA538DBB98F /* Pods-Picho-PichoUITests.release.xcconfig */,
+				9100DC4E86695EA472943CB3 /* Pods-PichoTests.debug.xcconfig */,
+				A3758B324334221F17DB4E51 /* Pods-PichoTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A2DCF3B1254FA4330088492F = {
 			isa = PBXGroup;
 			children = (
@@ -343,6 +372,7 @@
 				A2DCF3E1254FA4350088492F /* iCholUITests */,
 				A2DCF3BB254FA4330088492F /* Products */,
 				A2DCF44A2550FD6F0088492F /* Frameworks */,
+				78216FC2803B771D13BE61DB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -396,6 +426,9 @@
 			isa = PBXGroup;
 			children = (
 				A2DCF44B2550FD6F0088492F /* HealthKit.framework */,
+				078B8B3446A0D5395235865C /* Pods_Picho.framework */,
+				8EAB769F130A8CE05F19D615 /* Pods_Picho_PichoUITests.framework */,
+				50D8C45C9236F29664BF8267 /* Pods_PichoTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -407,9 +440,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2DCF3E7254FA4350088492F /* Build configuration list for PBXNativeTarget "Picho" */;
 			buildPhases = (
+				F193DB59AF30285C0289E263 /* [CP] Check Pods Manifest.lock */,
 				A2DCF3B6254FA4330088492F /* Sources */,
 				A2DCF3B7254FA4330088492F /* Frameworks */,
 				A2DCF3B8254FA4330088492F /* Resources */,
+				7D337CB8392F718438B9C1F2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -417,7 +452,7 @@
 			);
 			name = Picho;
 			packageProductDependencies = (
-				23255EC72558F2A900D2B8E3 /* CryptoSwift */,
+				23255EC72558F2A900D2B8E3 /* SwiftPackageProductDependency */,
 			);
 			productName = iChol;
 			productReference = A2DCF3BA254FA4330088492F /* Picho.app */;
@@ -427,6 +462,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2DCF3EA254FA4350088492F /* Build configuration list for PBXNativeTarget "PichoTests" */;
 			buildPhases = (
+				E3EF225CBFED11773ECD7F9E /* [CP] Check Pods Manifest.lock */,
 				A2DCF3CF254FA4350088492F /* Sources */,
 				A2DCF3D0254FA4350088492F /* Frameworks */,
 				A2DCF3D1254FA4350088492F /* Resources */,
@@ -445,9 +481,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2DCF3ED254FA4350088492F /* Build configuration list for PBXNativeTarget "PichoUITests" */;
 			buildPhases = (
+				88919988B13260041733CD25 /* [CP] Check Pods Manifest.lock */,
 				A2DCF3DA254FA4350088492F /* Sources */,
 				A2DCF3DB254FA4350088492F /* Frameworks */,
 				A2DCF3DC254FA4350088492F /* Resources */,
+				ABDCDE87FC39135A6F8ACEEC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -491,8 +529,8 @@
 			);
 			mainGroup = A2DCF3B1254FA4330088492F;
 			packageReferences = (
-				260EFD7D2550F86B009DB0D2 /* XCRemoteSwiftPackageReference "FatSecretSwift" */,
-				23255EC62558F2A900D2B8E3 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+				260EFD7D2550F86B009DB0D2 /* RemoteSwiftPackageReference */,
+				23255EC62558F2A900D2B8E3 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = A2DCF3BB254FA4330088492F /* Products */;
 			projectDirPath = "";
@@ -530,6 +568,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7D337CB8392F718438B9C1F2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Picho/Pods-Picho-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Picho/Pods-Picho-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Picho/Pods-Picho-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		88919988B13260041733CD25 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Picho-PichoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ABDCDE87FC39135A6F8ACEEC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Picho-PichoUITests/Pods-Picho-PichoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Picho-PichoUITests/Pods-Picho-PichoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Picho-PichoUITests/Pods-Picho-PichoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3EF225CBFED11773ECD7F9E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PichoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F193DB59AF30285C0289E263 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Picho-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A2DCF3B6254FA4330088492F /* Sources */ = {
@@ -744,6 +885,7 @@
 		};
 		A2DCF3E8254FA4350088492F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DF93B93E5144970BC1943A2 /* Pods-Picho.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -765,6 +907,7 @@
 		};
 		A2DCF3E9254FA4350088492F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF1CE7FCCA2B0C5E986A06EF /* Pods-Picho.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -786,6 +929,7 @@
 		};
 		A2DCF3EB254FA4350088492F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9100DC4E86695EA472943CB3 /* Pods-PichoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -808,6 +952,7 @@
 		};
 		A2DCF3EC254FA4350088492F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3758B324334221F17DB4E51 /* Pods-PichoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -830,6 +975,7 @@
 		};
 		A2DCF3EE254FA4350088492F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C433C9BCCF9B2BA85D32140 /* Pods-Picho-PichoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -850,6 +996,7 @@
 		};
 		A2DCF3EF254FA4350088492F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 347BF22BE934ADA538DBB98F /* Pods-Picho-PichoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -910,7 +1057,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		23255EC62558F2A900D2B8E3 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
+		23255EC62558F2A900D2B8E3 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
 			requirement = {
@@ -918,7 +1065,7 @@
 				minimumVersion = 1.3.2;
 			};
 		};
-		260EFD7D2550F86B009DB0D2 /* XCRemoteSwiftPackageReference "FatSecretSwift" */ = {
+		260EFD7D2550F86B009DB0D2 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/NicholasBellucci/FatSecretSwift.git";
 			requirement = {
@@ -929,9 +1076,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		23255EC72558F2A900D2B8E3 /* CryptoSwift */ = {
+		23255EC72558F2A900D2B8E3 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 23255EC62558F2A900D2B8E3 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			package = 23255EC62558F2A900D2B8E3 /* RemoteSwiftPackageReference */;
 			productName = CryptoSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
