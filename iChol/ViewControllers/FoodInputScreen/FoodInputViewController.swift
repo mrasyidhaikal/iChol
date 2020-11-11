@@ -125,6 +125,15 @@ extension FoodInputViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .destructive, title: nil) { (action, view, bool) in
+            print("deleted")
+        }
+        action.image = UIImage(systemName: "trash.fill")
+        let swipe = UISwipeActionsConfiguration(actions: [action])
+        return swipe
+    }
+    
 }
 
 extension FoodInputViewController: UITableViewDataSource {

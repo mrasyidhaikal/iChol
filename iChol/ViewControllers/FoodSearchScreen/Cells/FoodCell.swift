@@ -16,7 +16,7 @@ class FoodCell: UITableViewCell {
     private var fatLabel: UILabel!
     private var sugarLabel: UILabel!
     private var container: UIView!
-    private var logButton: UIButton!
+//    private var logButton: UIButton!
     
     var isLogged = false
     
@@ -54,10 +54,10 @@ class FoodCell: UITableViewCell {
         fatLabel.textColor = Color.greySecondary
         sugarLabel.textColor = Color.greySecondary
         
-        logButton = UIButton()
-        let config = UIImage.SymbolConfiguration(pointSize: 44, weight: .bold, scale: .large)
-        logButton.setImage(UIImage(systemName: "plus.square", withConfiguration: config), for: .normal)
-        logButton.addTarget(self, action: #selector(handleLogging), for: .touchUpInside)
+//        logButton = UIButton()
+//        let config = UIImage.SymbolConfiguration(pointSize: 44, weight: .bold, scale: .large)
+//        logButton.setImage(UIImage(systemName: "plus.square", withConfiguration: config), for: .normal)
+//        logButton.addTarget(self, action: #selector(handleLogging), for: .touchUpInside)
         
         container = UIView()
         container.backgroundColor = .white
@@ -82,7 +82,7 @@ class FoodCell: UITableViewCell {
         foodStack.alignment = .leading
         foodStack.distribution = .fillProportionally
         
-        let mainStack = UIStackView(arrangedSubviews: [foodStack, logButton])
+        let mainStack = UIStackView(arrangedSubviews: [foodStack])
         mainStack.axis = .horizontal
         mainStack.distribution = .fill
         mainStack.alignment = .fill
