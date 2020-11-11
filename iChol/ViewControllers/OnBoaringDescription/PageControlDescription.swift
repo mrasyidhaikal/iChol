@@ -11,8 +11,12 @@ import UIKit
 class PageControlDescription: UIPageViewController,UIPageViewControllerDataSource,UIPageViewControllerDelegate {
     
     var orderedViewControllers : [UIViewController] = []
-    
     var pageControl = UIPageControl()
+    
+    override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
+        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +32,7 @@ class PageControlDescription: UIPageViewController,UIPageViewControllerDataSourc
         if let firstViewController = orderedViewControllers.first {
             self.setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
+        
         configurePageControl()
     }
     
@@ -35,14 +40,14 @@ class PageControlDescription: UIPageViewController,UIPageViewControllerDataSourc
         let pageContentViewController = pageViewController.viewControllers![0]
         self.pageControl.currentPage = orderedViewControllers.lastIndex(of: pageContentViewController)!
     }
-    func configurePageControl(){
-        pageControl = UIPageControl(frame: CGRect(x: 0, y: UIScreen.main.bounds.maxY - 50 , width: UIScreen.main.bounds.width, height: 50))
+    
+    func configurePageControl() {
+        pageControl = UIPageControl(frame: CGRect(x: 0, y: UIScreen.main.bounds.maxY - 75 , width: UIScreen.main.bounds.width, height: 50))
         pageControl.numberOfPages = orderedViewControllers.count
         pageControl.currentPage = 0
-        pageControl.tintColor = .black
-        pageControl.pageIndicatorTintColor = .white
+        pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .black
-        self.view.addSubview(pageControl)
+        view.addSubview(pageControl)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
@@ -59,6 +64,7 @@ class PageControlDescription: UIPageViewController,UIPageViewControllerDataSourc
         }
         return orderedViewControllers[previousIndex]
     }
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = orderedViewControllers.lastIndex(of: viewController) else {
             return nil
@@ -72,6 +78,10 @@ class PageControlDescription: UIPageViewController,UIPageViewControllerDataSourc
             return nil
         }
         return orderedViewControllers[nextIndex]
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }

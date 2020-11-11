@@ -51,7 +51,7 @@ class FormScreen4: UIViewController {
         var stackWeight = UIStackView()
         WeightTextField.layer.cornerRadius = 10.0
         WeightTextField.placeholder = "Gender"
-        WeightTextField.layer.borderColor = UIColor.green.cgColor
+        WeightTextField.layer.borderColor = Color.green.cgColor
         WeightTextField.layer.borderWidth = 2.0
         WeightTextField.setConstraint(heighAnchorConstant: 50)
         WeightTextField.addPadding(padding: .equalSpacing(10))
@@ -71,7 +71,7 @@ class FormScreen4: UIViewController {
         let HeightTextField = UITextField()
         HeightTextField.addPadding(padding: .equalSpacing(10))
         HeightTextField.layer.cornerRadius = 10.0
-        HeightTextField.layer.borderColor = UIColor.green.cgColor
+        HeightTextField.layer.borderColor = Color.green.cgColor
         HeightTextField.layer.borderWidth = 2.0
         HeightTextField.placeholder = "Age"
         HeightTextField.setConstraint(heighAnchorConstant: 50)
@@ -85,7 +85,7 @@ class FormScreen4: UIViewController {
         let getStartedBtn = UIButton()
         getStartedBtn.setTitle("Hi Picho", for: .normal)
         getStartedBtn.layer.cornerRadius =  5
-        getStartedBtn.backgroundColor = .green
+        getStartedBtn.backgroundColor = Color.green
         view.addSubview(getStartedBtn)
         getStartedBtn.translatesAutoresizingMaskIntoConstraints = false
         getStartedBtn.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -80).isActive = true

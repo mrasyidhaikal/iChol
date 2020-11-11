@@ -43,7 +43,7 @@ class FormScreen2: UIViewController {
         
         let nameTextField = UITextField()
         nameTextField.layer.cornerRadius = 10.0
-        nameTextField.layer.borderColor = UIColor.green.cgColor
+        nameTextField.layer.borderColor = Color.green.cgColor
         nameTextField.layer.borderWidth = 2.0
         nameTextField.addPadding(padding: .equalSpacing(10))
         nameTextField.placeholder = "Your Name"
@@ -53,7 +53,7 @@ class FormScreen2: UIViewController {
         let getStartedBtn = UIButton()
         getStartedBtn.setTitle("Hi Picho", for: .normal)
         getStartedBtn.layer.cornerRadius =  5
-        getStartedBtn.backgroundColor = .green
+        getStartedBtn.backgroundColor = Color.green
         view.addSubview(getStartedBtn)
         getStartedBtn.translatesAutoresizingMaskIntoConstraints = false
         getStartedBtn.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true

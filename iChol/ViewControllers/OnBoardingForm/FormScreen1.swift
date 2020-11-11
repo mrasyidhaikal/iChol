@@ -15,7 +15,7 @@ class FormScreen1: UIViewController {
         view.backgroundColor = .white
         
         let image = UIImage(named: "mascot")
-        let imageview:UIImageView = UIImageView()
+        let imageview = UIImageView()
         imageview.contentMode = UIView.ContentMode.scaleToFill
         imageview.image = image
         view.addSubview(imageview)
@@ -53,7 +53,7 @@ class FormScreen1: UIViewController {
         let getStartedBtn = UIButton()
         getStartedBtn.setTitle("Hi Picho", for: .normal)
         getStartedBtn.layer.cornerRadius =  5
-        getStartedBtn.backgroundColor = .green
+        getStartedBtn.backgroundColor = Color.green
         view.addSubview(getStartedBtn)
         getStartedBtn.translatesAutoresizingMaskIntoConstraints = false
         getStartedBtn.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true

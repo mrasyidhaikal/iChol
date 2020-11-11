@@ -17,7 +17,6 @@ class FormScreen3: UIViewController {
         super.viewDidLoad()
         pickGender()
         setupView()
-        
     }
     
     func pickGender(){
@@ -59,7 +58,7 @@ class FormScreen3: UIViewController {
         
         genderTextField.layer.cornerRadius = 10.0
         genderTextField.placeholder = "Gender"
-        genderTextField.layer.borderColor = UIColor.green.cgColor
+        genderTextField.layer.borderColor = Color.green.cgColor
         genderTextField.layer.borderWidth = 2.0
         genderTextField.addPadding(padding: .equalSpacing(10))
         view.addSubview(genderTextField)
@@ -68,7 +67,7 @@ class FormScreen3: UIViewController {
         let ageTextField = UITextField()
         ageTextField.addPadding(padding: .equalSpacing(10)) 
         ageTextField.layer.cornerRadius = 10.0
-        ageTextField.layer.borderColor = UIColor.green.cgColor
+        ageTextField.layer.borderColor = Color.green.cgColor
         ageTextField.layer.borderWidth = 2.0
         ageTextField.placeholder = "Age"
         view.addSubview(ageTextField)
@@ -77,7 +76,7 @@ class FormScreen3: UIViewController {
         let getStartedBtn = UIButton()
         getStartedBtn.setTitle("Hi Picho", for: .normal)
         getStartedBtn.layer.cornerRadius =  5
-        getStartedBtn.backgroundColor = .green
+        getStartedBtn.backgroundColor = Color.green
         view.addSubview(getStartedBtn)
         getStartedBtn.translatesAutoresizingMaskIntoConstraints = false
         getStartedBtn.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true

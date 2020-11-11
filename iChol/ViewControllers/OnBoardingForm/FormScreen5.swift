@@ -67,8 +67,8 @@ class FormScreen5: UIViewController {
         checkBox.setImage(UIImage(systemName: "circle"), for: .normal)
         checkBox.setConstraint(heighAnchorConstant: 21, widthAnchorConstant: 21)
         checkBox.addTarget(self, action: #selector(self.handleCheckBox(sender:)), for: .touchUpInside)
-        var stackAgreement = UIStackView()
-        stackAgreement = UIStackView(arrangedSubviews: [checkBox, agreementLabel])
+        
+        let stackAgreement = UIStackView(arrangedSubviews: [checkBox, agreementLabel])
         stackAgreement.axis = .horizontal
         stackAgreement.spacing = 0
         
@@ -78,7 +78,7 @@ class FormScreen5: UIViewController {
         let getStartedBtn = UIButton()
         getStartedBtn.setTitle("Hi Picho", for: .normal)
         getStartedBtn.layer.cornerRadius =  5
-        getStartedBtn.backgroundColor = .green
+        getStartedBtn.backgroundColor = Color.green
         view.addSubview(getStartedBtn)
         getStartedBtn.translatesAutoresizingMaskIntoConstraints = false
         getStartedBtn.topAnchor.constraint(equalTo: stackAgreement.bottomAnchor, constant: 20).isActive = true

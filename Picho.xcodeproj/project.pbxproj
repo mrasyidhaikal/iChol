@@ -279,8 +279,8 @@
 		233C55DF254FBF240003252B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				A28A5AB4255A341C007E66FA /* OnBoardingForm */,
 				A28A5A97255A3170007E66FA /* OnBoaringDescription */,
+				A28A5AB4255A341C007E66FA /* OnBoardingForm */,
 				232A1AC0254FFCDF00374820 /* MainScreen */,
 				23EB0D73255039A100A8C899 /* FoodInputScreen */,
 				23267752255061D200E01739 /* FoodDetailScreen */,

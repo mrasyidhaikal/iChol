@@ -46,7 +46,7 @@ class DescriptionScreen4: UIViewController {
         let getStartedBtn = UIButton()
         getStartedBtn.setTitle("Get Started", for: .normal)
         getStartedBtn.layer.cornerRadius =  5
-        getStartedBtn.backgroundColor = .green
+        getStartedBtn.backgroundColor = Color.green
         view.addSubview(getStartedBtn)
         getStartedBtn.translatesAutoresizingMaskIntoConstraints = false
         getStartedBtn.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
@@ -59,7 +59,8 @@ class DescriptionScreen4: UIViewController {
     }
     
     @objc func handleStarted() {
-        present(PageControlForm(), animated: true, completion: nil)
+        let pageControl = PageControlForm()
+        pageControl.modalPresentationStyle = .fullScreen
+        present(pageControl, animated: true, completion: nil)
     }
 }
-
